@@ -37,7 +37,7 @@ public class LichSuDatSanAdapter extends RecyclerView.Adapter<LichSuDatSanAdapte
 
     @Override
     public void onBindViewHolder(@NonNull LichSuDatSanAdapter.ViewHolder holder, int position) {
-        holder.txtTenSan.setText(list.get(position).getMaSan());
+        holder.txtThoiGian.setText(list.get(position).getThoiGianBatDau());
     }
 
     @Override

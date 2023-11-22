@@ -5,7 +5,7 @@ import com.example.datsanbongda.DAO.LichSuDatSanDAO;
 public class LichSuDatSan {
     int maVe, trangThai, maSan, maKhachHang, maChuSan;
     String ngay, thoiGianBatDau, thoiGianKetThuc;
-    public LichSuDatSan(int maVe, int trangThai, int maSan, int maKhachHang, int maChuSan, String ngay, String thoiGianBatDau, String thoiGianKetThuc) {
+    public LichSuDatSan(int maVe, String thoiGianBatDau, String thoiGianKetThuc, String ngay, int trangThai, int maSan, int maKhachHang, int maChuSan) {
         this.maVe = maVe;
         this.trangThai = trangThai;
         this.maSan = maSan;

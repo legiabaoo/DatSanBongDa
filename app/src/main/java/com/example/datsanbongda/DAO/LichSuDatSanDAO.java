@@ -25,17 +25,16 @@ public class LichSuDatSanDAO {
             cursor.moveToFirst();
             do {
                 list.add(new LichSuDatSan(cursor.getInt(0),
+                        cursor.getString(1),
+                        cursor.getString(2),
+                        cursor.getString(3),
                         cursor.getInt(4),
                         cursor.getInt(5),
                         cursor.getInt(6),
-                        cursor.getInt(7),
-                        cursor.getString(3),
-                        cursor.getString(1),
-                        cursor.getString(2)));
+                        cursor.getInt(7)));
             } while (cursor.moveToNext());
 
         }
-        // tôi đã từng ở đây
         return list;
     }
 }
