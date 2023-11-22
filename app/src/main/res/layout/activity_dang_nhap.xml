@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:background="@drawable/backgroud"
+    >
+
+    <ImageView
+        android:layout_width="400dp"
+        android:layout_height="200dp"
+        android:src="@drawable/dangnhap" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="F4 Football"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:hint="Số Điện Thoại" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="30dp"
+        android:hint="Mật Khẩu" />
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/cus1"
+        android:backgroundTint="#317773"
+        android:text="Đăng Nhập"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        app:backgroundTint="@null" />
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/cus1"
+        android:backgroundTint="#317773"
+        android:text="Khách"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        app:backgroundTint="@null" />
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/cus1"
+        android:backgroundTint="#317773"
+        android:text="Đăng Kí"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        app:backgroundTint="@null"
+        android:id="@+id/btnDangKy"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        >
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/logofb"
+            />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/logogg"
+            android:layout_marginLeft="23dp"
+            />
+    </LinearLayout></LinearLayout>

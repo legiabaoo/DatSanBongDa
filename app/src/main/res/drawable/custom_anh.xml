@@ -1,0 +1,13 @@
+<!-- border_darius.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="12dp" />
+            <solid android:color="@android:color/transparent" />
+            <stroke
+                android:width="2dp"
+                android:color="#FF0000" /> <!-- Điều chỉnh màu và độ rộng của đường viền -->
+        </shape>
+    </item>
+    <item android:drawable="@drawable/sanbongda" /> <!-- Thay thế "darius" bằng tên ảnh của bạn -->
+</layer-list>

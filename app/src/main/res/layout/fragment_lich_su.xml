@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:background="@color/white"
+    android:id="@+id/layout">
+    <ImageView
+        android:layout_margin="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_back"
+        />
+    <TextView
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lịch sử đặt sân"
+        android:fontFamily="@font/rosario"
+        android:textSize="24dp"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        />
+    <SearchView
+        android:layout_marginRight="10dp"
+        android:background="@drawable/cus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:queryHint="Tim Kiem"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="20dp"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyc"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

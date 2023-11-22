@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:background="@drawable/backgroud"
+    >
+    <ImageView
+        android:layout_margin="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_back"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="F4 Football"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:hint="Họ Tên" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Số Điện Thoại" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="30dp"
+        android:hint="Mật Khẩu" />
+
+    <CheckBox
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tôi đồng ý với các điều khoản và chính sách"
+        android:textSize="17dp"
+        />
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="55dp"
+        android:background="@drawable/cus1"
+        android:backgroundTint="#317773"
+        android:text="Đăng Kí"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        app:backgroundTint="@null" />
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/cus1"
+        android:backgroundTint="#317773"
+        android:text="Hủy"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        app:backgroundTint="@null" />
+
+
+
+
+
+
+
+
+</LinearLayout>

@@ -1,0 +1,27 @@
+<!-- custom_button.xml -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <shape>
+            <corners android:radius="12dp" />
+            <gradient
+                android:startColor="#55E890"
+                android:endColor="#55E890"
+                android:angle="270" />
+        </shape>
+    </item>
+    <item android:state_focused="true">
+        <shape>
+            <corners android:radius="12dp" />
+            <solid android:color="#55E890" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+
+            <gradient
+                android:startColor="#55E890"
+                android:endColor="#55E890"
+                android:angle="270" />
+        </shape>
+    </item>
+</selector>

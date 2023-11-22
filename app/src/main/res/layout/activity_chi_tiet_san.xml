@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChiTietSanActivity"
+    android:orientation="vertical"
+    android:background="@color/white">
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:id="@+id/tbChiTietSan" />
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="30dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginTop="10dp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="281dp"
+                    android:src="@mipmap/sanbong"
+                    android:background="@mipmap/sanbong"
+                    />
+            </androidx.cardview.widget.CardView>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:ignore="MissingConstraints"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/txtSan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sân số 1"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="24dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:text="403 tch10, q12, tp.hcm"
+                        android:textAllCaps="true"
+                        android:textSize="15dp"
+                        android:textColor="@color/gray"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Đang hoạt động"
+                        android:gravity="center"
+                        android:textSize="20dp"
+                        android:textColor="#55E890"
+                        android:textStyle="italic"
+                        android:layout_marginTop="15dp"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:ignore="MissingConstraints"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent">
+                    <TextView
+                        android:id="@+id/txtGia"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="150.000 vnđ"
+                        android:textColor="@color/bluelight"
+                        android:textStyle="bold"
+                        android:textSize="24dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginTop="10dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="20dp"
+                        android:text="1 giờ"
+                        android:textSize="15dp"
+                        android:textColor="@color/gray"
+                        android:layout_gravity="end"
+                        />
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Đặt Sân"
+                        android:id="@+id/btnDatSan"
+                        android:layout_marginEnd="20dp"
+                        android:backgroundTint="#3A5B22"
+                        android:layout_marginTop="10dp"/>
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.viewpager.widget.ViewPager
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#519A9A9A"
+                android:layout_margin="20dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Sân 5"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:textSize="20dp"
+                android:textColor="@color/black"/>
+
+            <androidx.viewpager.widget.ViewPager
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="20dp"
+                android:background="#519A9A9A" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Đánh giá"
+                android:textColor="@color/black"
+                android:textSize="24dp"
+                android:layout_marginStart="20dp"
+                android:textStyle="bold"
+                android:layout_marginTop="-10dp"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                android:id="@+id/rclViewChiTietSan"/>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

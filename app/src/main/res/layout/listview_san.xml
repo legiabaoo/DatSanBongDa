@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="20dp"
+    android:background="@drawable/custom_san"
+    android:orientation="horizontal"
+
+    android:layout_weight="2">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/rosarivo"
+            android:text="Sân 1"
+            android:textSize="24dp"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:text="Đang hoạt động"
+            android:textSize="17dp"
+            android:textStyle="italic"
+            android:fontFamily="@font/open_sans"
+            android:textColor="#6FE618" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:text="4.8(21 đánh giá)"
+            android:textSize="15dp"
+            android:drawableLeft="@drawable/ic_star_24"
+            android:fontFamily="@font/open_sans"
+            android:textColor="#5D4F73" />
+        <Button
+            android:layout_marginTop="25dp"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Xem chi tiết"
+            android:textColor="#ffffff"
+            android:background="@drawable/custom_button"
+            app:backgroundTint="@null"
+            android:padding="12dp"
+            android:layout_gravity="center" />
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+        <ImageView
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/custom_anh"/>
+    </LinearLayout>
+</LinearLayout>
