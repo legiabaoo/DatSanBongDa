@@ -35,6 +35,7 @@ public class LichSuDatSanDAO {
             } while (cursor.moveToNext());
 
         }
+        // tôi đã từng ở đây
         return list;
     }
 }
