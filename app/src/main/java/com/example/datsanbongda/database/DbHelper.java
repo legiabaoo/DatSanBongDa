@@ -27,6 +27,11 @@ public class DbHelper extends SQLiteOpenHelper {
 
         String tSan = "CREATE TABLE SAN(maSan integer primary key autoincrement, tenSan text, trangThaiSan integer, maLoaiSan integer references LOAISAN(maLoaiSan))";
         db.execSQL(tSan);
+        /*
+        Trang thai
+        0: hoat dong
+        1: khong hoat dong
+        */
         db.execSQL("INSERT INTO SAN VALUES(1, 'Sân số 1', 0, 2), (2, 'Sân số 2', 0, 2), (3, 'Sân số 3', 0, 2), " +
                 "(4, 'Sân số 4', 0, 2), (5, 'Sân số 5', 1, 1)");
 
@@ -40,7 +45,7 @@ public class DbHelper extends SQLiteOpenHelper {
         db.execSQL(tDatCho);
         /*
         Trang thai
-        2: bi huy
+        2: that bai
         0: cho xac nhan
         1: thanh cong
         */
