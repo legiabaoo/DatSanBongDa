@@ -1,10 +1,14 @@
 package com.example.datsanbongda.database;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
+
+import com.example.datsanbongda.model.KhachHang;
 
 public class DbHelper extends SQLiteOpenHelper {
     public DbHelper(@Nullable Context context) {
@@ -59,11 +63,83 @@ public class DbHelper extends SQLiteOpenHelper {
             onCreate(db);
         }
     }
+    public void DangKi(String hoTen,String sdt, String matKhau){
+        ContentValues cv = new ContentValues();
 
-//    public boolean KiemTraDangNhap(String sdt) {
-//
-//    }
+        cv.put("hoten",hoTen);
+        cv.put("sdt",sdt);
+        cv.put("matkhau",matKhau);
+        SQLiteDatabase db = getWritableDatabase();
+        db.insert("KHACHHANG",null,cv);
+        db.close();
+    }
+    public  int DangNhap(String sdt, String matKhau){
+        int result = 0 ;
+        String str[] = new String [2];
+        str [0] =sdt;
+        str[1] = matKhau;
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor c = db.rawQuery("select * from KHACHHANG where soDienThoai=? and matKhau=?",str);
+        if(c.moveToNext()){
+            result = 1 ;
+        }
+        return  result;
 
-//    public void DangKi(String hoten, String sdt, String matkhau) {
-//    }
+    }
+    public boolean KiemTraDangNhap(String tenDangNhap){
+        SQLiteDatabase db = getWritableDatabase();
+        Cursor c = db.rawQuery("select * from NguoiDung where tendannhap=?",new String []{tenDangNhap});
+        if(c.getCount()> 0 ){
+            return true;
+        }else {
+            return false;
+        }
+    }
+    // hàm cập nhật lại password
+    public boolean updatePass(String sdt, String pass){
+        SQLiteDatabase database = getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("matkhau",pass);
+        long resutl  = database.update("KHACHHANG", cv , "tenKhachHang=?",
+                new String[]{sdt});
+        return resutl != -1;
+    }
+    public KhachHang getUserByPhoneNumber(String sdt) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String[] projection = {
+                "tenKhachHang",
+                "soDienThoai",
+                "matKhau"
+        };
+
+        String selection = "soDienThoai = ?";
+        String[] selectionArgs = {sdt};
+
+        Cursor cursor = db.query(
+                "KHACHHANG",
+                projection,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                null
+        );
+
+        KhachHang user = null;
+        if (cursor != null && cursor.moveToFirst()) {
+            String fullName = cursor.getString(cursor.getColumnIndexOrThrow("tenKhachHang"));
+            String userPhoneNumber = cursor.getString(cursor.getColumnIndexOrThrow("soDienThoai"));
+            String password = cursor.getString(cursor.getColumnIndexOrThrow("matKhau"));
+
+            user = new KhachHang(fullName, userPhoneNumber, password);
+        }
+
+        if (cursor != null) {
+            cursor.close();
+        }
+
+        return user;
+    }
+
 }
