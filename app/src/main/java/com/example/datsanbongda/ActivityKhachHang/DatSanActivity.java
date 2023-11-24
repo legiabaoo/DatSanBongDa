@@ -12,12 +12,14 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.datsanbongda.DAO.LichSuDatSanDAO;
 import com.example.datsanbongda.R;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -35,6 +37,7 @@ public class DatSanActivity extends AppCompatActivity {
     private TextInputEditText tIETThongBao;
     private Calendar calendarTime;
     private Calendar currentDate;
+    private LichSuDatSanDAO lichSuDatSanDAO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +56,7 @@ public class DatSanActivity extends AppCompatActivity {
         ImageView iv_Ngay = findViewById(R.id.iv_Ngay);
         ImageView iv_GioDB = findViewById(R.id.iv_GioBD);
         ImageView iv_GioKT = findViewById(R.id.iv_GioKT);
+        lichSuDatSanDAO = new LichSuDatSanDAO(DatSanActivity.this);
         //an thanh status
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         //toolbar
@@ -92,15 +96,21 @@ public class DatSanActivity extends AppCompatActivity {
                     thongbao+="Vui lòng chọn thời gian đá hơn 1 tiếng";
                     tIETThongBao.setText(thongbao);
                 } else{
-                    Intent intent = new Intent(DatSanActivity.this, DatChoActivity.class);
-                    Bundle bundle = new Bundle();
-                    bundle.putString("San", tIETSan.getText().toString());
-                    bundle.putString("GioBD", tIETGioDB.getText().toString());
-                    bundle.putString("GioKT", tIETGioKT.getText().toString());
-                    bundle.putString("Thu", day_week);
-                    bundle.putString("NgayThangNam", tIETNgay.getText().toString());
-                    intent.putExtras(bundle);
-                    startActivity(intent);
+                    boolean check = lichSuDatSanDAO.themLichSu();
+                    if(check){
+                        Toast.makeText(DatSanActivity.this, "Them Thanh Cong", Toast.LENGTH_SHORT).show();
+                    }else {
+                        Toast.makeText(DatSanActivity.this, "Them That Bai", Toast.LENGTH_SHORT).show();
+                    }
+//                    Intent intent = new Intent(DatSanActivity.this, DatChoActivity.class);
+//                    Bundle bundle = new Bundle();
+//                    bundle.putString("San", tIETSan.getText().toString());
+//                    bundle.putString("GioBD", tIETGioDB.getText().toString());
+//                    bundle.putString("GioKT", tIETGioKT.getText().toString());
+//                    bundle.putString("Thu", day_week);
+//                    bundle.putString("NgayThangNam", tIETNgay.getText().toString());
+//                    intent.putExtras(bundle);
+//                    startActivity(intent);
                 }
             }
         });
