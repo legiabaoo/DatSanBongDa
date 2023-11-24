@@ -1,4 +1,4 @@
-package com.example.datsanbongda;
+package com.example.datsanbongda.ActivityChuSan;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,6 +14,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+
+import com.example.datsanbongda.R;
 
 public class DoanhThuActivity extends AppCompatActivity {
     private String day_week;

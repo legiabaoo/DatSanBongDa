@@ -45,21 +45,15 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:layout_weight="1">
-            <ImageView
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="130dp"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/avata"/>
             <TextView
-                android:textColor="#13B0CB"
+                android:textColor="@color/white"
                 android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:text="Mr. Dương"
-                android:translationY="-20dp"
-                android:layout_marginLeft="130dp"/>
+                android:textSize="30dp"
+                android:text="Chủ Sân"
+                android:translationY="50dp"
+                />
         </LinearLayout>
 
     </LinearLayout>
@@ -77,16 +71,16 @@
             android:orientation="vertical"
             android:layout_margin="5dp"
             android:layout_weight="1">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="20dp"
-                    android:text="Sáng"
-                    android:textStyle="bold"
-                    android:layout_marginTop="10dp"
-                    android:layout_gravity="center"
-                    android:fontFamily="@font/rosario"
-                    />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:text="Sáng"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:fontFamily="@font/rosario"
+                />
             <TextView
                 android:layout_marginTop="10dp"
                 android:layout_gravity="center"
@@ -152,7 +146,7 @@
     <LinearLayout
         android:layout_margin="15dp"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:translationY="-50dp"
         android:orientation="horizontal">
         <TextView
@@ -160,7 +154,7 @@
             android:layout_height="wrap_content"
             android:textSize="24dp"
             android:textColor="@color/black"
-          android:textStyle="bold"
+            android:textStyle="bold"
             android:text="Các sân hiện có"/>
         <TextView
             android:layout_marginLeft="60dp"
@@ -170,14 +164,15 @@
             android:textColor="#A9A9A9"
             android:textStyle="bold"
             android:text="Hiển thị tất cả >>"/>
-
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_margin="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:background="@drawable/custom_san"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:translationY="-50dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -220,10 +215,74 @@
                 android:background="@drawable/custom_button"
                 app:backgroundTint="@null"
                 android:padding="12dp"
-                android:layout_gravity="center" />
+                android:layout_gravity="center"
+                android:id="@+id/btnXemChiTiet"/>
+        </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <ImageView
 
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/custom_anh"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/custom_san"
+        android:orientation="horizontal"
+        android:translationY="-50dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/rosarivo"
+                android:text="Sân 1"
+                android:textSize="24dp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:text="Đang hoạt động"
+                android:textSize="17dp"
+                android:textStyle="italic"
+                android:fontFamily="@font/open_sans"
+                android:textColor="#6FE618" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:text="4.8(21 đánh giá)"
+                android:textSize="15dp"
+                android:drawableLeft="@drawable/ic_star_24"
+                android:fontFamily="@font/open_sans"
+                android:textColor="#5D4F73" />
+            <Button
+                android:layout_marginTop="25dp"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Xem chi tiết"
+                android:textColor="#ffffff"
+                android:background="@drawable/custom_button"
+                app:backgroundTint="@null"
+                android:padding="12dp"
+                android:layout_gravity="center"
+                />
         </LinearLayout>
 
         <LinearLayout

@@ -4,44 +4,68 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:padding="10dp"
+    android:padding="20dp"
     android:background="@drawable/backgroud"
     >
     <ImageView
+        android:id="@+id/imgBackDangki"
         android:layout_margin="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_back"
         />
     <TextView
+        android:textColor="#317773"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+
         android:text="F4 Football"
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textSize="30dp"
         android:textStyle="bold" />
+    <TextView
+
+        android:textColor="#317773"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="Đăng kí"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textSize="24dp"
+     />
 
     <EditText
+        android:id="@+id/edtHoten"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:hint="Họ Tên" />
 
     <EditText
+        android:layout_marginBottom="20dp"
+        android:id="@+id/edtSdt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Số Điện Thoại" />
 
     <EditText
+        android:id="@+id/edtMatkhau"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:layout_marginTop="30dp"
         android:hint="Mật Khẩu" />
+    <EditText
+        android:id="@+id/edtNhapLaiMatkhau"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+
+        android:hint="Nhập Lại Mật Khẩu" />
 
     <CheckBox
+        android:id="@+id/checkBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Tôi đồng ý với các điều khoản và chính sách"
@@ -49,6 +73,7 @@
         />
 
     <Button
+        android:id="@+id/btnDangki"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
@@ -56,18 +81,6 @@
         android:background="@drawable/cus1"
         android:backgroundTint="#317773"
         android:text="Đăng Kí"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        app:backgroundTint="@null" />
-
-    <Button
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/cus1"
-        android:backgroundTint="#317773"
-        android:text="Hủy"
         android:textAlignment="center"
         android:textColor="@color/white"
         app:backgroundTint="@null" />

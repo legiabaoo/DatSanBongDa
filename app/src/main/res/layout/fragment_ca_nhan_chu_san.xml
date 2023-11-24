@@ -53,16 +53,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <TextView
-                android:id="@+id/txtTenKHCaNhan"
                 android:layout_marginTop="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Phùng Thái Dương"
+                android:text="F4 Football"
                 android:textSize="20dp"
                 android:fontFamily="@font/open_sans"
                 android:textColor="#25265E"/>
             <TextView
-                android:id="@+id/txtSdtKH"
                 android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -74,17 +72,17 @@
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
-        android:translationY="-50dp"
+        android:translationY="-60dp"
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:layout_height="wrap_content">
         <Button
-            android:id="@+id/btnLienHeChuSan"
+            android:id="@+id/btnDoanhThu"
             android:background="@drawable/custom_nutcanhan"
             app:backgroundTint="@null"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="Liên hệ chủ sân"
+            android:text="Doanh Thu"
             android:textColor="@color/black"
             android:fontFamily="@font/open_sans"
             android:drawableRight="@drawable/ic_next_24"
@@ -97,7 +95,20 @@
             app:backgroundTint="@null"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="Đổi mật khẩu"
+            android:text="Thông tin liên hệ"
+            android:textColor="@color/black"
+            android:fontFamily="@font/open_sans"
+            android:drawableRight="@drawable/ic_next_24"
+            android:textSize="22dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="20dp"/>
+        <Button
+            android:background="@drawable/custom_nutcanhan"
+            app:backgroundTint="@null"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Thông tin Sân"
             android:textColor="@color/black"
             android:fontFamily="@font/open_sans"
             android:drawableRight="@drawable/ic_next_24"

@@ -1,4 +1,4 @@
-package com.example.datsanbongda;
+package com.example.datsanbongda.ActivityKhachHang;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.datsanbongda.DAO.DanhGiaDAO;
+import com.example.datsanbongda.R;
 import com.example.datsanbongda.adapter.DanhGiaAdapter;
 import com.example.datsanbongda.model.DanhGia;
 import java.util.ArrayList;

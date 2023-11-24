@@ -1,45 +1,43 @@
-package com.example.datsanbongda;
+package com.example.datsanbongda.ActivityChuSan;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.Toast;
 
+import com.example.datsanbongda.FragmantKhachHang.CaNhanFragment;
+import com.example.datsanbongda.FragmantKhachHang.HomeFragment;
+import com.example.datsanbongda.FragmantKhachHang.LichSuFragment;
+import com.example.datsanbongda.FragmentChuSan.CaNhanChuSanFragment;
+import com.example.datsanbongda.FragmentChuSan.HomeChuSanFragment;
+import com.example.datsanbongda.FragmentChuSan.LichSuChuSanFragment;
+import com.example.datsanbongda.R;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainChuSanActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.demo);
+        setContentView(R.layout.activity_main_chu_san);
         BottomAppBar btnAppbar = findViewById(R.id.bottonAppbar);
         BottomNavigationView btnNavigation = findViewById(R.id.bottonNavigation);
 
         // Hiển thị HomeFragment khi MainActivity được tạo
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.FrameLayout, new HomeFragment())
+                .replace(R.id.FrameLayout, new HomeChuSanFragment())
                 .commit();
 
         btnNavigation.setOnItemSelectedListener(item -> {
             Fragment fragmentButton = null;
             if (item.getItemId() == R.id.Home) {
-                fragmentButton = new HomeFragment();
+                fragmentButton = new HomeChuSanFragment();
             } else if (item.getItemId() == R.id.canhann) {
-                fragmentButton = new CaNhanFragment();
+                fragmentButton = new CaNhanChuSanFragment();
             } else if (item.getItemId() == R.id.lichsu) {
-                fragmentButton = new LichSuFragment();
+                fragmentButton = new LichSuChuSanFragment();
             }
 
             getSupportFragmentManager().beginTransaction()
@@ -51,6 +49,4 @@ public class MainActivity extends AppCompatActivity {
         });
         btnNavigation.getMenu().findItem(R.id.Home).setChecked(true);
     }
-
-
 }

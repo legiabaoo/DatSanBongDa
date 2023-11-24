@@ -31,13 +31,13 @@
             android:name=".ChiTietSanActivity"
             android:exported="false" />
         <activity
-            android:name=".DatSanActivity"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".DatChoActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".DatSanActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
