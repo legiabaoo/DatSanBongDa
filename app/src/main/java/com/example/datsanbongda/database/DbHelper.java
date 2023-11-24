@@ -72,19 +72,23 @@ public class DbHelper extends SQLiteOpenHelper {
         db.insert("KHACHHANG",null,cv);
         db.close();
     }
-    public  int DangNhap(String sdt, String matKhau){
-        int result = 0 ;
+    public KhachHang DangNhap(String sdt, String matKhau){
+       // int result = 0 ;
+        KhachHang khachhang = null;
         String str[] = new String [2];
         str [0] =sdt;
         str[1] = matKhau;
         SQLiteDatabase db = getReadableDatabase();
         Cursor c = db.rawQuery("select * from KHACHHANG where soDienThoai=? and matKhau=?",str);
-        if(c.moveToNext()){
-            result = 1 ;
+        if(c.getCount() > 0){
+            c.moveToFirst();
+            khachhang = new KhachHang(c.getInt(0), c.getString(1), c.getString(2), c.getString(3));
+           // result = 1 ;
         }
-        return  result;
+        return  khachhang;
 
     }
+    //kiểm tra tồn tài số điện thoại
     public boolean KiemTraDangNhap(String sdt){
         SQLiteDatabase db = getWritableDatabase();
         Cursor c = db.rawQuery("select * from KHACHHANG where soDienThoai=?",new String []{sdt});

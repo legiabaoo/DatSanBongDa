@@ -1,9 +1,20 @@
 package com.example.datsanbongda.model;
 
 public class KhachHang {
+
+    private int maKhachHang;
     private String tenKhachHang;
     private String soDienThoai;
     private String matKhau;
+
+    public KhachHang(){}
+
+    public KhachHang(int maKhachHang, String tenKhachHang, String soDienThoai, String matKhau) {
+        this.maKhachHang = maKhachHang;
+        this.tenKhachHang = tenKhachHang;
+        this.soDienThoai = soDienThoai;
+        this.matKhau = matKhau;
+    }
 
     public KhachHang(String tenKhachHang, String soDienThoai, String matKhau) {
         this.tenKhachHang = tenKhachHang;
@@ -37,5 +48,13 @@ public class KhachHang {
 
     public void setMatKhau(String matKhau) {
         this.matKhau = matKhau;
+    }
+
+    public int getMaKhachHang() {
+        return maKhachHang;
+    }
+
+    public void setMaKhachHang(int maKhachHang) {
+        this.maKhachHang = maKhachHang;
     }
 }

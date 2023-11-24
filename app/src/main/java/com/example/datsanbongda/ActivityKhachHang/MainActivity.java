@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -24,15 +26,6 @@ public class MainActivity extends AppCompatActivity {
         BottomAppBar btnAppbar = findViewById(R.id.bottonAppbar);
         BottomNavigationView btnNavigation = findViewById(R.id.bottonNavigation);
 
-        String tenKh = getIntent().getStringExtra("tenKhachHang");
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        HomeFragment homeFragment = new HomeFragment();
-        Bundle bundle= new Bundle();
-        bundle.putString("tenKhachHang",tenKh);
-        homeFragment.setArguments(bundle);
-        fragmentTransaction.replace(R.id.FrameLayout,homeFragment);
-        fragmentTransaction.commit();
 
 
         // Hiển thị HomeFragment khi MainActivity được tạo

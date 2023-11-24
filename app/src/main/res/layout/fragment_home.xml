@@ -45,28 +45,38 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:layout_weight="1">
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:layout_weight="1">
                 <ImageView
+                    android:id="@+id/imgHinh"
                     android:layout_marginTop="15dp"
                     android:layout_marginLeft="130dp"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/avata"/>
+                    android:src="@drawable/avata"
+                    tools:ignore="MissingConstraints"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
                 <TextView
                     android:id="@+id/txtTenKH"
-                    android:textColor="#13B0CB"
-                    android:textStyle="bold"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20dp"
+                    android:layout_marginStart="136dp"
+                    android:layout_marginTop="8dp"
                     android:text="Mr. Dương"
+                    android:textAlignment="textEnd"
+                    android:textColor="#13B0CB"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
                     android:translationY="-20dp"
-                    android:layout_marginLeft="130dp"/>
-            </LinearLayout>
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imgHinh"
+                    tools:ignore="MissingConstraints" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
 
     </LinearLayout>
