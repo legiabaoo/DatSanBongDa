@@ -8,7 +8,6 @@ import android.util.Log;
 
 import com.example.datsanbongda.FragmantKhachHang.CaNhanFragment;
 import com.example.datsanbongda.FragmantKhachHang.HomeFragment;
-import com.example.datsanbongda.FragmantKhachHang.LichSuFragment;
 import com.example.datsanbongda.FragmentChuSan.CaNhanChuSanFragment;
 import com.example.datsanbongda.FragmentChuSan.HomeChuSanFragment;
 import com.example.datsanbongda.FragmentChuSan.LichSuChuSanFragment;

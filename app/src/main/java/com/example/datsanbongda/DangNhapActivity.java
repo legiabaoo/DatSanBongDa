@@ -43,21 +43,21 @@ public class DangNhapActivity extends AppCompatActivity {
                 } else if (sdt.isEmpty() || matkhau.isEmpty()) {
                     Toast.makeText(DangNhapActivity.this, "Vui lòng nhập lại", Toast.LENGTH_SHORT).show();
                 }else{
-                    if(dbHelper.DangNhap(sdt,matkhau)== 1)
-                    {
-
-                        Toast.makeText(DangNhapActivity.this, "Đăng Nhập Thành Công", Toast.LENGTH_SHORT).show();
-                        SharedPreferences sharedPreferences = getSharedPreferences("Data", Context.MODE_PRIVATE);
-                        SharedPreferences.Editor editor = sharedPreferences.edit();
-                        editor.putString("soDienThoai",sdt);
-                        editor.apply();
-                        KhachHang tenKh = dbHelper.getUserByPhoneNumber(sdt);
-                        Intent intent = new Intent(DangNhapActivity.this, MainActivity.class);
-                        intent.putExtra("tenKhachHang",tenKh.getTenKhachHang());
-                        startActivity(intent);
-                    }else {
-                        Toast.makeText(DangNhapActivity.this, "Tài Khoản Và Mật Khẩu Không Tồn Tại", Toast.LENGTH_SHORT).show();
-                    }
+//                    if(dbHelper.DangNhap(sdt,matkhau)== 1)
+//                    {
+//
+//                        Toast.makeText(DangNhapActivity.this, "Đăng Nhập Thành Công", Toast.LENGTH_SHORT).show();
+//                        SharedPreferences sharedPreferences = getSharedPreferences("Data", Context.MODE_PRIVATE);
+//                        SharedPreferences.Editor editor = sharedPreferences.edit();
+//                        editor.putString("soDienThoai",sdt);
+//                        editor.apply();
+//                        KhachHang tenKh = dbHelper.getUserByPhoneNumber(sdt);
+//                        Intent intent = new Intent(DangNhapActivity.this, MainActivity.class);
+//                        intent.putExtra("tenKhachHang",tenKh.getTenKhachHang());
+//                        startActivity(intent);
+//                    }else {
+//                        Toast.makeText(DangNhapActivity.this, "Tài Khoản Và Mật Khẩu Không Tồn Tại", Toast.LENGTH_SHORT).show();
+//                    }
                 }
             }
         });

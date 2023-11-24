@@ -41,27 +41,28 @@ public class DangKiActivity extends AppCompatActivity {
                 if(hoten.isEmpty() || matkhau.isEmpty() || sdt.isEmpty()){
                     Toast.makeText(DangKiActivity.this, "Vui Lòng Nhập Đầy Đủ Thông Tin", Toast.LENGTH_SHORT).show();
 
-                }else {
-                    boolean check = dbHelper.KiemTraDangNhap(sdt);
-                    if(check){
-                        edtSdt.setError("Số điện thoại đã được đăng kí!");
-                    }else if(sdt.length()==10 ){
-
-                        if(nhaplaimk.compareTo(matkhau) == 0 ){
-
-                                dbHelper.DangKi(hoten,sdt,matkhau);
-                                Toast.makeText(DangKiActivity.this, "Đã tạo thành công tài khoản", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(DangKiActivity.this, DangNhapActivity.class));
-
-
-
-                        }else {
-                            Toast.makeText(DangKiActivity.this, "Mật khẩu không khớp", Toast.LENGTH_SHORT).show();
-                        }
-                    }else {
-                        edtSdt.setError("Số điện thoại không phù hợp");
-                    }
                 }
+//                else {
+//                    boolean check = dbHelper.KiemTraDangNhap(sdt);
+//                    if(check){
+//                        edtSdt.setError("Số điện thoại đã được đăng kí!");
+//                    }else if(sdt.length()==10 ){
+//
+//                        if(nhaplaimk.compareTo(matkhau) == 0 ){
+//
+//                                dbHelper.DangKi(hoten,sdt,matkhau);
+//                                Toast.makeText(DangKiActivity.this, "Đã tạo thành công tài khoản", Toast.LENGTH_SHORT).show();
+//                                startActivity(new Intent(DangKiActivity.this, DangNhapActivity.class));
+//
+//
+//
+//                        }else {
+//                            Toast.makeText(DangKiActivity.this, "Mật khẩu không khớp", Toast.LENGTH_SHORT).show();
+//                        }
+//                    }else {
+//                        edtSdt.setError("Số điện thoại không phù hợp");
+//                    }
+//                }
             }
         });
 

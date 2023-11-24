@@ -59,4 +59,11 @@ public class DbHelper extends SQLiteOpenHelper {
             onCreate(db);
         }
     }
+
+//    public boolean KiemTraDangNhap(String sdt) {
+//
+//    }
+
+//    public void DangKi(String hoten, String sdt, String matkhau) {
+//    }
 }
