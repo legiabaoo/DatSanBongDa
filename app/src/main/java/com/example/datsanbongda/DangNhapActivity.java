@@ -51,10 +51,7 @@ public class DangNhapActivity extends AppCompatActivity {
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putString("soDienThoai",sdt);
                         editor.apply();
-                        KhachHang tenKh = dbHelper.getUserByPhoneNumber(sdt);
-                        Intent intent = new Intent(DangNhapActivity.this, MainActivity.class);
-                        intent.putExtra("tenKhachHang",tenKh.getTenKhachHang());
-                        startActivity(intent);
+                        startActivity(new Intent(DangNhapActivity.this, MainActivity.class));
                     }else {
                         Toast.makeText(DangNhapActivity.this, "Tài Khoản Và Mật Khẩu Không Tồn Tại", Toast.LENGTH_SHORT).show();
                     }

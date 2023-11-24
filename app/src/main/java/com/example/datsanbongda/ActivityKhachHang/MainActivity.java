@@ -10,7 +10,8 @@ import android.util.Log;
 
 import com.example.datsanbongda.FragmantKhachHang.CaNhanFragment;
 import com.example.datsanbongda.FragmantKhachHang.HomeFragment;
-import com.example.datsanbongda.FragmantKhachHang.LichSuFragment;
+
+import com.example.datsanbongda.LichSuFragment;
 import com.example.datsanbongda.R;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -24,15 +25,7 @@ public class MainActivity extends AppCompatActivity {
         BottomAppBar btnAppbar = findViewById(R.id.bottonAppbar);
         BottomNavigationView btnNavigation = findViewById(R.id.bottonNavigation);
 
-        String tenKh = getIntent().getStringExtra("tenKhachHang");
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        HomeFragment homeFragment = new HomeFragment();
-        Bundle bundle= new Bundle();
-        bundle.putString("tenKhachHang",tenKh);
-        homeFragment.setArguments(bundle);
-        fragmentTransaction.replace(R.id.FrameLayout,homeFragment);
-        fragmentTransaction.commit();
+
 
 
         // Hiển thị HomeFragment khi MainActivity được tạo
