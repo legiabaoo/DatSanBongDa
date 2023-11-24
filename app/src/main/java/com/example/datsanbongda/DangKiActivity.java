@@ -41,7 +41,8 @@ public class DangKiActivity extends AppCompatActivity {
                 if(hoten.isEmpty() || matkhau.isEmpty() || sdt.isEmpty()){
                     Toast.makeText(DangKiActivity.this, "Vui Lòng Nhập Đầy Đủ Thông Tin", Toast.LENGTH_SHORT).show();
 
-                }else {
+                }
+                else {
                     boolean check = dbHelper.KiemTraDangNhap(sdt);
                     if(check){
                         edtSdt.setError("Số điện thoại đã được đăng kí!");

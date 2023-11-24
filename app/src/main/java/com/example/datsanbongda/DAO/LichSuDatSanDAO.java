@@ -1,5 +1,6 @@
 package com.example.datsanbongda.DAO;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -36,5 +37,18 @@ public class LichSuDatSanDAO {
 
         }
         return list;
+    }
+    public boolean themLichSu(){
+        SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("thoiGianBatDau", "14:00");
+        contentValues.put("thoiGianKetThuc", "16:00");
+        contentValues.put("ngay", "24/11/2023");
+        contentValues.put("trangthaiDatCho", 1);
+        contentValues.put("maSan", 1);
+        contentValues.put("maKhachHang", 1);
+        contentValues.put("maChuSan", 1);
+        long check = sqLiteDatabase.insert("DATCHO", null, contentValues);
+        return check!=-1;
     }
 }
