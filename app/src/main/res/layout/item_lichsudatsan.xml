@@ -65,14 +65,16 @@
             />
 
         <TextView
-            android:id="@+id/txtTrangthai"
+            android:id="@+id/txtTrangThai"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/icnext"
             android:layout_alignParentEnd="true"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="35dp"
-            android:hint="Trang thai " />
+            android:hint="Trang thai "
+            android:textStyle="italic"
+            />
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

@@ -1,11 +1,9 @@
 package com.example.datsanbongda.model;
 
-import com.example.datsanbongda.DAO.LichSuDatSanDAO;
-
 public class LichSuDatSan {
     int maVe, trangThai, maSan, maKhachHang, maChuSan;
-    String ngay, thoiGianBatDau, thoiGianKetThuc;
-    public LichSuDatSan(int maVe, String thoiGianBatDau, String thoiGianKetThuc, String ngay, int trangThai, int maSan, int maKhachHang, int maChuSan) {
+    String ngay, thoiGianBatDau, thoiGianKetThuc, tenSan, tenKhachHang;
+    public LichSuDatSan(String thoiGianBatDau, String thoiGianKetThuc, String ngay, int trangThai, int maSan, int maKhachHang, int maChuSan) {
         this.maVe = maVe;
         this.trangThai = trangThai;
         this.maSan = maSan;
@@ -14,7 +12,21 @@ public class LichSuDatSan {
         this.ngay = ngay;
         this.thoiGianBatDau = thoiGianBatDau;
         this.thoiGianKetThuc = thoiGianKetThuc;
+        this.tenSan = tenSan;
+        this.tenKhachHang = tenKhachHang;
     }
+    public LichSuDatSan(String thoiGianBatDau, String thoiGianKetThuc, String ngay, int trangThai, int maSan, int maKhachHang, int maChuSan, String tenSan, String tenKhachHang) {
+        this.trangThai = trangThai;
+        this.maSan = maSan;
+        this.maKhachHang = maKhachHang;
+        this.maChuSan = maChuSan;
+        this.ngay = ngay;
+        this.thoiGianBatDau = thoiGianBatDau;
+        this.thoiGianKetThuc = thoiGianKetThuc;
+        this.tenSan = tenSan;
+        this.tenKhachHang = tenKhachHang;
+    }
+
 
     public int getMaVe() {
         return maVe;
@@ -78,5 +90,21 @@ public class LichSuDatSan {
 
     public void setThoiGianKetThuc(String thoiGianKetThuc) {
         this.thoiGianKetThuc = thoiGianKetThuc;
+    }
+
+    public String getTenSan() {
+        return tenSan;
+    }
+
+    public void setTenSan(String tenSan) {
+        this.tenSan = tenSan;
+    }
+
+    public String getTenKhachHang() {
+        return tenKhachHang;
+    }
+
+    public void setTenKhachHang(String tenKhachHang) {
+        this.tenKhachHang = tenKhachHang;
     }
 }

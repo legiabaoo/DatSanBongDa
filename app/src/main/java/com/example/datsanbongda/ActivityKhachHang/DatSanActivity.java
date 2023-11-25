@@ -4,6 +4,8 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,6 +23,8 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.example.datsanbongda.DAO.LichSuDatSanDAO;
 import com.example.datsanbongda.R;
+import com.example.datsanbongda.database.DbHelper;
+import com.example.datsanbongda.model.LichSuDatSan;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.text.SimpleDateFormat;
@@ -38,6 +42,8 @@ public class DatSanActivity extends AppCompatActivity {
     private Calendar calendarTime;
     private Calendar currentDate;
     private LichSuDatSanDAO lichSuDatSanDAO;
+    private DbHelper dbHelper;
+    private int maSan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +63,7 @@ public class DatSanActivity extends AppCompatActivity {
         ImageView iv_GioDB = findViewById(R.id.iv_GioBD);
         ImageView iv_GioKT = findViewById(R.id.iv_GioKT);
         lichSuDatSanDAO = new LichSuDatSanDAO(DatSanActivity.this);
+        dbHelper = new DbHelper(DatSanActivity.this);
         //an thanh status
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         //toolbar
@@ -96,7 +103,21 @@ public class DatSanActivity extends AppCompatActivity {
                     thongbao+="Vui lòng chọn thời gian đá hơn 1 tiếng";
                     tIETThongBao.setText(thongbao);
                 } else{
-                    boolean check = lichSuDatSanDAO.themLichSu();
+                    String thoiGianBatDau = tIETGioDB.getText().toString();
+                    String thoiGianKetThuc = tIETGioKT.getText().toString();
+                    String ngay = tIETNgay.getText().toString();
+                    int trangThai = 0;
+                    String tenSan = tIETSan.getText().toString();
+                    SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();
+                    Cursor cursor = sqLiteDatabase.rawQuery("SELECT maSan FROM SAN WHERE tenSan = ?", new String[]{tenSan});
+                    if (cursor.moveToFirst()) {
+                        maSan = cursor.getInt(0);
+                        // Ở đây bạn có thể sử dụng giá trị ID (maVe) theo nhu cầu của mình
+                    }
+                    int maChuSan = 1;
+                    int maKhachHang = 1;
+                    LichSuDatSan lichSuDatSan = new LichSuDatSan(thoiGianBatDau, thoiGianKetThuc, ngay, trangThai, maSan, maChuSan, maKhachHang);
+                    boolean check = lichSuDatSanDAO.themLichSu(lichSuDatSan);
                     if(check){
                         Toast.makeText(DatSanActivity.this, "Them Thanh Cong", Toast.LENGTH_SHORT).show();
                     }else {
