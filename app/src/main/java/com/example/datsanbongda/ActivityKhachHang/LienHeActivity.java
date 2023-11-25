@@ -23,7 +23,7 @@ public class LienHeActivity extends AppCompatActivity {
 
         LinearLayout LN_fb = findViewById(R.id.LN_fb);
         LinearLayout LN_dt = findViewById(R.id.LN_dt);
-
+        LinearLayout LN_map = findViewById(R.id.LN_map);
 
         btnXacNhan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +48,12 @@ public class LienHeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 makePhoneCall();
+            }
+        });
+        LN_map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openGoogleMaps();
             }
         });
     }
@@ -84,4 +90,22 @@ public class LienHeActivity extends AppCompatActivity {
             // Có thể hiển thị thông báo hoặc xử lý khác tùy thuộc vào yêu cầu của bạn
         }
     }
+    private void openGoogleMaps() {
+        // Vị trí cụ thể (latitude và longitude)
+        String latitude = "10.853831992915579";  // Thay thế với giá trị thực của latitude
+        String longitude = "106.62782672404485";  // Thay thế với giá trị thực của longitude
+        String label = "Sân bóng F4";  // Thay thế với nhãn mô tả vị trí
+
+        // Tạo Intent để mở ứng dụng Google Maps
+        String location = "geo:" + latitude + "," + longitude + "?q=" + latitude + "," + longitude + "(" + label + ")";
+        Intent mapIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(location));
+
+        // Kiểm tra xem thiết bị có ứng dụng Google Maps hay không
+
+            // Mở ứng dụng Google Maps
+            startActivity(mapIntent);
+
+    }
+
+
 }
