@@ -1,6 +1,7 @@
 package com.example.datsanbongda.ActivityChuSan;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
@@ -47,5 +48,7 @@ public class MainChuSanActivity extends AppCompatActivity {
             return true;
         });
         btnNavigation.getMenu().findItem(R.id.Home).setChecked(true);
+        getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
+
     }
 }
