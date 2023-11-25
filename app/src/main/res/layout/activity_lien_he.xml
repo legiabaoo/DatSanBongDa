@@ -88,19 +88,25 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/LN_map"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/khung"
-        android:orientation="vertical"
         android:padding="20dp"
         >
-        <TextView
+        <ImageView
+            android:layout_marginTop="30dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_location"
+            />
+        <TextView android:layout_marginLeft="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Địa Chỉ: Công viên phần mềm Quang
+            android:text="Công viên phần mềm Quang
 QTSC Building 1, Trung, P Q.12, Thành phố Hồ Chí Minh, Việt Nam."
             android:textSize="20dp"
             />
