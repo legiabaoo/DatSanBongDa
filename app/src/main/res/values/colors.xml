@@ -18,4 +18,8 @@
     <color name="_bg__back_ek1_color">#00ECECEC</color>
     <color name="datecolor">#FFFFFF</color>
     <color name="artistnameherecolor">#FFDBB1</color>
+
+    <color name="colorThanhCong">#23E12B</color>
+    <color name="colorChoXacNhan">#EAD308</color>
+    <color name="colorThatBai">#FF0000</color>
 </resources>

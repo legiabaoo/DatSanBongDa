@@ -30,7 +30,7 @@ public class DbHelper extends SQLiteOpenHelper {
         db.execSQL(tLoaiSan);
         db.execSQL("INSERT INTO LOAISAN VALUES(1, 'Sân 7', 300000, 450000), (2, 'Sân 5', 150000, 300000)");
 
-        String tSan = "CREATE TABLE SAN(maSan integer primary key autoincrement, tenSan text, trangThai integer, maLoaiSan integer references LOAISAN(maLoaiSan))";
+        String tSan = "CREATE TABLE SAN(maSan integer primary key autoincrement, tenSan text, trangThaiSan integer, maLoaiSan integer references LOAISAN(maLoaiSan))";
         db.execSQL(tSan);
         /*
         * Trang Thái
@@ -38,22 +38,22 @@ public class DbHelper extends SQLiteOpenHelper {
         * 1: Ngung hoat dong
         */
         db.execSQL("INSERT INTO SAN VALUES(1, 'Sân số 1', 0, 2), (2, 'Sân số 2', 0, 2), (3, 'Sân số 3', 0, 2), " +
-                "(4, 'Sân số 4', 0, 2), (5, 'Sân số 5', 1, 1)");
+                "(4, 'Sân số 4', 0, 1), (5, 'Sân số 5', 1, 1)");
 
         String tChuSan = "CREATE TABLE CHUSAN(maChuSan integer primary key, taiKhoan text, matKhau text, soDienThoai text, facebook text)";
         db.execSQL(tChuSan);
         db.execSQL("INSERT INTO CHUSAN VALUES(1, 'phungthaiduong123', '12345678', '0987654321', 'https://www.facebook.com/thaiduong.phung.102')");
 
-        String tDatCho = "CREATE TABLE DATCHO(maVe integer primary key autoincrement, thoiGianBatDau text, thoiGianKetThuc text, ngay text, trangThai integer ," +
+        String tDatCho = "CREATE TABLE DATCHO(maVe integer primary key autoincrement, thoiGianBatDau text, thoiGianKetThuc text, ngay text, trangThaiDatCho integer ," +
                 "maSan integer references SAN(maSan), maKhachHang integer references KHACHHANG(maKhachHang), maChuSan integer references CHUSAN(maChuSan))";
         db.execSQL(tDatCho);
         /*
         Trang thai
-        -1: bi huy
+        2: bi huy
         0: cho xac nhan
         1: thanh cong
         */
-        db.execSQL("INSERT INTO DATCHO VALUES(1, '16:00', '17:30', '1/12/2023', 1, 1, 1, 1)");
+        db.execSQL("INSERT INTO DATCHO VALUES(1, '16:00', '17:30', '1/12/2023', 2, 1, 1, 1)");
     }
 
     @Override
@@ -72,19 +72,23 @@ public class DbHelper extends SQLiteOpenHelper {
         db.insert("KHACHHANG",null,cv);
         db.close();
     }
-    public  int DangNhap(String sdt, String matKhau){
-        int result = 0 ;
+    public KhachHang DangNhap(String sdt, String matKhau){
+       // int result = 0 ;
+        KhachHang khachhang = null;
         String str[] = new String [2];
         str [0] =sdt;
         str[1] = matKhau;
         SQLiteDatabase db = getReadableDatabase();
         Cursor c = db.rawQuery("select * from KHACHHANG where soDienThoai=? and matKhau=?",str);
-        if(c.moveToNext()){
-            result = 1 ;
+        if(c.getCount() > 0){
+            c.moveToFirst();
+            khachhang = new KhachHang(c.getInt(0), c.getString(1), c.getString(2), c.getString(3));
+           // result = 1 ;
         }
-        return  result;
+        return  khachhang;
 
     }
+    //kiểm tra tồn tài số điện thoại
     public boolean KiemTraDangNhap(String sdt){
         SQLiteDatabase db = getWritableDatabase();
         Cursor c = db.rawQuery("select * from KHACHHANG where soDienThoai=?",new String []{sdt});
