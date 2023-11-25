@@ -56,7 +56,7 @@
 
 
         <ImageView
-            android:id="@+id/icnext"
+            android:id="@+id/icChiTietVe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -68,7 +68,7 @@
             android:id="@+id/txtTrangThai"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/icnext"
+            android:layout_below="@+id/icChiTietVe"
             android:layout_alignParentEnd="true"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="35dp"

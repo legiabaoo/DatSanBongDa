@@ -22,6 +22,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.datsanbongda.DAO.LichSuDatSanDAO;
+import com.example.datsanbongda.LichSuFragment;
 import com.example.datsanbongda.R;
 import com.example.datsanbongda.database.DbHelper;
 import com.example.datsanbongda.model.LichSuDatSan;
@@ -112,17 +113,17 @@ public class DatSanActivity extends AppCompatActivity {
                     Cursor cursor = sqLiteDatabase.rawQuery("SELECT maSan FROM SAN WHERE tenSan = ?", new String[]{tenSan});
                     if (cursor.moveToFirst()) {
                         maSan = cursor.getInt(0);
-                        // Ở đây bạn có thể sử dụng giá trị ID (maVe) theo nhu cầu của mình
                     }
                     int maChuSan = 1;
                     int maKhachHang = 1;
                     LichSuDatSan lichSuDatSan = new LichSuDatSan(thoiGianBatDau, thoiGianKetThuc, ngay, trangThai, maSan, maChuSan, maKhachHang);
                     boolean check = lichSuDatSanDAO.themLichSu(lichSuDatSan);
                     if(check){
-                        Toast.makeText(DatSanActivity.this, "Them Thanh Cong", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DatSanActivity.this, "Đặt sân thành công", Toast.LENGTH_SHORT).show();
                     }else {
-                        Toast.makeText(DatSanActivity.this, "Them That Bai", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DatSanActivity.this, "Đặt sân thất bại", Toast.LENGTH_SHORT).show();
                     }
+                    startActivity(new Intent(DatSanActivity.this, MainActivity.class));
 //                    Intent intent = new Intent(DatSanActivity.this, DatChoActivity.class);
 //                    Bundle bundle = new Bundle();
 //                    bundle.putString("San", tIETSan.getText().toString());

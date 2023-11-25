@@ -23,8 +23,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.demo);
-        BottomAppBar btnAppbar = findViewById(R.id.bottonAppbar);
-        BottomNavigationView btnNavigation = findViewById(R.id.bottonNavigation);
+        BottomAppBar btnAppbar = findViewById(R.id.bottomAppBarKH);
+        BottomNavigationView btnNavigation = findViewById(R.id.bottomNavigationKH);
 
 
 

@@ -12,8 +12,6 @@ public class LichSuDatSan {
         this.ngay = ngay;
         this.thoiGianBatDau = thoiGianBatDau;
         this.thoiGianKetThuc = thoiGianKetThuc;
-        this.tenSan = tenSan;
-        this.tenKhachHang = tenKhachHang;
     }
     public LichSuDatSan(String thoiGianBatDau, String thoiGianKetThuc, String ngay, int trangThai, int maSan, int maKhachHang, int maChuSan, String tenSan, String tenKhachHang) {
         this.trangThai = trangThai;

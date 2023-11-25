@@ -2,15 +2,18 @@ package com.example.datsanbongda.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.datsanbongda.ActivityKhachHang.DatChoActivity;
 import com.example.datsanbongda.DAO.LichSuDatSanDAO;
 import com.example.datsanbongda.R;
 import com.example.datsanbongda.model.LichSuDatSan;
@@ -70,6 +73,13 @@ public class LichSuDatSanAdapter extends RecyclerView.Adapter<LichSuDatSanAdapte
             tienSan-=150/2;
         }
         holder.txtGia.setText(String.valueOf(tienSan+".000"));
+        holder.icChiTietVe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, DatChoActivity.class);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -79,12 +89,14 @@ public class LichSuDatSanAdapter extends RecyclerView.Adapter<LichSuDatSanAdapte
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView txtTenSan, txtGia,txtThoiGian, txtTrangThai;
+        ImageView icChiTietVe;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             txtTenSan = itemView.findViewById(R.id.txttenSan);
             txtThoiGian = itemView.findViewById(R.id.txtThoigian);
             txtGia = itemView.findViewById(R.id.txtgiaSan);
             txtTrangThai = itemView.findViewById(R.id.txtTrangThai);
+            icChiTietVe = itemView.findViewById(R.id.icChiTietVe);
         }
     }
 }
