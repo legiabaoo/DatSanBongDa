@@ -1,30 +1,38 @@
 package com.example.datsanbongda.FragmantKhachHang;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.datsanbongda.ActivityKhachHang.ChiTietSanActivity;
-import com.example.datsanbongda.DangNhapActivity;
+import com.example.datsanbongda.DAO.SanHomeDAO;
 import com.example.datsanbongda.R;
+import com.example.datsanbongda.adapter.San5HomeAdapter;
+import com.example.datsanbongda.adapter.San7HomeAdapter;
+import com.example.datsanbongda.model.San5Home;
+import com.example.datsanbongda.model.San7Home;
+
+import java.util.ArrayList;
 
 
 public class HomeFragment extends Fragment {
+    private ArrayList<San7Home> listSan7;
+    private ArrayList<San5Home> listSan5;
  //   private String userFullName;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        Button btnXemChiTiet = view.findViewById(R.id.btnXemChiTiet);
+        RecyclerView rvSan7Home = view.findViewById(R.id.rvSan7Home);
+        RecyclerView rvSan5Home = view.findViewById(R.id.rvSan5Home);
 //        Bundle bundle = getArguments();
 //        if (bundle != null) {
 //           String userFullName = bundle.getString("tenKhachHang", "");
@@ -37,12 +45,27 @@ public class HomeFragment extends Fragment {
         TextView textViewUserName = view.findViewById(R.id.txtTenKH);
         textViewUserName.setText(tenkh);
 
-        btnXemChiTiet.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getContext(), ChiTietSanActivity.class));
-            }
-        });
+        //rvHome
+        SanHomeDAO sanHomeDAO = new SanHomeDAO(getContext());
+        //getList san 7
+        LinearLayoutManager linearLayoutManagerSan7 = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        listSan7 = sanHomeDAO.getDSSan7();
+        rvSan7Home.setLayoutManager(linearLayoutManagerSan7);
+        San7HomeAdapter san7HomeAdapter = new San7HomeAdapter(getContext(), sanHomeDAO, listSan7);
+        rvSan7Home.setAdapter(san7HomeAdapter);
+        //getList san 5
+        LinearLayoutManager linearLayoutManagerSan5 = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        listSan5 = sanHomeDAO.getDSSan5();
+        rvSan5Home.setLayoutManager(linearLayoutManagerSan5);
+        San5HomeAdapter san5HomeAdapter = new San5HomeAdapter(getContext(), sanHomeDAO, listSan5);
+        rvSan5Home.setAdapter(san5HomeAdapter);
+
+//        btnXemChiTiet.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(getContext(), ChiTietSanActivity.class));
+//            }
+//        });
 
         return view;
     }
