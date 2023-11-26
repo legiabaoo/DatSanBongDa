@@ -267,7 +267,7 @@
                     android:layout_marginTop="16dp">
 
                     <TextView
-                        android:id="@+id/txtTenSan"
+                        android:id="@+id/txtTenSanDatCho"
                         android:layout_width="277.4dp"
                         android:layout_height="36.4dp"
                         android:layout_gravity="center_horizontal|center"

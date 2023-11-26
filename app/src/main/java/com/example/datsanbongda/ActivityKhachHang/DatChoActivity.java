@@ -17,7 +17,7 @@ public class DatChoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dat_cho);
-        TextView txtSan = findViewById(R.id.txtTenSan);
+        TextView txtSan = findViewById(R.id.txtTenSanDatCho);
         TextView txtGio = findViewById(R.id.txtGio);
         TextView txtGia = findViewById(R.id.txtGia);
         TextView txtThu = findViewById(R.id.txtThu);

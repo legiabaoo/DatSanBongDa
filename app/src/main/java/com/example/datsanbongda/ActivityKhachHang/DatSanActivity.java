@@ -72,6 +72,11 @@ public class DatSanActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back);
         getSupportActionBar().setTitle("");
+        //getIntent
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        tIETLoaiSan.setText(bundle.getString("loaisan"));
+        tIETSan.setText(bundle.getString("tensan"));
 
         btnDatSan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -137,55 +142,55 @@ public class DatSanActivity extends AppCompatActivity {
             }
         });
 
-        tIETLoaiSan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String[] loaiSan = {"Sân 5", "Sân 7"};
-
-                AlertDialog.Builder builder = new AlertDialog.Builder(DatSanActivity.this);
-                builder.setTitle("Chọn loại sân bạn muốn đặt");
-                builder.setItems(loaiSan, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        tIETLoaiSan.setText(loaiSan[which]);
-                    }
-                });
-                AlertDialog alertDialog = builder.create();
-                alertDialog.show();
-            }
-        });
-
-        tIETSan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (tIETLoaiSan.getText().toString().equals("Sân 5")) {
-                    String[] san = {"Sân số 1", "Sân số 2", "Sân số 3"};
-                    AlertDialog.Builder builder = new AlertDialog.Builder(DatSanActivity.this);
-                    builder.setTitle("Chọn sân bạn muốn đặt");
-                    builder.setItems(san, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            tIETSan.setText(san[which]);
-                        }
-                    });
-                    AlertDialog alertDialog = builder.create();
-                    alertDialog.show();
-                }
-                if (tIETLoaiSan.getText().toString().equals("Sân 7")) {
-                    String[] san = {"Sân số 4", "Sân số 5"};
-                    AlertDialog.Builder builder = new AlertDialog.Builder(DatSanActivity.this);
-                    builder.setTitle("Chọn sân bạn muốn đặt");
-                    builder.setItems(san, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            tIETSan.setText(san[which]);
-                        }
-                    });
-                    AlertDialog alertDialog = builder.create();
-                    alertDialog.show();
-                }
-            }
-        });
+//        tIETLoaiSan.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                String[] loaiSan = {"Sân 5", "Sân 7"};
+//
+//                AlertDialog.Builder builder = new AlertDialog.Builder(DatSanActivity.this);
+//                builder.setTitle("Chọn loại sân bạn muốn đặt");
+//                builder.setItems(loaiSan, new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        tIETLoaiSan.setText(loaiSan[which]);
+//                    }
+//                });
+//                AlertDialog alertDialog = builder.create();
+//                alertDialog.show();
+//            }
+//        });
+//
+//        tIETSan.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (tIETLoaiSan.getText().toString().equals("Sân 5")) {
+//                    String[] san = {"Sân số 1", "Sân số 2", "Sân số 3"};
+//                    AlertDialog.Builder builder = new AlertDialog.Builder(DatSanActivity.this);
+//                    builder.setTitle("Chọn sân bạn muốn đặt");
+//                    builder.setItems(san, new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialog, int which) {
+//                            tIETSan.setText(san[which]);
+//                        }
+//                    });
+//                    AlertDialog alertDialog = builder.create();
+//                    alertDialog.show();
+//                }
+//                if (tIETLoaiSan.getText().toString().equals("Sân 7")) {
+//                    String[] san = {"Sân số 4", "Sân số 5"};
+//                    AlertDialog.Builder builder = new AlertDialog.Builder(DatSanActivity.this);
+//                    builder.setTitle("Chọn sân bạn muốn đặt");
+//                    builder.setItems(san, new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialog, int which) {
+//                            tIETSan.setText(san[which]);
+//                        }
+//                    });
+//                    AlertDialog alertDialog = builder.create();
+//                    alertDialog.show();
+//                }
+//            }
+//        });
         tIETGioDB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

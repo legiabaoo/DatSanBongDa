@@ -8,11 +8,13 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -34,6 +36,10 @@ public class ChiTietSanActivity extends AppCompatActivity {
         rclViewChiTietSan = findViewById(R.id.rclViewChiTietSan);
         Button btnDatSan = findViewById(R.id.btnDatSan);
         Toolbar tbChiTietSan = findViewById(R.id.tbChiTietSan);
+        TextView txtTenSan = findViewById(R.id.txtTenSanCTS);
+        TextView txtLoaiSan = findViewById(R.id.txtLoaiSanCTS);
+        TextView txtTrangThai = findViewById(R.id.txtTrangThaiCTS);
+
         setSupportActionBar(tbChiTietSan);
         getSupportActionBar().setTitle("");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -45,10 +51,31 @@ public class ChiTietSanActivity extends AppCompatActivity {
         //adapter
         loadData();
 
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        txtLoaiSan.setText(bundle.getString("loaisan"));
+        txtTenSan.setText(bundle.getString("tensan"));
+        if(bundle.getString("trangthai").equals("Đang hoạt động")){
+            txtTrangThai.setText(bundle.getString("trangthai"));
+        } else if (bundle.getString("trangthai").equals("Ngừng hoạt động")) {
+            txtTrangThai.setText(bundle.getString("trangthai"));
+            txtTrangThai.setTextColor(ContextCompat.getColor(ChiTietSanActivity.this, R.color.colorThatBai));
+        }
+
         btnDatSan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ChiTietSanActivity.this, DatSanActivity.class));
+                if(bundle.getString("trangthai").equals("Đang hoạt động")){
+                    Intent intent1 = new Intent(ChiTietSanActivity.this, DatSanActivity.class);
+                    Bundle bundle1 = new Bundle();
+                    bundle1.putString("loaisan", bundle.getString("loaisan"));
+                    bundle1.putString("tensan", bundle.getString("tensan"));
+                    intent1.putExtras(bundle1);
+                    startActivity(intent1);
+                } else if (bundle.getString("trangthai").equals("Ngừng hoạt động")) {
+                    Toast.makeText(ChiTietSanActivity.this, "Sân này hiện tại đang ngừng hoạt động", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
     }

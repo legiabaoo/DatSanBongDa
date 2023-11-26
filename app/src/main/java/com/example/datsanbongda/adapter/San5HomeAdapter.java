@@ -2,13 +2,21 @@ package com.example.datsanbongda.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.datsanbongda.ActivityKhachHang.ChiTietSanActivity;
+import com.example.datsanbongda.ActivityKhachHang.DatSanActivity;
 import com.example.datsanbongda.DAO.SanHomeDAO;
 import com.example.datsanbongda.R;
 import com.example.datsanbongda.model.San5Home;
@@ -37,7 +45,34 @@ public class San5HomeAdapter extends RecyclerView.Adapter<San5HomeAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull San5HomeAdapter.ViewHolder holder, int position) {
-
+        holder.txtTenSanHome.setText(list.get(position).getTenSan());
+        int trangthai = list.get(position).getTrangThai();
+        if(trangthai==0){
+            holder.txtTrangThaiHome.setText("Đang hoạt động");
+        }else if(trangthai==1){
+            holder.txtTrangThaiHome.setText("Ngừng hoạt động");
+            holder.txtTrangThaiHome.setTextColor(ContextCompat.getColor(context, R.color.colorThatBai));
+        }
+        holder.btnXemChiTiet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    Intent intent = new Intent(context, ChiTietSanActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("tensan", list.get(position).getTenSan());
+                    if(list.get(position).getLoaiSan()==1){
+                        bundle.putString("loaisan", "Sân 7");
+                    }else if(list.get(position).getLoaiSan()==2){
+                        bundle.putString("loaisan", "Sân 5");
+                    }
+                    if(list.get(position).getTrangThai()==0){
+                        bundle.putString("trangthai", "Đang hoạt động");
+                    } else if (list.get(position).getTrangThai()==1) {
+                        bundle.putString("trangthai", "Ngừng hoạt động");
+                    }
+                    intent.putExtras(bundle);
+                    context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -46,8 +81,13 @@ public class San5HomeAdapter extends RecyclerView.Adapter<San5HomeAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+        TextView txtTenSanHome, txtTrangThaiHome;
+        Button btnXemChiTiet;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            txtTenSanHome = itemView.findViewById(R.id.txtTenSanHome);
+            txtTrangThaiHome = itemView.findViewById(R.id.txtTrangThaiHome);
+            btnXemChiTiet = itemView.findViewById(R.id.btnXemChiTietHome);
         }
     }
 }

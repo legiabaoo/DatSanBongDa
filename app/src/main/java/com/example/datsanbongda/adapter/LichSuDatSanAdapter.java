@@ -79,6 +79,7 @@ public class LichSuDatSanAdapter extends RecyclerView.Adapter<LichSuDatSanAdapte
             tienSan-=150/2;
         }
         holder.txtGia.setText(String.valueOf(tienSan+".000"));
+        holder.txtNgay.setText(list.get(holder.getAdapterPosition()).getNgay());
 
         holder.icChiTietVe.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -121,15 +122,16 @@ public class LichSuDatSanAdapter extends RecyclerView.Adapter<LichSuDatSanAdapte
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView txtTenSan, txtGia,txtThoiGian, txtTrangThai;
+        TextView txtTenSan, txtGia,txtThoiGian, txtTrangThai, txtNgay;
         ImageView icChiTietVe;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            txtTenSan = itemView.findViewById(R.id.txttenSan);
+            txtTenSan = itemView.findViewById(R.id.txttenSanLichSu);
             txtThoiGian = itemView.findViewById(R.id.txtThoigian);
             txtGia = itemView.findViewById(R.id.txtgiaSan);
             txtTrangThai = itemView.findViewById(R.id.txtTrangThai);
             icChiTietVe = itemView.findViewById(R.id.icChiTietVe);
+            txtNgay = itemView.findViewById(R.id.txtNgayLichSu);
         }
     }
 }
