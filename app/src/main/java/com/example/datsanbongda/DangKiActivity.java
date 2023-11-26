@@ -1,6 +1,7 @@
 package com.example.datsanbongda;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ public class DangKiActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dang_ki);
+        getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.white));
         Button btnDangki = findViewById(R.id.btnDangki);
 
         EditText edtHoten = findViewById(R.id.edtHoten);

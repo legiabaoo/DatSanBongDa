@@ -29,6 +29,7 @@
             android:background="@android:color/transparent"
             app:labelVisibilityMode="labeled"
             app:menu="@menu/menu_bottom" />
+        
 
     </com.google.android.material.bottomappbar.BottomAppBar>
 

@@ -1,6 +1,7 @@
 package com.example.datsanbongda;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Context;
 import android.content.Intent;
@@ -66,6 +67,8 @@ public class DangNhapActivity extends AppCompatActivity {
                 startActivity(new Intent(DangNhapActivity.this, DangKiActivity.class));
             }
         });
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.white));
+
     }
 }

@@ -4,6 +4,6 @@
     <stroke
         android:width="2dp"
         android:color="#55E890"/>
-    <corners android:bottomLeftRadius="58dp"
-        android:bottomRightRadius="58dp" /> <!-- Độ bo tròn của góc -->
+    <corners android:bottomLeftRadius="0dp"
+        android:bottomRightRadius="0dp" /> <!-- Độ bo tròn của góc -->
 </shape>
