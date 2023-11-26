@@ -36,12 +36,13 @@ public class LichSuDatSanDAO {
                         cursor.getString(1),
                         cursor.getString(2),
                         cursor.getString(3),
-                        cursor.getInt(4),
+                        cursor.getString(4),
                         cursor.getInt(5),
                         cursor.getInt(6),
                         cursor.getInt(7),
-                        cursor.getString(8),
-                        cursor.getString(9)));
+                        cursor.getInt(8),
+                        cursor.getString(9),
+                        cursor.getString(10)));
             } while (cursor.moveToNext());
 
         }
@@ -50,8 +51,8 @@ public class LichSuDatSanDAO {
             @Override
             public int compare(LichSuDatSan o1, LichSuDatSan o2) {
                 try {
-                    Date date1 = simpleDateFormat.parse(o1.getNgay());
-                    Date date2 = simpleDateFormat.parse(o2.getNgay());
+                    Date date1 = simpleDateFormat.parse(o1.getNgayDat());
+                    Date date2 = simpleDateFormat.parse(o2.getNgayDat());
                     return date2.compareTo(date1);
                 }catch (ParseException e){
                     e.printStackTrace();
@@ -71,6 +72,7 @@ public class LichSuDatSanDAO {
         contentValues.put("maSan", lichSuDatSan.getMaSan());
         contentValues.put("maKhachHang", lichSuDatSan.getMaKhachHang());
         contentValues.put("maChuSan", lichSuDatSan.getMaChuSan());
+        contentValues.put("ngayDat", lichSuDatSan.getNgayDat());
         long check = sqLiteDatabase.insert("DATCHO", null, contentValues);
         return check!=-1;
     }

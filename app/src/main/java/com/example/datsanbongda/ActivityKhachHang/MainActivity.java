@@ -13,7 +13,8 @@ import android.util.Log;
 
 import com.example.datsanbongda.FragmantKhachHang.CaNhanFragment;
 import com.example.datsanbongda.FragmantKhachHang.HomeFragment;
-import com.example.datsanbongda.LichSuFragment;
+
+import com.example.datsanbongda.FragmantKhachHang.LichSuFragment;
 import com.example.datsanbongda.R;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;

@@ -47,7 +47,9 @@ public class LichSuDatSanAdapter extends RecyclerView.Adapter<LichSuDatSanAdapte
 
     @Override
     public void onBindViewHolder(@NonNull LichSuDatSanAdapter.ViewHolder holder, int position) {
-        holder.txtThoiGian.setText(list.get(holder.getAdapterPosition()).getThoiGianBatDau()+" - "+list.get(holder.getAdapterPosition()).getThoiGianKetThuc());
+        holder.txtThoiGian.setText(list.get(holder.getAdapterPosition()).getThoiGianBatDau()+"" +
+                " - "+list.get(holder.getAdapterPosition()).getThoiGianKetThuc()+" - "+
+                list.get(holder.getAdapterPosition()).getNgay());
         int trangThai = list.get(holder.getAdapterPosition()).getTrangThai();
         if(trangThai==0){
             holder.txtTrangThai.setText("Chờ xác nhận");
@@ -78,8 +80,8 @@ public class LichSuDatSanAdapter extends RecyclerView.Adapter<LichSuDatSanAdapte
         }else if(iphutKT-iphutBD==-30){
             tienSan-=150/2;
         }
-        holder.txtGia.setText(String.valueOf(tienSan+".000"));
-        holder.txtNgay.setText(list.get(holder.getAdapterPosition()).getNgay());
+        holder.txtGia.setText(tienSan+".000");
+        holder.txtNgay.setText(String.valueOf(list.get(holder.getAdapterPosition()).getNgayDat()));
 
         holder.icChiTietVe.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -131,7 +133,7 @@ public class LichSuDatSanAdapter extends RecyclerView.Adapter<LichSuDatSanAdapte
             txtGia = itemView.findViewById(R.id.txtgiaSan);
             txtTrangThai = itemView.findViewById(R.id.txtTrangThai);
             icChiTietVe = itemView.findViewById(R.id.icChiTietVe);
-            txtNgay = itemView.findViewById(R.id.txtNgayLichSu);
+            txtNgay = itemView.findViewById(R.id.txtNgayDatLichSu);
         }
     }
 }

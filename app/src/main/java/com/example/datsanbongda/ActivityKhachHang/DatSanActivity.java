@@ -22,7 +22,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.datsanbongda.DAO.LichSuDatSanDAO;
-import com.example.datsanbongda.LichSuFragment;
+
 import com.example.datsanbongda.R;
 import com.example.datsanbongda.database.DbHelper;
 import com.example.datsanbongda.model.LichSuDatSan;
@@ -114,6 +114,16 @@ public class DatSanActivity extends AppCompatActivity {
                     String ngay = tIETNgay.getText().toString();
                     int trangThai = 0;
                     String tenSan = tIETSan.getText().toString();
+
+                    calendarTime = Calendar.getInstance();
+                    int year = calendarTime.get(Calendar.YEAR);
+                    int month = calendarTime.get(Calendar.MONTH);
+                    int day = calendarTime.get(Calendar.DAY_OF_MONTH);
+                    calendarTime.set(year, month, day);
+                    Date selectedDate = calendarTime.getTime();
+                    SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+                    String ngayDat = sdf1.format(selectedDate);
+
                     SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();
                     Cursor cursor = sqLiteDatabase.rawQuery("SELECT maSan FROM SAN WHERE tenSan = ?", new String[]{tenSan});
                     if (cursor.moveToFirst()) {
@@ -121,7 +131,7 @@ public class DatSanActivity extends AppCompatActivity {
                     }
                     int maChuSan = 1;
                     int maKhachHang = 1;
-                    LichSuDatSan lichSuDatSan = new LichSuDatSan(thoiGianBatDau, thoiGianKetThuc, ngay, trangThai, maSan, maChuSan, maKhachHang);
+                    LichSuDatSan lichSuDatSan = new LichSuDatSan(thoiGianBatDau, thoiGianKetThuc, ngay, ngayDat, trangThai, maSan, maChuSan, maKhachHang);
                     boolean check = lichSuDatSanDAO.themLichSu(lichSuDatSan);
                     if(check){
                         Toast.makeText(DatSanActivity.this, "Đặt sân thành công", Toast.LENGTH_SHORT).show();

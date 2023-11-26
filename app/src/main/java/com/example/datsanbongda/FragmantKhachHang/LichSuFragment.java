@@ -1,4 +1,4 @@
-package com.example.datsanbongda;
+package com.example.datsanbongda.FragmantKhachHang;
 
 import android.os.Bundle;
 
@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 
 import com.example.datsanbongda.DAO.DanhGiaDAO;
 import com.example.datsanbongda.DAO.LichSuDatSanDAO;
+import com.example.datsanbongda.R;
 import com.example.datsanbongda.adapter.DanhGiaAdapter;
 import com.example.datsanbongda.adapter.LichSuDatSanAdapter;
 import com.example.datsanbongda.model.LichSuDatSan;
