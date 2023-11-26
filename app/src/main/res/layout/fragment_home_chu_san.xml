@@ -96,7 +96,7 @@
             android:layout_marginEnd="5dp"
             android:layout_marginStart="5dp"
             android:orientation="horizontal"
-            android:weightSum="3">
+            android:weightSum="2">
             <LinearLayout
                 android:id="@+id/thongtinsan"
                 android:padding="5dp"
@@ -107,7 +107,7 @@
                 android:layout_weight="1">
                 <ImageView
 
-                    android:layout_marginLeft="30dp"
+                    android:layout_marginLeft="50dp"
                     android:layout_width="60dp"
                     android:layout_height="50dp"
                     android:src="@drawable/document"
@@ -115,61 +115,34 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18dp"
+                    android:textSize="19dp"
                     android:text="Thông tin sân"
                     android:textStyle="bold"
-
                     android:layout_gravity="center"
                     android:fontFamily="@font/rosario"
                     android:textColor="#317773"
                     />
 
             </LinearLayout>
-            <LinearLayout
-                android:id="@+id/datsannhanh"
 
-                android:layout_margin="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="1">
-                <ImageView
-                    android:layout_marginTop="5dp"
-                    android:layout_marginLeft="30dp"
-                    android:layout_width="60dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/ticket"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="18dp"
-                    android:text="Đặt sân nhanh"
-                    android:textStyle="bold"
-                    android:layout_marginTop="0dp"
-                    android:layout_gravity="center"
-                    android:fontFamily="@font/rosario"
-                    android:textColor="#317773"
-                    />
-
-            </LinearLayout>
             <LinearLayout
                 android:id="@+id/lienhe"
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_margin="5dp"
+                android:padding="5dp"
                 android:layout_weight="1">
                 <ImageView
                     android:layout_marginTop="5dp"
-                    android:layout_marginLeft="30dp"
+                    android:layout_marginLeft="60dp"
                     android:layout_width="60dp"
                     android:layout_height="50dp"
                     android:src="@drawable/communicate"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18dp"
+                    android:textSize="19dp"
                     android:text="Liên hệ"
                     android:textStyle="bold"
                     android:textColor="#317773"

@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.example.datsanbongda.ActivityKhachHang.DatSanActivity;
 import com.example.datsanbongda.ActivityKhachHang.LienHeActivity;
+import com.example.datsanbongda.ActivityKhachHang.ThongTinSanActivity;
 import com.example.datsanbongda.DAO.SanHomeDAO;
 import com.example.datsanbongda.R;
 import com.example.datsanbongda.adapter.San5HomeAdapter;
@@ -38,21 +39,22 @@ public class HomeFragment extends Fragment {
         RecyclerView rvSan7Home = view.findViewById(R.id.rvSan7Home);
         RecyclerView rvSan5Home = view.findViewById(R.id.rvSan5Home);
         LinearLayout thongtin = view.findViewById(R.id.thongtinsan);
-        LinearLayout datsanngay = view.findViewById(R.id.datsannhanh);
+
         LinearLayout lienhe = view.findViewById(R.id.lienhe);
 
+        thongtin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), ThongTinSanActivity.class));
+            }
+        });
         lienhe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), LienHeActivity.class));
             }
         });
-        datsanngay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getActivity(), DatSanActivity.class));
-            }
-        });
+
 //        Bundle bundle = getArguments();
 //        if (bundle != null) {
 //           String userFullName = bundle.getString("tenKhachHang", "");

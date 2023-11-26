@@ -44,7 +44,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="220dp"
+        android:layout_height="280dp"
         android:layout_marginStart="5dp"
         android:translationY="-140dp"
         android:layout_marginEnd="5dp"
@@ -76,7 +76,7 @@
                 android:textStyle="bold"
                 android:textSize="20dp"
                 android:textColor="@color/colorThatBai"
-               />
+                />
         </LinearLayout>
 
         <LinearLayout
@@ -106,6 +106,7 @@
                 android:textColor="@color/black"
                 android:layout_marginTop="20dp"/>
 
+
         </LinearLayout>
 
         <LinearLayout
@@ -115,7 +116,7 @@
             <ImageView
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/snapedit_1701009551791" />
+                android:src="@drawable/imageTroitoi" />
             <TextView
                 android:id="@+id/txtGiaSan7Toi"
                 android:layout_marginLeft="15dp"
@@ -136,12 +137,25 @@
                 android:layout_marginTop="20dp"/>
 
         </LinearLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cus2"
+            app:backgroundTint="@null"
+            android:text="Chỉnh sửa"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="100dp"
+            android:id="@+id/btnChinhSuaThongtinSan7"
+            />
     </LinearLayout>
 
     <LinearLayout
         android:layout_marginTop="15dp"
         android:layout_width="match_parent"
-        android:layout_height="220dp"
+        android:layout_height="280dp"
         android:layout_marginStart="5dp"
         android:translationY="-140dp"
         android:layout_marginEnd="5dp"
@@ -212,7 +226,7 @@
             <ImageView
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/snapedit_1701009551791" />
+                android:src="@drawable/imageTroitoi" />
             <TextView
                 android:id="@+id/txtGiaSan5Toi"
                 android:layout_marginLeft="15dp"
@@ -233,6 +247,19 @@
                 android:layout_marginTop="20dp"/>
 
         </LinearLayout>
+        <Button
+            android:id="@+id/btnChinhSuaThongtinSan5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cus2"
+            app:backgroundTint="@null"
+            android:text="Chỉnh sửa"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="100dp"
+            />
     </LinearLayout>
 
 
