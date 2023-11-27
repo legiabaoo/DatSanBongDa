@@ -116,7 +116,7 @@
             <ImageView
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/imageTroitoi" />
+                android:src="@drawable/snapedit_1701009551791" />
             <TextView
                 android:id="@+id/txtGiaSan7Toi"
                 android:layout_marginLeft="15dp"
@@ -226,7 +226,7 @@
             <ImageView
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/imageTroitoi" />
+                android:src="@drawable/snapedit_1701009551791" />
             <TextView
                 android:id="@+id/txtGiaSan5Toi"
                 android:layout_marginLeft="15dp"
