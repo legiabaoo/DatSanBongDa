@@ -22,6 +22,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.datsanbongda.DAO.LichSuDatSanDAO;
+
 import com.example.datsanbongda.R;
 import com.example.datsanbongda.database.DbHelper;
 import com.example.datsanbongda.model.LichSuDatSan;
@@ -71,6 +72,11 @@ public class DatSanActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back);
         getSupportActionBar().setTitle("");
+        //getIntent
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        tIETLoaiSan.setText(bundle.getString("loaisan"));
+        tIETSan.setText(bundle.getString("tensan"));
 
         btnDatSan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,21 +114,31 @@ public class DatSanActivity extends AppCompatActivity {
                     String ngay = tIETNgay.getText().toString();
                     int trangThai = 0;
                     String tenSan = tIETSan.getText().toString();
+
+                    calendarTime = Calendar.getInstance();
+                    int year = calendarTime.get(Calendar.YEAR);
+                    int month = calendarTime.get(Calendar.MONTH);
+                    int day = calendarTime.get(Calendar.DAY_OF_MONTH);
+                    calendarTime.set(year, month, day);
+                    Date selectedDate = calendarTime.getTime();
+                    SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+                    String ngayDat = sdf1.format(selectedDate);
+
                     SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();
                     Cursor cursor = sqLiteDatabase.rawQuery("SELECT maSan FROM SAN WHERE tenSan = ?", new String[]{tenSan});
                     if (cursor.moveToFirst()) {
                         maSan = cursor.getInt(0);
-                        // Ở đây bạn có thể sử dụng giá trị ID (maVe) theo nhu cầu của mình
                     }
                     int maChuSan = 1;
                     int maKhachHang = 1;
-                    LichSuDatSan lichSuDatSan = new LichSuDatSan(thoiGianBatDau, thoiGianKetThuc, ngay, trangThai, maSan, maChuSan, maKhachHang);
+                    LichSuDatSan lichSuDatSan = new LichSuDatSan(thoiGianBatDau, thoiGianKetThuc, ngay, ngayDat, trangThai, maSan, maChuSan, maKhachHang);
                     boolean check = lichSuDatSanDAO.themLichSu(lichSuDatSan);
                     if(check){
-                        Toast.makeText(DatSanActivity.this, "Them Thanh Cong", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DatSanActivity.this, "Đặt sân thành công", Toast.LENGTH_SHORT).show();
                     }else {
-                        Toast.makeText(DatSanActivity.this, "Them That Bai", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DatSanActivity.this, "Đặt sân thất bại", Toast.LENGTH_SHORT).show();
                     }
+                    startActivity(new Intent(DatSanActivity.this, MainActivity.class));
 //                    Intent intent = new Intent(DatSanActivity.this, DatChoActivity.class);
 //                    Bundle bundle = new Bundle();
 //                    bundle.putString("San", tIETSan.getText().toString());
@@ -136,55 +152,55 @@ public class DatSanActivity extends AppCompatActivity {
             }
         });
 
-        tIETLoaiSan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String[] loaiSan = {"Sân 5", "Sân 7"};
-
-                AlertDialog.Builder builder = new AlertDialog.Builder(DatSanActivity.this);
-                builder.setTitle("Chọn loại sân bạn muốn đặt");
-                builder.setItems(loaiSan, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        tIETLoaiSan.setText(loaiSan[which]);
-                    }
-                });
-                AlertDialog alertDialog = builder.create();
-                alertDialog.show();
-            }
-        });
-
-        tIETSan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (tIETLoaiSan.getText().toString().equals("Sân 5")) {
-                    String[] san = {"Sân số 1", "Sân số 2", "Sân số 3"};
-                    AlertDialog.Builder builder = new AlertDialog.Builder(DatSanActivity.this);
-                    builder.setTitle("Chọn sân bạn muốn đặt");
-                    builder.setItems(san, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            tIETSan.setText(san[which]);
-                        }
-                    });
-                    AlertDialog alertDialog = builder.create();
-                    alertDialog.show();
-                }
-                if (tIETLoaiSan.getText().toString().equals("Sân 7")) {
-                    String[] san = {"Sân số 4", "Sân số 5"};
-                    AlertDialog.Builder builder = new AlertDialog.Builder(DatSanActivity.this);
-                    builder.setTitle("Chọn sân bạn muốn đặt");
-                    builder.setItems(san, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            tIETSan.setText(san[which]);
-                        }
-                    });
-                    AlertDialog alertDialog = builder.create();
-                    alertDialog.show();
-                }
-            }
-        });
+//        tIETLoaiSan.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                String[] loaiSan = {"Sân 5", "Sân 7"};
+//
+//                AlertDialog.Builder builder = new AlertDialog.Builder(DatSanActivity.this);
+//                builder.setTitle("Chọn loại sân bạn muốn đặt");
+//                builder.setItems(loaiSan, new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        tIETLoaiSan.setText(loaiSan[which]);
+//                    }
+//                });
+//                AlertDialog alertDialog = builder.create();
+//                alertDialog.show();
+//            }
+//        });
+//
+//        tIETSan.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (tIETLoaiSan.getText().toString().equals("Sân 5")) {
+//                    String[] san = {"Sân số 1", "Sân số 2", "Sân số 3"};
+//                    AlertDialog.Builder builder = new AlertDialog.Builder(DatSanActivity.this);
+//                    builder.setTitle("Chọn sân bạn muốn đặt");
+//                    builder.setItems(san, new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialog, int which) {
+//                            tIETSan.setText(san[which]);
+//                        }
+//                    });
+//                    AlertDialog alertDialog = builder.create();
+//                    alertDialog.show();
+//                }
+//                if (tIETLoaiSan.getText().toString().equals("Sân 7")) {
+//                    String[] san = {"Sân số 4", "Sân số 5"};
+//                    AlertDialog.Builder builder = new AlertDialog.Builder(DatSanActivity.this);
+//                    builder.setTitle("Chọn sân bạn muốn đặt");
+//                    builder.setItems(san, new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialog, int which) {
+//                            tIETSan.setText(san[which]);
+//                        }
+//                    });
+//                    AlertDialog alertDialog = builder.create();
+//                    alertDialog.show();
+//                }
+//            }
+//        });
         tIETGioDB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -1,4 +1,4 @@
-package com.example.datsanbongda;
+package com.example.datsanbongda.FragmantKhachHang;
 
 import android.os.Bundle;
 
@@ -12,11 +12,15 @@ import android.view.ViewGroup;
 
 import com.example.datsanbongda.DAO.DanhGiaDAO;
 import com.example.datsanbongda.DAO.LichSuDatSanDAO;
+import com.example.datsanbongda.R;
 import com.example.datsanbongda.adapter.DanhGiaAdapter;
 import com.example.datsanbongda.adapter.LichSuDatSanAdapter;
 import com.example.datsanbongda.model.LichSuDatSan;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 
 
 public class LichSuFragment extends Fragment {
@@ -30,19 +34,20 @@ public class LichSuFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_lich_su, container, false);
         rvLichSu = view.findViewById(R.id.rvLichSu);
+        list = new ArrayList<>();
         //data
         lichSuDatSanDAO = new LichSuDatSanDAO(getContext());
-
         //adapter
         loadData();
         return view;
 
     }
     private void loadData() {
-        list = lichSuDatSanDAO.getDSLichSu();
+        list = lichSuDatSanDAO.getDSLichSuGiamDan();
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         rvLichSu.setLayoutManager(linearLayoutManager);
         LichSuDatSanAdapter lichSuDatSanAdapter = new LichSuDatSanAdapter(getContext(), list, lichSuDatSanDAO);
         rvLichSu.setAdapter(lichSuDatSanAdapter);
     }
+
 }

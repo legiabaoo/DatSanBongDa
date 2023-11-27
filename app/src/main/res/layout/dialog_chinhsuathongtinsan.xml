@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Chỉnh Sửa "
+        android:textSize="30dp"
+        android:textColor="#D93401"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        android:textAlignment="center"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtGiaSanSang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tiền sân sáng "
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:inputType="number"
+            android:drawableLeft="@drawable/ic_money_24"
+            android:drawablePadding="10dp"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtSoLuongEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tiền sân tối"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:inputType="number"
+            android:drawableLeft="@drawable/ic_money_24"
+            android:drawablePadding="10dp"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="25dp">
+        <Button
+            android:background="@drawable/custom_button"
+            app:backgroundTint="@null"
+            android:id="@+id/btnUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="cập nhật"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textAllCaps="true"/>
+        <Button
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/custom_button"
+            app:backgroundTint="@null"
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="hủy"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textAllCaps="true"/>
+    </LinearLayout>
+</LinearLayout>

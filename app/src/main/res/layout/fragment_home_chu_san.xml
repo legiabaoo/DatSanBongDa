@@ -1,299 +1,221 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".ActivityKhachHang.MainActivity">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="190dp"
-        android:background="@drawable/custom_header"
-        android:orientation="horizontal"
-
-        >
+        android:layout_height="match_parent"
+        android:orientation="vertical">
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="1">
-            <TextView
-                android:layout_marginLeft="45dp"
-                android:layout_marginTop="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="@drawable/cus_home"
+            android:orientation="horizontal"
+
+            >
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="F4 Football"
-                android:textColor="@color/white"
-                android:textSize="28dp"
-                android:textStyle="bold"
-                android:fontFamily="@font/rosario"/>
-            <TextView
-                android:layout_marginLeft="45dp"
-                android:layout_marginTop="5dp"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="F4 Football"
+                    android:textColor="@color/white"
+                    android:textSize="28dp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/rosario"/>
+                <TextView
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Xin Chào!"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/rosario"/>
+
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Xin Chào!"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+
+                    android:layout_weight="1">
+                    <ImageView
+                        android:id="@+id/imgHinh"
+
+                        android:layout_marginLeft="120dp"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/avata"
+                        tools:ignore="MissingConstraints"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/txtTenKH"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="116dp"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:text="Chủ Sân"
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/black"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:translationY="-20dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imgHinh"
+                        tools:ignore="MissingConstraints" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="@drawable/custom_thongbao"
+            android:translationY="-135dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="5dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+            <LinearLayout
+                android:id="@+id/thongtinsan"
+                android:padding="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="5dp"
+                android:layout_weight="1">
+                <ImageView
+
+                    android:layout_marginLeft="50dp"
+                    android:layout_width="60dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/document"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="19dp"
+                    android:text="Thông tin sân"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/rosario"
+                    android:textColor="#317773"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lienhe"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="5dp"
+                android:layout_weight="1">
+                <ImageView
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="60dp"
+                    android:layout_width="60dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/communicate"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="19dp"
+                    android:text="Liên hệ"
+                    android:textStyle="bold"
+                    android:textColor="#317773"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/rosario"
+                    />
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_margin="5dp"
+            android:translationY="-110dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24dp"
                 android:textColor="@color/black"
-                android:textSize="20dp"
                 android:textStyle="bold"
-                android:fontFamily="@font/rosario"/>
+                android:text="Các sân hiện có"/>
+            <TextView
 
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="1">
-            <TextView
-                android:textColor="@color/white"
-                android:textStyle="bold"
+                android:layout_marginLeft="100dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="30dp"
-                android:text="Chủ Sân"
-                android:translationY="50dp"
-                />
+                android:textSize="18dp"
+                android:textColor="#A9A9A9"
+                android:text="Hiển thị tất cả"/>
         </LinearLayout>
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_margin="15dp"
-        android:translationY="-50dp"
-        android:orientation="horizontal"
-        android:weightSum="3">
         <LinearLayout
-            android:background="@drawable/custom_thongbao"
+            android:translationY="-90dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_margin="5dp"
-            android:layout_weight="1">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:text="Sáng"
-                android:textStyle="bold"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center"
-                android:fontFamily="@font/rosario"
-                />
-            <TextView
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="200.000 VND / h"
-                android:textStyle="bold"
-                android:textColor="#317773"/>
-        </LinearLayout>
-        <LinearLayout
-            android:background="@drawable/custom_thongbao"
-            android:layout_margin="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="1">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:text="Tối"
-                android:textStyle="bold"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center"
-                android:fontFamily="@font/rosario"
-                />
-            <TextView
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="250.000 VND / h"
-                android:textStyle="bold"
-                android:textColor="#317773"/>
-        </LinearLayout>
-        <LinearLayout
-            android:background="@drawable/custom_thongbao"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_margin="5dp"
-            android:layout_weight="1">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:text="Hội viên"
-                android:textStyle="bold"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center"
-                android:fontFamily="@font/rosario"
-                />
-            <TextView
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Giảm 10%"
-                android:textStyle="bold"
-                android:textColor="#317773"/>
-        </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_margin="15dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:translationY="-50dp"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="24dp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:text="Các sân hiện có"/>
-        <TextView
-            android:layout_marginLeft="60dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18dp"
-            android:textColor="#A9A9A9"
-            android:textStyle="bold"
-            android:text="Hiển thị tất cả >>"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/custom_san"
-        android:orientation="horizontal"
-        android:translationY="-50dp">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
+            android:orientation="vertical"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="20dp">
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/rosarivo"
-                android:text="Sân 1"
-                android:textSize="24dp"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:text="Đang hoạt động"
-                android:textSize="17dp"
-                android:textStyle="italic"
-                android:fontFamily="@font/open_sans"
-                android:textColor="#6FE618" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:text="4.8(21 đánh giá)"
-                android:textSize="15dp"
-                android:drawableLeft="@drawable/ic_star_24"
-                android:fontFamily="@font/open_sans"
-                android:textColor="#5D4F73" />
-            <Button
-                android:layout_marginTop="25dp"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:text="Xem chi tiết"
-                android:textColor="#ffffff"
-                android:background="@drawable/custom_button"
-                app:backgroundTint="@null"
-                android:padding="12dp"
-                android:layout_gravity="center"
-                android:id="@+id/btnXemChiTiet"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-            <ImageView
-
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/custom_anh"/>
-        </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/custom_san"
-        android:orientation="horizontal"
-        android:translationY="-50dp">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/rosarivo"
-                android:text="Sân 1"
+                android:text="Sân 7 người"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/black"
                 android:textSize="24dp"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:text="Đang hoạt động"
-                android:textSize="17dp"
+                android:layout_marginStart="5dp"
                 android:textStyle="italic"
-                android:fontFamily="@font/open_sans"
-                android:textColor="#6FE618" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:text="4.8(21 đánh giá)"
-                android:textSize="15dp"
-                android:drawableLeft="@drawable/ic_star_24"
-                android:fontFamily="@font/open_sans"
-                android:textColor="#5D4F73" />
-            <Button
-                android:layout_marginTop="25dp"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:text="Xem chi tiết"
-                android:textColor="#ffffff"
-                android:background="@drawable/custom_button"
-                app:backgroundTint="@null"
-                android:padding="12dp"
-                android:layout_gravity="center"
                 />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-            <ImageView
-
+            <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/custom_anh"/>
+                android:layout_height="wrap_content"
+
+                android:id="@+id/rvSan7Home" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sân 5 người"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/black"
+                android:textSize="24dp"
+                android:layout_marginStart="5dp"
+                android:textStyle="italic"
+                />
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rvSan5Home" />
         </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

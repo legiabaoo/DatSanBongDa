@@ -17,7 +17,7 @@ public class DatChoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dat_cho);
-        TextView txtSan = findViewById(R.id.txtTenSan);
+        TextView txtSan = findViewById(R.id.txtTenSanDatCho);
         TextView txtGio = findViewById(R.id.txtGio);
         TextView txtGia = findViewById(R.id.txtGia);
         TextView txtThu = findViewById(R.id.txtThu);
@@ -55,7 +55,7 @@ public class DatChoActivity extends AppCompatActivity {
         }else if(iphutKT-iphutBD==-30){
             tienSan-=150/2;
         }
-
+//
         String thu = bundle.getString("Thu");
         String[] date = bundle.getString("NgayThangNam").split("/");
         String day = String.valueOf(date[0]);

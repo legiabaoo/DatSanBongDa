@@ -1,6 +1,7 @@
 package com.example.datsanbongda.ActivityKhachHang;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -12,7 +13,8 @@ import android.util.Log;
 
 import com.example.datsanbongda.FragmantKhachHang.CaNhanFragment;
 import com.example.datsanbongda.FragmantKhachHang.HomeFragment;
-import com.example.datsanbongda.LichSuFragment;
+
+import com.example.datsanbongda.FragmantKhachHang.LichSuFragment;
 import com.example.datsanbongda.R;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -23,8 +25,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.demo);
-        BottomAppBar btnAppbar = findViewById(R.id.bottonAppbar);
-        BottomNavigationView btnNavigation = findViewById(R.id.bottonNavigation);
+        BottomAppBar btnAppbar = findViewById(R.id.bottomAppBarKH);
+        BottomNavigationView btnNavigation = findViewById(R.id.bottomNavigationKH);
 
 
 
@@ -51,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
             return true;
         });
         btnNavigation.getMenu().findItem(R.id.Home).setChecked(true);
+        getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
+
     }
 
 

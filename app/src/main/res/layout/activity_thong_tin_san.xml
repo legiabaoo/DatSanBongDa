@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ActivityKhachHang.ThongTinSanActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@drawable/cus_home"
+        android:orientation="horizontal"
+
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_margin="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_back"
+                android:id="@+id/ImgBackthongtin"
+                />
+            <TextView
+                android:textAlignment="center"
+                android:translationY="-50dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Thông tin sân"
+                android:textColor="@color/white"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:fontFamily="@font/rosario"/>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_marginStart="5dp"
+        android:translationY="-140dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/custom_thongbao"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:weightSum="3">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cus1"
+                app:backgroundTint="@null"
+                android:text="Sân 7"
+                android:textAlignment="center"
+                android:textColor="@color/datecolor"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:id="@+id/txtDatsan7"
+                android:layout_marginLeft="175dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Đặt sân "
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:textColor="@color/colorThatBai"
+               />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/mattroi" />
+            <TextView
+                android:id="@+id/txtGiaSan7Sang"
+                android:layout_marginLeft="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="300.000 "
+                android:textSize="24dp"
+                android:textColor="@color/colorThanhCong"
+                android:layout_marginTop="20dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VND/h "
+                android:textStyle="italic"
+                android:fontFamily="@font/open_sans"
+                android:textSize="22dp"
+                android:textColor="@color/black"
+                android:layout_marginTop="20dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/snapedit_1701009551791" />
+            <TextView
+                android:id="@+id/txtGiaSan7Toi"
+                android:layout_marginLeft="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="450.000 "
+                android:textSize="24dp"
+                android:textColor="@color/colorThanhCong"
+                android:layout_marginTop="20dp"/>
+            <TextView
+                android:textStyle="italic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VND/h "
+                android:textSize="22dp"
+                android:fontFamily="@font/open_sans"
+                android:textColor="@color/black"
+                android:layout_marginTop="20dp"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_marginStart="5dp"
+        android:translationY="-140dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/custom_thongbao"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:weightSum="3">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cus1"
+                app:backgroundTint="@null"
+                android:text="Sân 5"
+                android:textAlignment="center"
+                android:textColor="@color/datecolor"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:id="@+id/txtDatSan5"
+                android:layout_marginLeft="175dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Đặt sân "
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:textColor="@color/colorThatBai"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/mattroi" />
+            <TextView
+                android:id="@+id/txtGiaSan5Sang"
+                android:layout_marginLeft="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="200.000 "
+                android:textSize="24dp"
+                android:textColor="@color/colorThanhCong"
+                android:layout_marginTop="20dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VND/h "
+                android:textStyle="italic"
+                android:fontFamily="@font/open_sans"
+                android:textSize="22dp"
+                android:textColor="@color/black"
+                android:layout_marginTop="20dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/snapedit_1701009551791" />
+            <TextView
+                android:id="@+id/txtGiaSan5Toi"
+                android:layout_marginLeft="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="250.000 "
+                android:textSize="24dp"
+                android:textColor="@color/colorThanhCong"
+                android:layout_marginTop="20dp"/>
+            <TextView
+                android:textStyle="italic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VND/h "
+                android:textSize="22dp"
+                android:fontFamily="@font/open_sans"
+                android:textColor="@color/black"
+                android:layout_marginTop="20dp"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</LinearLayout>
