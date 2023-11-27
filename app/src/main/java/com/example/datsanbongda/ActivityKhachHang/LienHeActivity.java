@@ -3,6 +3,9 @@ package com.example.datsanbongda.ActivityKhachHang;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -11,8 +14,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.example.datsanbongda.R;
+import com.example.datsanbongda.database.DbHelper;
 
 public class LienHeActivity extends AppCompatActivity {
+    private DbHelper dbHelper;
+    private String linkFace;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +30,13 @@ public class LienHeActivity extends AppCompatActivity {
         LinearLayout LN_fb = findViewById(R.id.LN_fb);
         LinearLayout LN_dt = findViewById(R.id.LN_dt);
         LinearLayout LN_map = findViewById(R.id.LN_map);
+        dbHelper = new DbHelper(LienHeActivity.this);
+        SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT CHUSAN.facebook FROM CHUSAN", null);
+        if(cursor.getCount()>0){
+            cursor.moveToFirst();
+            linkFace = cursor.getString(0);
+        }
 
         btnXacNhan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,11 +78,11 @@ public class LienHeActivity extends AppCompatActivity {
             getPackageManager().getPackageInfo("com.facebook.katana", 0);
 
             // Nếu có, mở ứng dụng Facebook
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("fb://page/100016696309020"));
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(linkFace));
             startActivity(intent);
         } catch (Exception e) {
             // Nếu không có ứng dụng Facebook, mở trang web
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/profile.php?id=100016696309020"));
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(linkFace));
             startActivity(intent);
         }
     }

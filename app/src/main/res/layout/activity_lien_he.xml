@@ -48,7 +48,7 @@
                 android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Trương Quốc Trung"
+                android:text="Phùng Thái Dương"
                 android:gravity="center"
                 android:textSize="20dp" />
         </LinearLayout>
