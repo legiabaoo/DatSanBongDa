@@ -44,7 +44,7 @@ public class DatSanActivity extends AppCompatActivity {
     private Calendar currentDate;
     private LichSuDatSanDAO lichSuDatSanDAO;
     private DbHelper dbHelper;
-    private int maSan;
+    private int maSan, maLoaiSan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,9 +125,10 @@ public class DatSanActivity extends AppCompatActivity {
                     String ngayDat = sdf1.format(selectedDate);
 
                     SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();
-                    Cursor cursor = sqLiteDatabase.rawQuery("SELECT maSan FROM SAN WHERE tenSan = ?", new String[]{tenSan});
+                    Cursor cursor = sqLiteDatabase.rawQuery("SELECT maSan, maLoaiSan FROM SAN WHERE tenSan = ?", new String[]{tenSan});
                     if (cursor.moveToFirst()) {
                         maSan = cursor.getInt(0);
+                        maLoaiSan = cursor.getInt(1);
                     }
                     int maChuSan = 1;
                     int maKhachHang = 1;

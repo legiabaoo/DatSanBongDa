@@ -203,7 +203,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="200.000 "
+                android:text="150.000 "
                 android:textSize="24dp"
                 android:textColor="@color/colorThanhCong"
                 android:layout_marginTop="20dp"/>
@@ -229,13 +229,14 @@
 <!--                android:src="@drawable/imageTroitoi" />-->
             <TextView
                 android:id="@+id/txtGiaSan5Toi"
-                android:layout_marginLeft="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="250.000 "
-                android:textSize="24dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:text="300.000 "
                 android:textColor="@color/colorThanhCong"
-                android:layout_marginTop="20dp"/>
+                android:textSize="24dp" />
+
             <TextView
                 android:textStyle="italic"
                 android:layout_width="wrap_content"

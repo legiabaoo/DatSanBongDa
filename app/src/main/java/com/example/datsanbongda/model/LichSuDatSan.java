@@ -27,6 +27,7 @@ public class LichSuDatSan {
         this.ngayDat = ngayDat;
     }
 
+
     public String getNgayDat() {
         return ngayDat;
     }

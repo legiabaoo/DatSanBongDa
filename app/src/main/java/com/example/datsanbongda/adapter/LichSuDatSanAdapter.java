@@ -3,6 +3,8 @@ package com.example.datsanbongda.adapter;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.datsanbongda.ActivityKhachHang.DatChoActivity;
 import com.example.datsanbongda.DAO.LichSuDatSanDAO;
 import com.example.datsanbongda.R;
+import com.example.datsanbongda.database.DbHelper;
 import com.example.datsanbongda.model.LichSuDatSan;
 
 import java.text.SimpleDateFormat;
@@ -30,6 +33,8 @@ public class LichSuDatSanAdapter extends RecyclerView.Adapter<LichSuDatSanAdapte
     private Context context;
     private ArrayList<LichSuDatSan> list;
     private LichSuDatSanDAO lichSuDatSanDAO;
+    private int giaSanSang, giaSanToi, maLoaiSan;
+    private DbHelper dbHelper;
 
     public LichSuDatSanAdapter(Context context, ArrayList<LichSuDatSan> list, LichSuDatSanDAO lichSuDatSanDAO) {
         this.context = context;
@@ -40,6 +45,7 @@ public class LichSuDatSanAdapter extends RecyclerView.Adapter<LichSuDatSanAdapte
     @NonNull
     @Override
     public LichSuDatSanAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        dbHelper = new DbHelper(context);
         LayoutInflater inflater = ((Activity) context).getLayoutInflater();
         View view = inflater.inflate(R.layout.item_lichsudatsan, parent, false);
         return new ViewHolder(view);
@@ -47,6 +53,18 @@ public class LichSuDatSanAdapter extends RecyclerView.Adapter<LichSuDatSanAdapte
 
     @Override
     public void onBindViewHolder(@NonNull LichSuDatSanAdapter.ViewHolder holder, int position) {
+        String maSan = String.valueOf(list.get(holder.getAdapterPosition()).getMaSan());
+        SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();
+        Cursor cursorSAN = sqLiteDatabase.rawQuery("SELECT maLoaiSan FROM SAN WHERE maSan=?", new String[]{maSan});
+        if(cursorSAN.moveToFirst()){
+            maLoaiSan = cursorSAN.getInt(0);
+        }
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT tienSanSang, tienSanToi FROM LOAISAN WHERE maLoaiSan=?", new String[]{String.valueOf(maLoaiSan)});
+        if (cursor.moveToFirst()){
+            giaSanSang = cursor.getInt(0);
+            giaSanToi = cursor.getInt(1);
+        }
+
         holder.txtThoiGian.setText(list.get(holder.getAdapterPosition()).getThoiGianBatDau()+"" +
                 " - "+list.get(holder.getAdapterPosition()).getThoiGianKetThuc()+" - "+
                 list.get(holder.getAdapterPosition()).getNgay());
@@ -70,15 +88,15 @@ public class LichSuDatSanAdapter extends RecyclerView.Adapter<LichSuDatSanAdapte
         int igioKT = Integer.parseInt(gioKT[0]);
         int iphutKT = Integer.parseInt(gioKT[1]);
 
-        int tienSan = (igioKT-igioBD)*150000;
+        int tienSan = (igioKT-igioBD)*giaSanSang;
         if(tienSan>1000){
             tienSan = tienSan/1000;
         }
 
         if(iphutKT-iphutBD==30){
-            tienSan+=150/2;
+            tienSan+=giaSanSang/1000/2;
         }else if(iphutKT-iphutBD==-30){
-            tienSan-=150/2;
+            tienSan-=giaSanSang/1000/2;
         }
         holder.txtGia.setText(tienSan+".000");
         holder.txtNgay.setText(String.valueOf(list.get(holder.getAdapterPosition()).getNgayDat()));
