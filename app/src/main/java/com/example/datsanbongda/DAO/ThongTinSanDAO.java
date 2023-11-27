@@ -1,6 +1,7 @@
 package com.example.datsanbongda.DAO;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.datsanbongda.database.DbHelper;
@@ -9,8 +10,8 @@ import com.example.datsanbongda.model.LoaiSan;
 public class ThongTinSanDAO {
     private final DbHelper dbHelper;
 
-    public ThongTinSanDAO(DbHelper dbHelper) {
-        this.dbHelper = dbHelper;
+    public ThongTinSanDAO(Context context) {
+dbHelper=new DbHelper(context);
     }
     public boolean updata(LoaiSan loaiSan){
         SQLiteDatabase database = dbHelper.getWritableDatabase();
