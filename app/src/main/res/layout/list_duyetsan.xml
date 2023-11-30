@@ -21,7 +21,7 @@
             android:src="@drawable/s1" />
 
         <TextView
-            android:id="@+id/txttenSanLichSu"
+            android:id="@+id/txtTenSanDuyetSan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -32,20 +32,20 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/txtgiaSan"
+            android:id="@+id/txtGiaSanDuyetSan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/txttenSanLichSu"
+            android:layout_below="@+id/txtTenSanDuyetSan"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_toEndOf="@+id/image"
             android:hint="Gia san " />
 
         <TextView
-            android:id="@+id/txtThoigian"
+            android:id="@+id/txtThoiGianDuyetSan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/txtgiaSan"
+            android:layout_below="@+id/txtGiaSanDuyetSan"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_toEndOf="@+id/image"
@@ -53,31 +53,29 @@
             android:textColor="@color/design_default_color_primary" />
 
         <TextView
-            android:id="@+id/txtNgayDatLichSu"
+            android:id="@+id/txtDongY"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/icChiTietVe"
+            android:layout_above="@+id/txtTuChoi"
             android:layout_alignParentEnd="true"
             android:layout_marginLeft="10dp"
+            android:layout_marginRight="8dp"
             android:text="Đồng ý"
             android:drawableLeft="@drawable/ic_check_24"
             android:textStyle="italic" />
 
         <TextView
-
-            android:id="@+id/icChiTietVe"
+            android:id="@+id/txtTuChoi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/txtTrangThai"
+            android:layout_above="@+id/txtNgayDatDuyetSan"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="15dp"
-
-
             android:drawableLeft="@drawable/ic_clear_24"
             android:text="Từ chối " />
 
         <TextView
-            android:id="@+id/txtTrangThai"
+            android:id="@+id/txtNgayDatDuyetSan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"

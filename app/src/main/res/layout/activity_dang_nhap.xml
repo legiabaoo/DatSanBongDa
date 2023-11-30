@@ -24,7 +24,7 @@
         android:textStyle="bold" />
 
     <EditText
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:id="@+id/edtSdtDangNhap"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="25dp"
         android:hint="Mật Khẩu" />
 
     <Button

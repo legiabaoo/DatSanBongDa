@@ -23,9 +23,11 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.example.datsanbongda.DAO.LichSuDatSanDAO;
 
+import com.example.datsanbongda.DAO.LichSuDuyetSanDAO;
 import com.example.datsanbongda.R;
 import com.example.datsanbongda.database.DbHelper;
 import com.example.datsanbongda.model.LichSuDatSan;
+import com.example.datsanbongda.model.LichSuDuyetSan;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.text.SimpleDateFormat;
@@ -43,6 +45,7 @@ public class DatSanActivity extends AppCompatActivity {
     private Calendar calendarTime;
     private Calendar currentDate;
     private LichSuDatSanDAO lichSuDatSanDAO;
+    private LichSuDuyetSanDAO lichSuDuyetSanDAO;
     private DbHelper dbHelper;
     private int maSan, maLoaiSan;
 
@@ -64,6 +67,7 @@ public class DatSanActivity extends AppCompatActivity {
         ImageView iv_GioDB = findViewById(R.id.iv_GioBD);
         ImageView iv_GioKT = findViewById(R.id.iv_GioKT);
         lichSuDatSanDAO = new LichSuDatSanDAO(DatSanActivity.this);
+        lichSuDuyetSanDAO = new LichSuDuyetSanDAO(DatSanActivity.this);
         dbHelper = new DbHelper(DatSanActivity.this);
         //an thanh status
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -87,21 +91,33 @@ public class DatSanActivity extends AppCompatActivity {
                 Calendar calendar = Calendar.getInstance();
                 int gioHT = calendar.get(Calendar.HOUR_OF_DAY);
                 int phutHT = calendar.get(Calendar.MINUTE);
+
+                int year1 = currentDate.get(Calendar.YEAR);
+                int month1 = currentDate.get(Calendar.MONTH);
+                int day1 = currentDate.get(Calendar.DAY_OF_MONTH)-1;
+                int day2 = day1+1;
+                currentDate.set(year1, month1, day1);
+
                 if(tIETLoaiSan.getText().toString().equals("Chọn loai sân") || tIETSan.getText().toString().equals("Chọn sân") ||
                 tIETNgay.getText().toString().equals("Chọn ngày") || tIETGioDB.getText().toString().equals("Chọn giờ bắt đầu") ||
                         tIETGioKT.getText().toString().equals("Chọn giờ kết thúc")) {
                     thongbao = "Vui lòng chọn đầy đủ thông tin";
                     tIETThongBao.setText(thongbao);
                 } else if (calendarTime.before(currentDate)) {
-                    thongbao+="Vui lòng chọn ngày sau "+calendarTime.get(Calendar.DAY_OF_MONTH)+" tháng "+calendarTime.get(Calendar.MONTH)+" năm "+calendarTime.get(Calendar.YEAR);
+                    int month = currentDate.get(Calendar.MONTH)+1;
+                    int day = currentDate.get(Calendar.DAY_OF_MONTH)+1;
+                    thongbao+="Vui lòng chọn ngày từ "+day+" tháng "+month+" năm "+currentDate.get(Calendar.YEAR);
                     tIETThongBao.setText(thongbao);
-                } else if (Integer.parseInt(gioBD[0])-gioHT<0 ) {
-                    thongbao+="Vui lòng chọn sau "+gioHT+" giờ "+phutHT+" phút";
-                    tIETThongBao.setText(thongbao);
-                }else if (Integer.parseInt(gioBD[0])-gioHT==0 ) {
-                    if(Integer.parseInt(gioBD[1])-phutHT<0){
-                    thongbao+="Vui lòng chọn sau "+gioHT+" giờ "+phutHT+" phút";
-                    tIETThongBao.setText(thongbao);}
+                }else if(day2==calendarTime.get(Calendar.DAY_OF_MONTH)&&
+                        month1==calendarTime.get(Calendar.MONTH)&&year1==calendarTime.get(Calendar.YEAR)){
+                    if (Integer.parseInt(gioBD[0])-gioHT<0 ) {
+                        thongbao+="Vui lòng chọn sau "+gioHT+" giờ "+phutHT+" phút";
+                        tIETThongBao.setText(thongbao);
+                    }else if (Integer.parseInt(gioBD[0])-gioHT==0 ) {
+                        if(Integer.parseInt(gioBD[1])-phutHT<0){
+                            thongbao+="Vui lòng chọn sau "+gioHT+" giờ "+phutHT+" phút";
+                            tIETThongBao.setText(thongbao);}
+                    }
                 } else if (Integer.parseInt(gioKT[0])-Integer.parseInt(gioBD[0])==1 && Integer.parseInt(gioKT[1])-Integer.parseInt(gioBD[1])<0 ) {
                     thongbao+="Vui lòng chọn thời gian đá hơn 1 tiếng";
                     tIETThongBao.setText(thongbao);
@@ -133,8 +149,10 @@ public class DatSanActivity extends AppCompatActivity {
                     int maChuSan = 1;
                     int maKhachHang = 1;
                     LichSuDatSan lichSuDatSan = new LichSuDatSan(thoiGianBatDau, thoiGianKetThuc, ngay, ngayDat, trangThai, maSan, maChuSan, maKhachHang);
-                    boolean check = lichSuDatSanDAO.themLichSu(lichSuDatSan);
-                    if(check){
+                    boolean checkLS = lichSuDatSanDAO.themLichSu(lichSuDatSan);
+                    LichSuDuyetSan lichSuDuyetSan = new LichSuDuyetSan(thoiGianBatDau, thoiGianKetThuc, ngay, ngayDat, trangThai, maSan, maChuSan, maKhachHang);
+                    boolean checkDS = lichSuDuyetSanDAO.themDuyetSan(lichSuDuyetSan);
+                    if(checkLS && checkDS){
                         Toast.makeText(DatSanActivity.this, "Đặt sân thành công", Toast.LENGTH_SHORT).show();
                     }else {
                         Toast.makeText(DatSanActivity.this, "Đặt sân thất bại", Toast.LENGTH_SHORT).show();

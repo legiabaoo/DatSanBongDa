@@ -1,9 +1,9 @@
 package com.example.datsanbongda.model;
 
-public class LichSuDatSan {
+public class LichSuDuyetSan {
     int maVe, trangThai, maSan, maKhachHang, maChuSan;
     String ngay, thoiGianBatDau, thoiGianKetThuc, tenSan, tenKhachHang, ngayDat;
-    public LichSuDatSan(String thoiGianBatDau, String thoiGianKetThuc, String ngay, String ngayDat, int trangThai, int maSan, int maKhachHang, int maChuSan) {
+    public LichSuDuyetSan(String thoiGianBatDau, String thoiGianKetThuc, String ngay, String ngayDat, int trangThai, int maSan, int maKhachHang, int maChuSan) {
         this.maVe = maVe;
         this.trangThai = trangThai;
         this.maSan = maSan;
@@ -14,7 +14,7 @@ public class LichSuDatSan {
         this.thoiGianKetThuc = thoiGianKetThuc;
         this.ngayDat = ngayDat;
     }
-    public LichSuDatSan(int maVe, String thoiGianBatDau, String thoiGianKetThuc, String ngay, String ngayDat, int trangThai, int maSan, int maKhachHang, int maChuSan, String tenSan, String tenKhachHang) {
+    public LichSuDuyetSan(int maVe, String thoiGianBatDau, String thoiGianKetThuc, String ngay, String ngayDat, int trangThai, int maSan, int maKhachHang, int maChuSan, String tenSan, String tenKhachHang) {
         this.maVe = maVe;
         this.trangThai = trangThai;
         this.maSan = maSan;
@@ -28,7 +28,7 @@ public class LichSuDatSan {
         this.ngayDat = ngayDat;
     }
 
-    public LichSuDatSan(int maVe, int trangThai) {
+    public LichSuDuyetSan(int maVe, int trangThai) {
         this.maVe = maVe;
         this.trangThai = trangThai;
     }

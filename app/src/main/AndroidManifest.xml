@@ -19,7 +19,7 @@
             android:name=".ActivityKhachHang.ThongTinSanActivity"
             android:exported="false" />
         <activity
-            android:name=".DangNhapActivity"
+            android:name=".ActivityChuSan.MainChuSanActivity"
             android:exported="false" />
         <activity
             android:name=".ActivityChuSan.DoanhThuActivity"
@@ -40,13 +40,13 @@
             android:name=".ActivityKhachHang.ChiTietSanActivity"
             android:exported="false" />
         <activity
-            android:name=".ActivityChuSan.MainChuSanActivity"
+            android:name=".ActivityKhachHang.MainActivity"
             android:exported="false" />
         <activity
             android:name=".ActivityKhachHang.DatChoActivity"
             android:exported="false" />
         <activity
-            android:name=".ActivityKhachHang.MainActivity"
+            android:name=".DangNhapActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
