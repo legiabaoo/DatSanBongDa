@@ -9,6 +9,7 @@
     >
 
     <ImageView
+        android:layout_marginTop="30dp"
         android:layout_width="370dp"
         android:layout_height="180dp"
         android:src="@drawable/dangnhap" />
@@ -52,18 +53,6 @@
         android:textColor="@color/white"
         app:backgroundTint="@null" />
 
-    <Button
-        android:id="@+id/btnKhach"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/cus1"
-        android:backgroundTint="#317773"
-        android:text="Khách"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        app:backgroundTint="@null" />
 
     <Button
         android:layout_width="300dp"
