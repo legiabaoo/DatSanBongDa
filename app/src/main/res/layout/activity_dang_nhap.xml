@@ -11,7 +11,7 @@
     <ImageView
         android:layout_width="370dp"
         android:layout_height="180dp"
-        android:src="@drawable/dangnhap" />
+        android:src="@drawable/dangnhap1" />
 
     <TextView
         android:layout_marginTop="15dp"
