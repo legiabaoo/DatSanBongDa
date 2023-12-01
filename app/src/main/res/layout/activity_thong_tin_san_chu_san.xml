@@ -67,16 +67,7 @@
                 android:textSize="24dp"
                 android:textStyle="bold"
                 />
-            <TextView
-                android:id="@+id/txtDatsan7"
-                android:layout_marginLeft="175dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Đặt sân "
-                android:textStyle="bold"
-                android:textSize="20dp"
-                android:textColor="@color/colorThatBai"
-                />
+
         </LinearLayout>
 
         <LinearLayout
@@ -99,11 +90,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="VND/h "
+                android:text="/h "
                 android:textStyle="italic"
                 android:fontFamily="@font/open_sans"
                 android:textSize="22dp"
-                android:textColor="@color/black"
+                android:textColor="@color/colorThanhCong"
                 android:layout_marginTop="20dp"/>
 
 
@@ -130,10 +121,10 @@
                 android:textStyle="italic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="VND/h "
+                android:text="/h "
                 android:textSize="22dp"
                 android:fontFamily="@font/open_sans"
-                android:textColor="@color/black"
+                android:textColor="@color/colorThanhCong"
                 android:layout_marginTop="20dp"/>
 
         </LinearLayout>
@@ -178,16 +169,7 @@
                 android:textSize="24dp"
                 android:textStyle="bold"
                 />
-            <TextView
-                android:id="@+id/txtDatSan5"
-                android:layout_marginLeft="175dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Đặt sân "
-                android:textStyle="bold"
-                android:textSize="20dp"
-                android:textColor="@color/colorThatBai"
-                />
+
         </LinearLayout>
 
         <LinearLayout
@@ -210,11 +192,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="VND/h "
+                android:text="/h "
                 android:textStyle="italic"
                 android:fontFamily="@font/open_sans"
                 android:textSize="22dp"
-                android:textColor="@color/black"
+                android:textColor="@color/colorThanhCong"
                 android:layout_marginTop="20dp"/>
 
         </LinearLayout>
@@ -241,10 +223,10 @@
                 android:textStyle="italic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="VND/h "
+                android:text="/h "
                 android:textSize="22dp"
                 android:fontFamily="@font/open_sans"
-                android:textColor="@color/black"
+                android:textColor="@color/colorThanhCong"
                 android:layout_marginTop="20dp"/>
 
         </LinearLayout>

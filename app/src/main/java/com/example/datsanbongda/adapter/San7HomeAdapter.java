@@ -68,6 +68,7 @@ public class San7HomeAdapter extends RecyclerView.Adapter<San7HomeAdapter.ViewHo
                 } else if (list.get(position).getTrangThai()==1) {
                     bundle.putString("trangthai", "Ngừng hoạt động");
                 }
+                bundle.putString("masan","1");
                 intent.putExtras(bundle);
                 context.startActivity(intent);
             }
