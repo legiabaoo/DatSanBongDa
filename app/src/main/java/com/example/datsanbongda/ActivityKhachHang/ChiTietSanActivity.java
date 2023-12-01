@@ -2,6 +2,8 @@ package com.example.datsanbongda.ActivityKhachHang;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -18,16 +20,27 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.datsanbongda.ActivityChuSan.ThongTinSanChuSanActivity;
 import com.example.datsanbongda.DAO.DanhGiaDAO;
+import com.example.datsanbongda.DAO.ThongTinSanDAO;
 import com.example.datsanbongda.R;
 import com.example.datsanbongda.adapter.DanhGiaAdapter;
+import com.example.datsanbongda.database.DbHelper;
 import com.example.datsanbongda.model.DanhGia;
+
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class ChiTietSanActivity extends AppCompatActivity {
     private ArrayList<DanhGia> list;
     private DanhGiaDAO danhGiaDAO;
     private RecyclerView rclViewChiTietSan;
+    private DbHelper dbHelper;
+    private String loaiSann;
+    private int tienSanSang;
+    private int tienSanToi;
+    TextView txtgiaSang;    TextView txtgiaToi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +52,8 @@ public class ChiTietSanActivity extends AppCompatActivity {
         TextView txtTenSan = findViewById(R.id.txtTenSanCTS);
         TextView txtLoaiSan = findViewById(R.id.txtLoaiSanCTS);
         TextView txtTrangThai = findViewById(R.id.txtTrangThaiCTS);
+        txtgiaSang = findViewById(R.id.txtGiaChiTietSang);
+        txtgiaToi = findViewById(R.id.txtGiaChiTietToi);
 
         setSupportActionBar(tbChiTietSan);
         getSupportActionBar().setTitle("");
@@ -51,8 +66,16 @@ public class ChiTietSanActivity extends AppCompatActivity {
         //adapter
         loadData();
 
+
+
+
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
+
+        String san7 =bundle.getString("masan");
+        setGiaSan7(san7);
+
+
         txtLoaiSan.setText(bundle.getString("loaisan"));
         txtTenSan.setText(bundle.getString("tensan"));
         if(bundle.getString("trangthai").equals("Đang hoạt động")){
@@ -105,5 +128,32 @@ public class ChiTietSanActivity extends AppCompatActivity {
         rclViewChiTietSan.setLayoutManager(linearLayoutManager);
         DanhGiaAdapter danhGiaAdapter = new DanhGiaAdapter(this, list, danhGiaDAO);
         rclViewChiTietSan.setAdapter(danhGiaAdapter);
+    }
+    public void setGiaSan7(String masan){
+        dbHelper = new DbHelper(this);
+        list = new ArrayList<>();
+        // sân 7
+        SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM LOAISAN WHERE maLoaiSan=?", new String[]{masan});
+        if (cursor.getCount() > 0) {
+            cursor.moveToFirst();
+            loaiSann = cursor.getString(1);
+            tienSanSang = cursor.getInt(2);
+            tienSanToi = cursor.getInt(3);
+        }
+        int tienSanSang1 = tienSanSang;
+        String tienSanSang2 = dinhdangtien(tienSanSang1);
+        int tienSanToi1 = tienSanToi;
+        String tienSanToi2 = dinhdangtien(tienSanToi1);
+        txtgiaSang.setText(String.valueOf(tienSanSang2));
+        txtgiaToi.setText(String.valueOf(tienSanToi2));
+
+    }
+    private String dinhdangtien(int amount) {
+        // Tạo một đối tượng NumberFormat với Locale.getDefault() để định dạng theo ngôn ngữ và quốc gia của thiết bị
+        NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(Locale.getDefault());
+
+        // Chuyển đổi int thành định dạng tiền tệ và trả về kết quả
+        return currencyFormatter.format(amount);
     }
 }

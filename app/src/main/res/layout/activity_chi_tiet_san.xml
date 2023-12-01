@@ -78,33 +78,16 @@
                     tools:ignore="MissingConstraints"
                     android:orientation="vertical"
                     app:layout_constraintEnd_toEndOf="parent">
-                    <TextView
-                        android:id="@+id/txtGia"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="150.000 vnđ"
-                        android:textColor="@color/bluelight"
-                        android:textStyle="bold"
-                        android:textSize="24dp"
-                        android:layout_marginEnd="20dp"
-                        android:layout_marginTop="10dp" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="20dp"
-                        android:text="1 giờ"
-                        android:textSize="15dp"
-                        android:textColor="@color/gray"
-                        android:layout_gravity="end"
-                        />
+
                     <Button
-                        android:layout_width="match_parent"
+
+                        android:layout_width="140dp"
                         android:layout_height="wrap_content"
                         android:text="Đặt Sân"
                         android:id="@+id/btnDatSan"
                         android:layout_marginEnd="20dp"
                         android:backgroundTint="#3A5B22"
-                        android:layout_marginTop="10dp"/>
+                        android:layout_marginTop="60dp"/>
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -113,16 +96,83 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="#519A9A9A"
-                android:layout_margin="20dp"/>
-            <TextView
+                android:layout_margin="10dp"/>
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:text="Sân 5"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:textSize="20dp"
-                android:textColor="@color/black"
-                android:id="@+id/txtLoaiSanCTS"/>
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_marginTop="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sân 5"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"
+                    android:id="@+id/txtLoaiSanCTS"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16dp"
+                        android:text="Sáng: 6h -> 18h"/>
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16dp"
+                        android:text="Tối:    18h -> 6h"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/txtGiaChiTietSang"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="150.000 vnđ"
+                        android:textColor="@color/bluelight"
+                        android:textStyle="bold"
+                        android:textSize="18dp"
+                        android:drawableLeft="@drawable/ic_sunny_24"
+
+                       />
+                    <TextView
+                        android:id="@+id/txtGiaChiTietToi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:drawableLeft="@drawable/ic_nights_stay_24"
+                        android:text="300.000 vnđ"
+                        android:textSize="18dp"
+                        android:textColor="@color/bluelight"
+
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16dp"
+                        android:text="/h"/>
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16dp"
+                        android:text="/h"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
 
             <androidx.viewpager.widget.ViewPager
                 android:layout_width="match_parent"

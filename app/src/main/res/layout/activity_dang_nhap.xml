@@ -9,9 +9,10 @@
     >
 
     <ImageView
+        android:layout_marginTop="30dp"
         android:layout_width="370dp"
         android:layout_height="180dp"
-        android:src="@drawable/dangnhap" />
+        android:src="@drawable/dangnhap1" />
 
     <TextView
         android:layout_marginTop="15dp"
@@ -24,7 +25,7 @@
         android:textStyle="bold" />
 
     <EditText
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:id="@+id/edtSdtDangNhap"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="25dp"
         android:hint="Mật Khẩu" />
 
     <Button
@@ -52,18 +53,6 @@
         android:textColor="@color/white"
         app:backgroundTint="@null" />
 
-    <Button
-        android:id="@+id/btnKhach"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/cus1"
-        android:backgroundTint="#317773"
-        android:text="Khách"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        app:backgroundTint="@null" />
 
     <Button
         android:layout_width="300dp"

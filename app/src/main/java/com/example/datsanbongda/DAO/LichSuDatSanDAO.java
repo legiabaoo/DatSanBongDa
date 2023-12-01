@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.example.datsanbongda.database.DbHelper;
 import com.example.datsanbongda.model.LichSuDatSan;
+import com.example.datsanbongda.model.LichSuDuyetSan;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -32,7 +33,7 @@ public class LichSuDatSanDAO {
         if (cursor.getCount() > 0) {
             cursor.moveToFirst();
             do {
-                list.add(new LichSuDatSan(
+                list.add(new LichSuDatSan(cursor.getInt(0),
                         cursor.getString(1),
                         cursor.getString(2),
                         cursor.getString(3),
@@ -75,5 +76,12 @@ public class LichSuDatSanDAO {
         contentValues.put("ngayDat", lichSuDatSan.getNgayDat());
         long check = sqLiteDatabase.insert("DATCHO", null, contentValues);
         return check!=-1;
+    }
+    public boolean ThayDoiTrangThai(LichSuDatSan lichSuDatSan){
+        SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("trangThaiDatCho", lichSuDatSan.getTrangThai());
+        int check = sqLiteDatabase.update("DATCHO", contentValues, "maVe=?", new String[]{String.valueOf(lichSuDatSan.getMaVe())});
+        return check!=0;
     }
 }
