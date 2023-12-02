@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.datsanbongda.ActivityChuSan.DoanhThuActivity;
 import com.example.datsanbongda.ActivityKhachHang.LienHeActivity;
 import com.example.datsanbongda.DangNhapActivity;
 import com.example.datsanbongda.R;
@@ -29,6 +30,8 @@ public class CaNhanFragment extends Fragment {
         TextView txtTenKh = view.findViewById(R.id.txtTenKHCaNhan);
         TextView txtSdt = view.findViewById(R.id.txtSdtKH);
         Button btnDangXuatKhachHang = view.findViewById(R.id.btnDangXuatKhachHang);
+
+
 
         SharedPreferences sharedPreferences = getContext().getSharedPreferences("Data", Context.MODE_PRIVATE);
         String tenkh = sharedPreferences.getString("tenkh", "");
