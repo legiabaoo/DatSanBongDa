@@ -32,8 +32,7 @@ public class ThongTinSanChuSanActivity extends AppCompatActivity {
     private ArrayList<LoaiSan> list;
     private ThongTinSanDAO thongTinSanDAO;
     private String loaiSann;
-    private int tienSanSang;
-    private int tienSanToi;
+    private int tienSan7Sang, tienSan7Toi, tienSan5Sang, tienSan5Toi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,13 +56,13 @@ public class ThongTinSanChuSanActivity extends AppCompatActivity {
         if (cursor.getCount() > 0) {
             cursor.moveToFirst();
             loaiSann = cursor.getString(1);
-            tienSanSang = cursor.getInt(2);
-            tienSanToi = cursor.getInt(3);
+            tienSan7Sang = cursor.getInt(2);
+            tienSan7Toi = cursor.getInt(3);
         }
-        int tienSanSang1 = tienSanSang;
+        int tienSanSang1 = tienSan7Sang;
         String tienSanSang2 = dinhdangtien(tienSanSang1);
 
-        int tienSanToi1 = tienSanToi;
+        int tienSanToi1 = tienSan7Toi;
         String tienSanToi2 = dinhdangtien(tienSanToi1);
         txtGiaSangSan7.setText(String.valueOf(tienSanSang2));
         txtGiaToiSan7.setText(String.valueOf(tienSanToi2));
@@ -80,8 +79,8 @@ public class ThongTinSanChuSanActivity extends AppCompatActivity {
                 TextInputEditText edtGiaSanToi = view.findViewById(R.id.edtGiaSanToi);
                 Button btnUpdate = view.findViewById(R.id.btnUpdate);
                 Button btnCancel = view.findViewById(R.id.btnCancel);
-                edtGiaSanSang.setText(String.valueOf(tienSanSang));
-                edtGiaSanToi.setText(String.valueOf(tienSanToi));
+                edtGiaSanSang.setText(String.valueOf(tienSan7Sang));
+                edtGiaSanToi.setText(String.valueOf(tienSan7Toi));
                 btnUpdate.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -96,13 +95,13 @@ public class ThongTinSanChuSanActivity extends AppCompatActivity {
                             if (cursor.getCount() > 0) {
                                 cursor.moveToFirst();
                                 loaiSann = cursor.getString(1);
-                                tienSanSang = cursor.getInt(2);
-                                tienSanToi = cursor.getInt(3);
+                                tienSan7Sang = cursor.getInt(2);
+                                tienSan7Toi = cursor.getInt(3);
 
-                              tienSanSang1 = tienSanSang;
+                                tienSanSang1 = tienSan7Sang;
                                 String tienSanSang2 = dinhdangtien(tienSanSang1);
 
-                           tienSanToi1 = tienSanToi;
+                                tienSanToi1 = tienSan7Toi;
                                 String tienSanToi2 = dinhdangtien(tienSanToi1);
                                 txtGiaSangSan7.setText(String.valueOf(tienSanSang2));
                                 txtGiaToiSan7.setText(String.valueOf(tienSanToi2));
@@ -129,12 +128,12 @@ public class ThongTinSanChuSanActivity extends AppCompatActivity {
         if (cursor.getCount() > 0) {
             cursor.moveToFirst();
             loaiSann = cursor.getString(1);
-            tienSanSang = cursor.getInt(2);
-            tienSanToi = cursor.getInt(3);
+            tienSan5Sang = cursor.getInt(2);
+            tienSan5Toi = cursor.getInt(3);
         }
-        int tiensansang = tienSanSang;
+        int tiensansang = tienSan5Sang;
         String tiensansang1 = dinhdangtien(tiensansang);
-        int tiensantoi = tienSanToi;
+        int tiensantoi = tienSan5Toi;
         String tiensantoi1 = dinhdangtien(tiensantoi);
         txtGiaSangSan5.setText(String.valueOf(tiensansang1));
 
@@ -152,8 +151,8 @@ public class ThongTinSanChuSanActivity extends AppCompatActivity {
                 TextInputEditText edtGiaSanToi = view.findViewById(R.id.edtGiaSanToi);
                 Button btnUpdate = view.findViewById(R.id.btnUpdate);
                 Button btnCancel = view.findViewById(R.id.btnCancel);
-                edtGiaSanSang.setText(String.valueOf(tienSanSang));
-                edtGiaSanToi.setText(String.valueOf(tienSanToi));
+                edtGiaSanSang.setText(String.valueOf(tienSan5Sang));
+                edtGiaSanToi.setText(String.valueOf(tienSan5Toi));
                 btnUpdate.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -168,12 +167,12 @@ public class ThongTinSanChuSanActivity extends AppCompatActivity {
                             if (cursor.getCount() > 0) {
                                 cursor.moveToFirst();
                                 loaiSann = cursor.getString(1);
-                                tienSanSang = cursor.getInt(2);
-                                tienSanToi = cursor.getInt(3);
+                                tienSan5Sang = cursor.getInt(2);
+                                tienSan5Toi = cursor.getInt(3);
 
-                                int tiensansang = tienSanSang;
+                                int tiensansang = tienSan5Sang;
                                 String tiensansang1 = dinhdangtien(tiensansang);
-                                int tiensantoi = tienSanToi;
+                                int tiensantoi = tienSan5Toi;
                                 String tiensantoi1 = dinhdangtien(tiensantoi);
                                 txtGiaSangSan5.setText(String.valueOf(tiensansang1));
 
@@ -204,6 +203,7 @@ public class ThongTinSanChuSanActivity extends AppCompatActivity {
         });
 
     }
+
     private String dinhdangtien(int amount) {
         // Tạo một đối tượng NumberFormat với Locale.getDefault() để định dạng theo ngôn ngữ và quốc gia của thiết bị
         NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(Locale.getDefault());

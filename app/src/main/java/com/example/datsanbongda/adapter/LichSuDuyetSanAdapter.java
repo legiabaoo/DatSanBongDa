@@ -15,10 +15,12 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.datsanbongda.DAO.DoanhThuDAO;
 import com.example.datsanbongda.DAO.LichSuDatSanDAO;
 import com.example.datsanbongda.DAO.LichSuDuyetSanDAO;
 import com.example.datsanbongda.R;
 import com.example.datsanbongda.database.DbHelper;
+import com.example.datsanbongda.model.DoanhThu;
 import com.example.datsanbongda.model.LichSuDatSan;
 import com.example.datsanbongda.model.LichSuDuyetSan;
 
@@ -30,6 +32,7 @@ public class LichSuDuyetSanAdapter extends RecyclerView.Adapter<LichSuDuyetSanAd
     private ArrayList<LichSuDuyetSan> list;
     private LichSuDuyetSanDAO lichSuDuyetSanDAO;
     private LichSuDatSanDAO lichSuDatSanDAO;
+    private DoanhThuDAO doanhThuDAO;
     private int giaSanSang, giaSanToi, maLoaiSan;
 
     public LichSuDuyetSanAdapter(Context context, ArrayList<LichSuDuyetSan> list, LichSuDuyetSanDAO lichSuDuyetSanDAO) {
@@ -41,6 +44,7 @@ public class LichSuDuyetSanAdapter extends RecyclerView.Adapter<LichSuDuyetSanAd
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        doanhThuDAO = new DoanhThuDAO(context);
         lichSuDatSanDAO = new LichSuDatSanDAO(context);
         dbHelper = new DbHelper(context);
         LayoutInflater inflater = ((Activity) context).getLayoutInflater();
@@ -95,6 +99,7 @@ public class LichSuDuyetSanAdapter extends RecyclerView.Adapter<LichSuDuyetSanAd
         } else if (iphutKT - iphutBD == -30) {
             tienSan -= giaSanSang / 1000 / 2;
         }
+        int finalTienSan = tienSan*1000;
         holder.txtGiaSanDuyetSan.setText(tienSan + ".000");
         holder.txtNgayDatDuyetSan.setText(String.valueOf(list.get(holder.getAdapterPosition()).getNgayDat()));
         holder.txtDongY.setOnClickListener(new View.OnClickListener() {
@@ -105,7 +110,16 @@ public class LichSuDuyetSanAdapter extends RecyclerView.Adapter<LichSuDuyetSanAd
                 boolean checkDS = lichSuDuyetSanDAO.dongY(lichSuDuyetSan);
                 LichSuDatSan lichSuDatSan = new LichSuDatSan(list.get(holder.getAdapterPosition()).getMaVe(), trangThai);
                 boolean checkLS = lichSuDatSanDAO.ThayDoiTrangThai(lichSuDatSan);
-                if (checkDS && checkLS) {
+                String thoiGianBatDau = list.get(holder.getAdapterPosition()).getThoiGianBatDau();
+                String thoiGianKetThuc = list.get(holder.getAdapterPosition()).getThoiGianKetThuc();
+                String ngay = list.get(holder.getAdapterPosition()).getNgay();
+                String ngayDat = list.get(holder.getAdapterPosition()).getNgayDat();
+                int tienSanDoanhThu = finalTienSan;
+                int maChuSan = list.get(holder.getAdapterPosition()).getMaChuSan();
+                int maKhachHang = list.get(holder.getAdapterPosition()).getMaKhachHang();
+                DoanhThu doanhThu = new DoanhThu(thoiGianBatDau, thoiGianKetThuc, ngay, ngayDat, tienSanDoanhThu, trangThai, Integer.parseInt(maSan), maChuSan, maKhachHang);
+                boolean checkDT = doanhThuDAO.themDoanhThu(doanhThu);
+                if (checkDS && checkLS && checkDT) {
                     Toast.makeText(context, "Bạn đồng ý thành công", Toast.LENGTH_SHORT).show();
                     lichSuDuyetSanDAO.getDSDuyetSan(); // Giả sử có một phương thức trong DAO để lấy danh sách mới
                     ArrayList<LichSuDuyetSan> updatedList = lichSuDuyetSanDAO.getDSDuyetSan();

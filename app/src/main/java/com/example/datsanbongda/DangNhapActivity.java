@@ -29,7 +29,7 @@ public class DangNhapActivity extends AppCompatActivity {
         EditText edtSoDt = findViewById(R.id.edtSdtDangNhap);
         EditText edtMatKhau = findViewById(R.id.edtMatkhauDangNhap);
         Button btnDangNhap = findViewById(R.id.btnDangNhap);
-        Button btnKhach = findViewById(R.id.btnKhach);
+
 
         btnDangNhap.setOnClickListener(new View.OnClickListener() {
             @Override

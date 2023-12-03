@@ -18,6 +18,7 @@ import com.example.datsanbongda.DAO.SanHomeDAO;
 import com.example.datsanbongda.R;
 import com.example.datsanbongda.adapter.San5HomeAdapter;
 import com.example.datsanbongda.adapter.San7HomeAdapter;
+import com.example.datsanbongda.adapter.San7HomeChuSanAdapter;
 import com.example.datsanbongda.model.San5Home;
 import com.example.datsanbongda.model.San7Home;
 
@@ -56,7 +57,7 @@ public class HomeChuSanFragment extends Fragment {
         LinearLayoutManager linearLayoutManagerSan7 = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         listSan7 = sanHomeDAO.getDSSan7();
         rvSan7Home.setLayoutManager(linearLayoutManagerSan7);
-        San7HomeAdapter san7HomeAdapter = new San7HomeAdapter(getContext(), sanHomeDAO, listSan7);
+        San7HomeChuSanAdapter san7HomeAdapter = new San7HomeChuSanAdapter(getContext(), sanHomeDAO, listSan7);
         rvSan7Home.setAdapter(san7HomeAdapter);
         //getList san 5
         LinearLayoutManager linearLayoutManagerSan5 = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);

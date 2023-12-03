@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:layout_margin="5dp"
+    android:background="@drawable/cus"
+    app:cardCornerRadius="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/s1" />
+
+        <TextView
+            android:id="@+id/txttenSanLichSu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@+id/image"
+            android:hint="Ten san "
+            android:textColor="@color/design_default_color_error"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtgiaSan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txttenSanLichSu"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/image"
+            android:textColor="@color/colorThanhCong"
+            android:hint="Gia san " />
+
+        <TextView
+            android:id="@+id/txtThoigian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtgiaSan"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/image"
+            android:text="Thời gian"
+            android:textColor="@color/design_default_color_primary" />
+
+        <TextView
+            android:id="@+id/txtNgayDatLichSu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/icChiTietVe"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="10dp"
+            android:hint="Trang thai "
+            android:textStyle="italic" />
+
+<!--        <ImageView-->
+<!--            android:id="@+id/icChiTietVe"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_above="@+id/txtTrangThai"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:src="@drawable/ic_next"-->
+<!--            android:layout_marginTop="15dp"/>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/txtTrangThai"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:layout_marginLeft="10dp"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:hint="Ngay"-->
+<!--            android:textStyle="italic" />-->
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
