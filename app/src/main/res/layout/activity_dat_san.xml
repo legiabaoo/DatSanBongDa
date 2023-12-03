@@ -6,19 +6,19 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ActivityKhachHang.DatSanActivity"
-    android:background="@color/white">
+    android:background="@drawable/backgroud">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".activity.DatSanActivity"
-        android:background="@color/white">
+        >
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/tbDatSan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white" />
+             />
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
