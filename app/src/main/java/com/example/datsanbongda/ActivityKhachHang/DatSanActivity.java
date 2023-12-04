@@ -20,17 +20,23 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.datsanbongda.DAO.DatSanDAO;
 import com.example.datsanbongda.DAO.LichSuDatSanDAO;
 
 import com.example.datsanbongda.DAO.LichSuDuyetSanDAO;
 import com.example.datsanbongda.R;
+import com.example.datsanbongda.adapter.DatSanAdapter;
 import com.example.datsanbongda.database.DbHelper;
+import com.example.datsanbongda.model.DoanhThu;
 import com.example.datsanbongda.model.LichSuDatSan;
 import com.example.datsanbongda.model.LichSuDuyetSan;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
@@ -38,7 +44,7 @@ import java.util.Locale;
 public class DatSanActivity extends AppCompatActivity {
     private TextInputEditText tIETGioDB;
     private TextInputEditText tIETNgay;
-    private TextInputEditText tIETGioKT;
+    private TextInputEditText tIETGioKT, tIETSan;
     private String day_week;
     private String thongbao="";
     private TextInputEditText tIETThongBao;
@@ -48,6 +54,7 @@ public class DatSanActivity extends AppCompatActivity {
     private LichSuDuyetSanDAO lichSuDuyetSanDAO;
     private DbHelper dbHelper;
     private int maSan, maLoaiSan;
+    private RecyclerView rvDatSan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +62,7 @@ public class DatSanActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dat_san);
         Toolbar tbDatSan = findViewById(R.id.tbDatSan);
         TextInputEditText tIETLoaiSan = findViewById(R.id.tIETLoaiSan);
-        TextInputEditText tIETSan = findViewById(R.id.tIETSan);
+        tIETSan = findViewById(R.id.tIETSan);
         tIETThongBao = findViewById(R.id.tIETThongBao);
         tIETNgay = findViewById(R.id.tIETNgay);
         tIETGioDB = findViewById(R.id.tIETGioBD);
@@ -66,6 +73,10 @@ public class DatSanActivity extends AppCompatActivity {
         ImageView iv_Ngay = findViewById(R.id.iv_Ngay);
         ImageView iv_GioDB = findViewById(R.id.iv_GioBD);
         ImageView iv_GioKT = findViewById(R.id.iv_GioKT);
+        rvDatSan = findViewById(R.id.rvDatSan);
+        //loadData
+        loadData();
+
         lichSuDatSanDAO = new LichSuDatSanDAO(DatSanActivity.this);
         lichSuDuyetSanDAO = new LichSuDuyetSanDAO(DatSanActivity.this);
         dbHelper = new DbHelper(DatSanActivity.this);
@@ -244,6 +255,18 @@ public class DatSanActivity extends AppCompatActivity {
         });
     }
 
+    private void loadData() {
+        DatSanDAO datSanDAO = new DatSanDAO(this);
+        ArrayList<DoanhThu> list = new ArrayList<>();
+        String ngay = tIETNgay.getText().toString();
+        String tenSan = tIETSan.getText().toString();
+        list = datSanDAO.getDSGio(ngay, tenSan);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        rvDatSan.setLayoutManager(linearLayoutManager);
+        DatSanAdapter datSanAdapter = new DatSanAdapter(list, datSanDAO, this);
+        rvDatSan.setAdapter(datSanAdapter);
+    }
+
     private void showTimePickerDialogStart() {
         // Lấy thời gian hiện tại
         Calendar calendar = Calendar.getInstance();
@@ -337,6 +360,7 @@ public class DatSanActivity extends AppCompatActivity {
                 SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
                 String formatDate = sdf1.format(selectedDate);
                 tIETNgay.setText(formatDate);
+                loadData();
             }
         }, year, month, day);
         datePickerDialog.show();

@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Chỉnh Sửa "
+        android:text="Thêm Sân "
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textColor="#D93401"
@@ -79,7 +79,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/custom_button"
-            android:text="cập nhật"
+            android:text="thêm"
 
             android:textAllCaps="true"
             android:textSize="20dp"
@@ -90,7 +90,7 @@
             android:id="@+id/btnCancelTrangThai"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="50dp"
             android:background="@drawable/custom_button"
             android:text="hủy"
             android:textAllCaps="true"

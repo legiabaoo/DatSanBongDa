@@ -30,6 +30,7 @@ public class DoanhThu {
         this.tienSan = tienSan;
     }
 
+
     public int getTienSan() {
         return tienSan;
     }

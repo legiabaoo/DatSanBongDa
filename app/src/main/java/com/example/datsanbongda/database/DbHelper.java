@@ -10,6 +10,8 @@ import androidx.annotation.Nullable;
 
 import com.example.datsanbongda.model.KhachHang;
 
+import java.util.ArrayList;
+
 public class DbHelper extends SQLiteOpenHelper {
     public DbHelper(@Nullable Context context) {
         super(context, "DATSANBONGDA", null, 1);
@@ -75,7 +77,7 @@ public class DbHelper extends SQLiteOpenHelper {
         0: cho xac nhan
         1: thanh cong
         */
-        db.execSQL("INSERT INTO DOANHTHU VALUES(1, '16:00', '17:30', '1/12/2023', '25/11/2023', 225000, 2, 1, 1, 1), (2, '17:00', '18:00', '30/11/2023', '27/11/2023', 150000,1, 2, 1, 1)");
+        db.execSQL("INSERT INTO DOANHTHU VALUES(1, '16:00', '17:30', '01/12/2023', '25/11/2023', 225000, 2, 1, 1, 1), (2, '17:00', '18:00', '30/11/2023', '27/11/2023', 150000,1, 2, 1, 1)");
     }
 
     @Override
