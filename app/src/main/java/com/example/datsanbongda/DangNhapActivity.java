@@ -10,10 +10,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.datsanbongda.ActivityChuSan.MainChuSanActivity;
+import com.example.datsanbongda.ActivityKhachHang.Doi_Mk_KH_Activity;
 import com.example.datsanbongda.ActivityKhachHang.MainActivity;
 import com.example.datsanbongda.database.DbHelper;
 import com.example.datsanbongda.model.KhachHang;
@@ -29,7 +32,15 @@ public class DangNhapActivity extends AppCompatActivity {
         EditText edtSoDt = findViewById(R.id.edtSdtDangNhap);
         EditText edtMatKhau = findViewById(R.id.edtMatkhauDangNhap);
         Button btnDangNhap = findViewById(R.id.btnDangNhap);
+        TextView tvQuenMk = findViewById(R.id.tv_quenMk);
+        CheckBox chk_Remember = findViewById(R.id.chk_remember);
 
+        tvQuenMk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DangNhapActivity.this, Doi_Mk_KH_Activity.class));
+            }
+        });
 
         btnDangNhap.setOnClickListener(new View.OnClickListener() {
             @Override

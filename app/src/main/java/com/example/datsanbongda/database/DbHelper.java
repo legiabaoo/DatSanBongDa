@@ -128,13 +128,32 @@ public class DbHelper extends SQLiteOpenHelper {
         }
     }
     // hàm cập nhật lại password
-    public boolean updatePass(String sdt, String pass){
+    public boolean updatePassKH(String sdt, String pass){
         SQLiteDatabase database = getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put("matkhau",pass);
-        long resutl  = database.update("KHACHHANG", cv , "tenKhachHang=?",
+        cv.put("matKhau",pass);
+        long resutl  = database.update("KHACHHANG", cv , "soDienThoai=?",
                 new String[]{sdt});
         return resutl != -1;
     }
+    public boolean updatePassCS(String taikhoan, String pass){
+        SQLiteDatabase database = getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("matKhau",pass);
+        long resutl  = database.update("tChuSan", cv , "soDienThoai=?",
+                new String[]{taikhoan});
+        return resutl != -1;
+    }
+    //Ham kiem tra username
+    public boolean KiemTraAdmin(String soDienThoai){
+        SQLiteDatabase db = getWritableDatabase();
+        Cursor c = db.rawQuery("select* from tChuSan where soDienThoai=?",new String[]{soDienThoai});
+        if(c.getCount()>0){
+            return  true;
+        }else{
+            return  false;
+        }
+    }
+
 
 }
