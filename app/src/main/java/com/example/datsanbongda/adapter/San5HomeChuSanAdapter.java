@@ -24,19 +24,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.datsanbongda.ActivityKhachHang.ChiTietSanActivity;
 import com.example.datsanbongda.DAO.SanHomeDAO;
 import com.example.datsanbongda.R;
-import com.example.datsanbongda.model.San7Home;
+import com.example.datsanbongda.model.San5Home;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.ArrayList;
 
-public class San7HomeChuSanAdapter extends RecyclerView.Adapter<San7HomeChuSanAdapter.ViewHolder> {
+public class San5HomeChuSanAdapter extends RecyclerView.Adapter<San5HomeChuSanAdapter.ViewHolder> {
     private Context context;
     private SanHomeDAO sanHomeDAO;
-    private ArrayList<San7Home> list;
+    private ArrayList<San5Home> list;
     int trangthai;
     int trangthai1 = 0;
 
-    public San7HomeChuSanAdapter(Context context, SanHomeDAO sanHomeDAO, ArrayList<San7Home> list) {
+    public San5HomeChuSanAdapter(Context context, SanHomeDAO sanHomeDAO, ArrayList<San5Home> list) {
         this.context = context;
         this.sanHomeDAO = sanHomeDAO;
         this.list = list;
@@ -44,14 +44,14 @@ public class San7HomeChuSanAdapter extends RecyclerView.Adapter<San7HomeChuSanAd
 
     @NonNull
     @Override
-    public San7HomeChuSanAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public San5HomeChuSanAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = ((Activity)context).getLayoutInflater();
         View view = inflater.inflate(R.layout.list_chusan, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull San7HomeChuSanAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull San5HomeChuSanAdapter.ViewHolder holder, int position) {
         holder.txtTenSanHome.setText(list.get(position).getTenSan());
         trangthai = list.get(position).getTrangThai();
         if(trangthai==0){
@@ -77,7 +77,7 @@ public class San7HomeChuSanAdapter extends RecyclerView.Adapter<San7HomeChuSanAd
                         if(check){
                             Toast.makeText(context, "Xóa Sản Phẩm Thành Công!", Toast.LENGTH_SHORT).show();
                             list.clear();
-                            list = sanHomeDAO.getDSSan7();
+                            list = sanHomeDAO.getDSSan5();
                             notifyItemRemoved(holder.getAdapterPosition());
 
                         }else {
@@ -113,7 +113,7 @@ public class San7HomeChuSanAdapter extends RecyclerView.Adapter<San7HomeChuSanAd
                 } else if (list.get(holder.getAdapterPosition()).getTrangThai()==1) {
                     bundle.putString("trangthai", "Ngừng hoạt động");
                 }
-                bundle.putString("masan","1");
+                bundle.putString("masan","2");
                 intent.putExtras(bundle);
                 context.startActivity(intent);
             }
@@ -121,10 +121,10 @@ public class San7HomeChuSanAdapter extends RecyclerView.Adapter<San7HomeChuSanAd
         holder.imgsua.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                San7Home san =list.get(holder.getAdapterPosition());
+                San5Home san =list.get(holder.getAdapterPosition());
                 dialogUpdateSan(san);
 
-        }
+            }
         });
     }
 
@@ -146,7 +146,7 @@ public class San7HomeChuSanAdapter extends RecyclerView.Adapter<San7HomeChuSanAd
             btnXemChiTiet = itemView.findViewById(R.id.btnXemChiTietHome);
         }
     }
-    private void dialogUpdateSan(San7Home san7) {
+    private void dialogUpdateSan(San5Home san5) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         LayoutInflater inflater = ((Activity)context).getLayoutInflater();
         View view = inflater.inflate(R.layout.dialog_chinhsuasan,null);
@@ -162,9 +162,9 @@ public class San7HomeChuSanAdapter extends RecyclerView.Adapter<San7HomeChuSanAd
 
 
         //set dữ liệu lên các edt để lấy giá trị cũ của SanPham cần update
-        edtTenSan.setText(san7.getTenSan());
+        edtTenSan.setText(san5.getTenSan());
 
-        if(san7.getTrangThai() == 0){
+        if(san5.getTrangThai() == 0){
             radioHoatDong.setChecked(true);
         }else {
             radioNgungHoatDong.setChecked(true);
@@ -190,12 +190,12 @@ public class San7HomeChuSanAdapter extends RecyclerView.Adapter<San7HomeChuSanAd
                 //lấy dữ liệu từ các ô nhập trong dialog
                 String tenSan = edtTenSan.getText().toString();
 
-                San7Home s = new San7Home(san7.getMaSan(), tenSan, trangthai1);
+                San5Home s = new San5Home(san5.getMaSan(), tenSan, trangthai1);
 
-                boolean check = sanHomeDAO.updataSan(s);
+                boolean check = sanHomeDAO.updataSan5(s);
                 if (check){
                     list.clear();
-                    list = sanHomeDAO.getDSSan7();
+                    list = sanHomeDAO.getDSSan5();
                     notifyDataSetChanged();
                     Toast.makeText(context, "Cập Nhật Thành Công :))", Toast.LENGTH_SHORT).show();
                     //đóng dialog

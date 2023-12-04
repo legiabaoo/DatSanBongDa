@@ -1,13 +1,32 @@
 package com.example.datsanbongda.model;
 
 public class San5Home {
+    int maSan;
     String tenSan;
     int trangThai, loaiSan;
 
-    public San5Home(String tenSan, int trangThai, int loaiSan) {
+    public San5Home(int maSan, String tenSan, int trangThai, int loaiSan) {
+        this.maSan = maSan;
         this.tenSan = tenSan;
         this.trangThai = trangThai;
         this.loaiSan = loaiSan;
+    }
+
+    public San5Home(int maSan, String tenSan, int trangThai) {
+        this.maSan = maSan;
+        this.tenSan = tenSan;
+        this.trangThai = trangThai;
+    }
+
+    public San5Home() {
+    }
+
+    public int getMaSan() {
+        return maSan;
+    }
+
+    public void setMaSan(int maSan) {
+        this.maSan = maSan;
     }
 
     public String getTenSan() {
