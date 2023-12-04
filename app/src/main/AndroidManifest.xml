@@ -13,10 +13,13 @@
         android:theme="@style/Theme.DatSanBongDa"
         tools:targetApi="31">
         <activity
+            android:name=".ActivityKhachHang.DoiMatKhauActivity"
+            android:exported="false" />
+        <activity
             android:name=".ActivityKhachHang.Xac_Nhan_DMK_Activity"
             android:exported="false" />
         <activity
-            android:name=".ActivityKhachHang.Doi_Mk_KH_Activity"
+            android:name=".ActivityKhachHang.Quen_Mk_KH_Activity"
             android:exported="false" />
         <activity
             android:name=".ActivityChuSan.ThongTinSanChuSanActivity"

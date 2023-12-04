@@ -14,7 +14,7 @@ import com.example.datsanbongda.R;
 import com.example.datsanbongda.database.DbHelper;
 import com.google.android.material.textfield.TextInputEditText;
 
-public class Doi_Mk_KH_Activity extends AppCompatActivity {
+public class Quen_Mk_KH_Activity extends AppCompatActivity {
     DbHelper db;
     TextInputEditText SDTforgot;
     Button btnTiepTuc;
@@ -22,7 +22,7 @@ public class Doi_Mk_KH_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_doi_mk_kh);
+        setContentView(R.layout.activity_quen_mk_kh);
         ImageView iv = findViewById(R.id.imgBackQuenMK);
         SDTforgot = findViewById(R.id.SDTforgot);
         btnTiepTuc = findViewById(R.id.btnTiepTuc);
@@ -39,17 +39,19 @@ public class Doi_Mk_KH_Activity extends AppCompatActivity {
             public void onClick(View v) {
                 String soDienThoai = SDTforgot.getText().toString();
                 boolean check =db.KiemTraDangNhap(soDienThoai);
-                if(check){
-                Intent intent =new Intent(Doi_Mk_KH_Activity.this,Xac_Nhan_DMK_Activity.class);
+                boolean check1= db.KiemTraAdmin(soDienThoai);
+                if(check || check1){
+                Intent intent =new Intent(Quen_Mk_KH_Activity.this,Xac_Nhan_DMK_Activity.class);
                 intent.putExtra("user",soDienThoai);
                 startActivity(intent);
-                }else {
-                    Toast.makeText(Doi_Mk_KH_Activity.this, "Số điện thoại không tồn tại", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(Quen_Mk_KH_Activity.this, "Số điện thoại không tồn tại", Toast.LENGTH_SHORT).show();
                 }
 
-            }
-        });
 
+            }
+
+        });
         getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.white));
     }
 }

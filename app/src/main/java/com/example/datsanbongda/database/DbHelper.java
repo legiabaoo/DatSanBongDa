@@ -117,16 +117,7 @@ public class DbHelper extends SQLiteOpenHelper {
         return  khachhang;
 
     }
-    //kiểm tra tồn tài số điện thoại
-    public boolean KiemTraDangNhap(String sdt){
-        SQLiteDatabase db = getWritableDatabase();
-        Cursor c = db.rawQuery("select * from KHACHHANG where soDienThoai=?",new String []{sdt});
-        if(c.getCount()> 0 ){
-            return true;
-        }else {
-            return false;
-        }
-    }
+
     // hàm cập nhật lại password
     public boolean updatePassKH(String sdt, String pass){
         SQLiteDatabase database = getWritableDatabase();
@@ -140,20 +131,38 @@ public class DbHelper extends SQLiteOpenHelper {
         SQLiteDatabase database = getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put("matKhau",pass);
-        long resutl  = database.update("tChuSan", cv , "soDienThoai=?",
+        long resutl  = database.update("CHUSAN", cv , "soDienThoai=?",
                 new String[]{taikhoan});
         return resutl != -1;
     }
     //Ham kiem tra username
     public boolean KiemTraAdmin(String soDienThoai){
         SQLiteDatabase db = getWritableDatabase();
-        Cursor c = db.rawQuery("select* from tChuSan where soDienThoai=?",new String[]{soDienThoai});
+        Cursor c = db.rawQuery("select * from CHUSAN where soDienThoai=?",new String[]{soDienThoai});
         if(c.getCount()>0){
             return  true;
         }else{
             return  false;
         }
     }
-
+    //kiểm tra tồn tài số điện thoại
+    public boolean KiemTraDangNhap(String sdt){
+        SQLiteDatabase db = getWritableDatabase();
+        Cursor c = db.rawQuery("select * from KHACHHANG where soDienThoai=?",new String []{sdt});
+        if(c.getCount()> 0 ){
+            return true;
+        }else {
+            return false;
+        }
+    }
+    public boolean KiemTraPass(String soDienThoai){
+        SQLiteDatabase db = getWritableDatabase();
+        Cursor c = db.rawQuery("select matKhau from KHACHANG where soDienThoai=?",new String[]{soDienThoai});
+        if(c.getCount()>0){
+            return  true;
+        }else{
+            return  false;
+        }
+    }
 
 }
