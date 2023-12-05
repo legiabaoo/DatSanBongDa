@@ -51,6 +51,8 @@ public class HomeChuSanFragment extends Fragment {
         RecyclerView rvSan5Home = view.findViewById(R.id.rvSan5Home);
         LinearLayout thongtin = view.findViewById(R.id.thongtinsan);
         TextView txtThemsan = view.findViewById(R.id.txtThemSan);
+        TextView txtThemsan5 =view.findViewById(R.id.txtThemSan5);
+
 
         SanHomeDAO sanHomeDAO = new SanHomeDAO(getContext());
         //getList san 7
@@ -77,10 +79,10 @@ public class HomeChuSanFragment extends Fragment {
                 AlertDialog dialog = builder.create();
                 Toast.makeText(getActivity(), "Thêm sân ", Toast.LENGTH_SHORT).show();
 
-                TextInputEditText edtTenSan = view.findViewById(R.id.edtTenSan);
-                RadioGroup radioGroup = view.findViewById(R.id.radio_group);
-                RadioButton radioHoatDong = view.findViewById(R.id.rb_hoatdong);
-                RadioButton radioNgungHoatDong = view.findViewById(R.id.rb_ngunghoatdong);
+                TextInputEditText edtTenSan = view.findViewById(R.id.edtTenSanThem);
+                RadioGroup radioGroup = view.findViewById(R.id.radio_groupThem);
+                RadioButton radioHoatDong = view.findViewById(R.id.rb_hoatdongThem);
+                RadioButton radioNgungHoatDong = view.findViewById(R.id.rb_ngunghoatdongThem);
                 Button btnCapNhat = view.findViewById(R.id.btnUpdateTrangThai);
                 Button btnHuy = view.findViewById(R.id.btnCancelTrangThai);
 
@@ -105,17 +107,17 @@ public class HomeChuSanFragment extends Fragment {
                     public void onClick(View v) {
                         String tenSan = edtTenSan.getText().toString();
 
-
                         San7Home s = new San7Home();
                         s.setTenSan(tenSan);
                         s.setTrangThai(trangthai1);
+                        s.setLoaiSan(1);
 
                         boolean check = sanHomeDAO.addSan(s);
                         if (check){
-                            listSan7.clear();
-                            listSan7 = sanHomeDAO.getDSSan7();
-                            san7HomeAdapter.notifyDataSetChanged();
                             Toast.makeText(getActivity(), "Thêm Sân Thành Công :))", Toast.LENGTH_SHORT).show();
+                            listSan7.clear();
+                            listSan7.addAll(sanHomeDAO.getDSSan7());
+                            san7HomeAdapter.notifyDataSetChanged();
                             //đóng dialog
                             dialog.dismiss();
                         }else {
@@ -129,6 +131,69 @@ public class HomeChuSanFragment extends Fragment {
 
             }
 
+        });
+        txtThemsan5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                LayoutInflater inflater = (HomeChuSanFragment.this).getLayoutInflater();
+                View view = inflater.inflate(R.layout.dialog_add,null);
+                builder.setView(view);
+                AlertDialog dialog = builder.create();
+                Toast.makeText(getActivity(), "Thêm sân ", Toast.LENGTH_SHORT).show();
+
+                TextInputEditText edtTenSan = view.findViewById(R.id.edtTenSanThem);
+                RadioGroup radioGroup = view.findViewById(R.id.radio_groupThem);
+                RadioButton radioHoatDong = view.findViewById(R.id.rb_hoatdongThem);
+                RadioButton radioNgungHoatDong = view.findViewById(R.id.rb_ngunghoatdongThem);
+                Button btnCapNhat = view.findViewById(R.id.btnUpdateTrangThai);
+                Button btnHuy = view.findViewById(R.id.btnCancelTrangThai);
+
+                btnHuy.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+                radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(RadioGroup group, int checkedId) {
+                        if(checkedId==R.id.rb_hoatdong){
+                            trangthai1 = 0;
+                        } else {
+                            trangthai1 = 1;
+                        }
+                    }
+                });
+                btnCapNhat.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String tenSan = edtTenSan.getText().toString();
+
+                        San5Home s = new San5Home();
+                        s.setTenSan(tenSan);
+                        s.setTrangThai(trangthai1);
+                        s.setLoaiSan(2);
+
+                        boolean check = sanHomeDAO.addSan5(s);
+                        if (check){
+                            Toast.makeText(getActivity(), "Thêm Sân Thành Công :))", Toast.LENGTH_SHORT).show();
+                            listSan5.clear();
+                            listSan5.addAll(sanHomeDAO.getDSSan5());
+                            san5HomeAdapter.notifyDataSetChanged();
+                            //đóng dialog
+                            dialog.dismiss();
+                        }else {
+                            Toast.makeText(getActivity(), "Thêm Sân Khum Có Được Huhu!", Toast.LENGTH_SHORT).show();
+                        }
+
+
+                    }
+                });
+
+                dialog.show();
+
+            }
         });
         LinearLayout lienhe = view.findViewById(R.id.lienhe);
         thongtin.setOnClickListener(new View.OnClickListener() {

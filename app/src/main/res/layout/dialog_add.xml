@@ -23,7 +23,7 @@
         android:layout_marginTop="5dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtTenSan"
+            android:id="@+id/edtTenSanThem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/ic_soccer_24"
@@ -45,20 +45,20 @@
         android:textStyle="bold" />
 
     <RadioGroup
-        android:id="@+id/radio_group"
+        android:id="@+id/radio_groupThem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="15dp">
 
         <RadioButton
-            android:id="@+id/rb_hoatdong"
+            android:id="@+id/rb_hoatdongThem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hoạt động"
             android:textSize="20dp" />
 
         <RadioButton
-            android:id="@+id/rb_ngunghoatdong"
+            android:id="@+id/rb_ngunghoatdongThem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ngừng hoạt động"

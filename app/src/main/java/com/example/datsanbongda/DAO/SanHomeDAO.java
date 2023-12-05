@@ -75,6 +75,16 @@ public class SanHomeDAO {
         ContentValues cv = new ContentValues();
         cv.put("tenSan",san7.getTenSan());
         cv.put("trangThaiSan",String.valueOf(san7.getTrangThai()));
+        cv.put("maLoaiSan",String.valueOf(san7.getLoaiSan()));
+        long check = database.insert("SAN",null, cv);
+        return check != -1 ;
+    }
+    public boolean addSan5(San5Home san5){
+        SQLiteDatabase database = dbHelper.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("tenSan",san5.getTenSan());
+        cv.put("trangThaiSan",String.valueOf(san5.getTrangThai()));
+        cv.put("maLoaiSan",String.valueOf(san5.getLoaiSan()));
         long check = database.insert("SAN",null, cv);
         return check != -1 ;
     }
