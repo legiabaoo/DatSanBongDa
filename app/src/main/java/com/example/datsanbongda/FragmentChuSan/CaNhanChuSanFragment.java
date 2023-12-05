@@ -24,6 +24,9 @@ public class CaNhanChuSanFragment extends Fragment {
         View view =inflater.inflate(R.layout.fragment_ca_nhan_chu_san, container, false);
         Button btnDangXuatChuSan = view.findViewById(R.id.btnDangXuatChuSan);
         Button btnDoanhThu = view.findViewById(R.id.btnDoanhThu);
+
+
+
         btnDangXuatChuSan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,6 +40,7 @@ public class CaNhanChuSanFragment extends Fragment {
                 startActivity(new Intent(getContext(), DoanhThuActivity.class));
             }
         });
+
         return view;
     }
 }

@@ -169,14 +169,7 @@
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:text="Các sân hiện có"/>
-            <TextView
 
-                android:layout_marginLeft="130dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18dp"
-                android:textColor="#A9A9A9"
-                android:text="Thêm sân"/>
         </LinearLayout>
         <androidx.viewpager.widget.ViewPager
             android:layout_width="match_parent"
@@ -192,31 +185,60 @@
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
             android:layout_marginBottom="20dp">
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Sân 7 người"
-                android:layout_marginBottom="10dp"
-                android:textColor="@color/black"
-                android:textSize="24dp"
-                android:layout_marginStart="5dp"
-                android:textStyle="italic"
-                />
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sân 7 người"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="24dp"
+                    android:layout_marginStart="5dp"
+                    android:textStyle="italic"
+                    />
+                <TextView
+                    android:layout_marginLeft="150dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="18dp"
+                    android:textColor="#4CAF50"
+                    android:id="@+id/txtThemSan"
+                    android:text="Thêm sân"/>
+            </LinearLayout>
+
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
                 android:id="@+id/rvSan7Home" />
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Sân 5 người"
-                android:layout_marginBottom="10dp"
-                android:textColor="@color/black"
-                android:textSize="24dp"
-                android:layout_marginStart="5dp"
-                android:textStyle="italic"
-                />
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sân 5 người"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="24dp"
+                    android:layout_marginStart="5dp"
+                    android:textStyle="italic"
+                    />
+                <TextView
+                    android:layout_marginLeft="150dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="18dp"
+                    android:textColor="#4CAF50"
+                    android:id="@+id/txtThemSan5"
+                    android:text="Thêm sân"/>
+            </LinearLayout>
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

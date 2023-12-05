@@ -39,6 +39,29 @@
         android:layout_marginBottom="20dp"
         android:layout_marginTop="25dp"
         android:hint="Mật Khẩu" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+       >
+
+        <CheckBox
+            android:id="@+id/chk_remember"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ghi nhớ đăng nhập"
+            android:textSize="17dp"
+            />
+        <TextView
+            android:id="@+id/tv_quenMk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quên mật khẩu"
+            android:textSize="17dp"
+            />
+    </LinearLayout>
+
 
     <Button
         android:id="@+id/btnDangNhap"

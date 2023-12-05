@@ -38,9 +38,10 @@ public class SanHomeDAO {
         if(cursor.getCount()>0){
             cursor.moveToFirst();
             do{
-                list.add(new San5Home(cursor.getString(1),
+                list.add(new San5Home(cursor.getInt(0),
+                        cursor.getString(1),
                         cursor.getInt(2),
-                        cursor.getInt(3)));
+                       cursor.getInt(3)));
             }while (cursor.moveToNext());
         }
         return list;
@@ -52,6 +53,39 @@ public class SanHomeDAO {
         cv.put("trangThaiSan",san.getTrangThai());
         long check = database.update("SAN", cv, "maSan=?",
                 new String[]{String.valueOf(san.getMaSan())});
+        return check != -1 ;
+    }
+    public boolean updataSan5(San5Home san){
+        SQLiteDatabase database = dbHelper.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("tenSan", san.getTenSan());
+        cv.put("trangThaiSan",san.getTrangThai());
+        long check = database.update("SAN", cv, "maSan=?",
+                new String[]{String.valueOf(san.getMaSan())});
+        return check != -1 ;
+    }
+    public boolean deleteSan(int maSan){
+        SQLiteDatabase database = dbHelper.getWritableDatabase();
+        long check = database.delete("SAN", "maSan=?",
+                new String []{String.valueOf(maSan)});
+        return check != -1 ;
+    }
+    public boolean addSan(San7Home san7){
+        SQLiteDatabase database = dbHelper.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("tenSan",san7.getTenSan());
+        cv.put("trangThaiSan",String.valueOf(san7.getTrangThai()));
+        cv.put("maLoaiSan",String.valueOf(san7.getLoaiSan()));
+        long check = database.insert("SAN",null, cv);
+        return check != -1 ;
+    }
+    public boolean addSan5(San5Home san5){
+        SQLiteDatabase database = dbHelper.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("tenSan",san5.getTenSan());
+        cv.put("trangThaiSan",String.valueOf(san5.getTrangThai()));
+        cv.put("maLoaiSan",String.valueOf(san5.getLoaiSan()));
+        long check = database.insert("SAN",null, cv);
         return check != -1 ;
     }
 }

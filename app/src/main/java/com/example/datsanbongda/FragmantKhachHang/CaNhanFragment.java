@@ -14,7 +14,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.datsanbongda.ActivityChuSan.DoanhThuActivity;
+import com.example.datsanbongda.ActivityKhachHang.DoiMatKhauActivity;
 import com.example.datsanbongda.ActivityKhachHang.LienHeActivity;
+import com.example.datsanbongda.ActivityKhachHang.Xac_Nhan_DMK_Activity;
 import com.example.datsanbongda.DangNhapActivity;
 import com.example.datsanbongda.R;
 
@@ -30,6 +32,7 @@ public class CaNhanFragment extends Fragment {
         TextView txtTenKh = view.findViewById(R.id.txtTenKHCaNhan);
         TextView txtSdt = view.findViewById(R.id.txtSdtKH);
         Button btnDangXuatKhachHang = view.findViewById(R.id.btnDangXuatKhachHang);
+        Button btnDoiMK = view.findViewById(R.id.btnDoiMatKhau);
 
 
 
@@ -40,7 +43,7 @@ public class CaNhanFragment extends Fragment {
         // Hiển thị thông tin trên TextView
 
         txtTenKh.setText(tenkh);
-        txtSdt.setText(sdt);
+        txtSdt.setText("0"+sdt);
 
         btnDangXuatKhachHang.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +57,12 @@ public class CaNhanFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), LienHeActivity.class));
+            }
+        });
+        btnDoiMK.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), DoiMatKhauActivity.class));
             }
         });
         return view;

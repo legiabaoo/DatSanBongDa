@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="10dp"
+  >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity=""
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imgBackQuenMK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:src="@drawable/ic_back" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginLeft="20dp"
+
+            android:layout_marginTop="5dp"
+            android:text="Thiết lập mật khẩu mới"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:textColor="#000000"
+        android:drawablePadding="10dp"
+        android:id="@+id/txt_sdt"
+        android:text="user"
+        android:textStyle="bold"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:hintTextColor="#504D4D">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Mk_Moi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cus3"
+            android:drawablePadding="10dp"
+            android:hint="Nhập mật khẩu"
+            android:textColor="#504D4D"
+            android:textStyle="bold" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:hintTextColor="#504D4D">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/MK_NhapLai"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cus3"
+            android:drawablePadding="10dp"
+            android:hint="Nhập lại mật khẩu"
+            android:textColor="#504D4D"
+            android:textStyle="bold" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <Button
+        android:id="@+id/btnXacNhan"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/cus1"
+        android:backgroundTint="#317773"
+        android:text="Xác nhận"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        app:backgroundTint="@null" />
+
+
+
+
+
+
+</LinearLayout>

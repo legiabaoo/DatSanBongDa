@@ -119,6 +119,34 @@ public class DbHelper extends SQLiteOpenHelper {
         return  khachhang;
 
     }
+
+    // hàm cập nhật lại password
+    public boolean updatePassKH(String sdt, String pass){
+        SQLiteDatabase database = getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("matKhau",pass);
+        long resutl  = database.update("KHACHHANG", cv , "soDienThoai=?",
+                new String[]{sdt});
+        return resutl != -1;
+    }
+    public boolean updatePassCS(String taikhoan, String pass){
+        SQLiteDatabase database = getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("matKhau",pass);
+        long resutl  = database.update("CHUSAN", cv , "soDienThoai=?",
+                new String[]{taikhoan});
+        return resutl != -1;
+    }
+    //Ham kiem tra username
+    public boolean KiemTraAdmin(String soDienThoai){
+        SQLiteDatabase db = getWritableDatabase();
+        Cursor c = db.rawQuery("select * from CHUSAN where soDienThoai=?",new String[]{soDienThoai});
+        if(c.getCount()>0){
+            return  true;
+        }else{
+            return  false;
+        }
+    }
     //kiểm tra tồn tài số điện thoại
     public boolean KiemTraDangNhap(String sdt){
         SQLiteDatabase db = getWritableDatabase();
@@ -129,14 +157,21 @@ public class DbHelper extends SQLiteOpenHelper {
             return false;
         }
     }
-    // hàm cập nhật lại password
-    public boolean updatePass(String sdt, String pass){
-        SQLiteDatabase database = getWritableDatabase();
-        ContentValues cv = new ContentValues();
-        cv.put("matkhau",pass);
-        long resutl  = database.update("KHACHHANG", cv , "tenKhachHang=?",
-                new String[]{sdt});
-        return resutl != -1;
+
+    public boolean KiemTraPass(String soDienThoai, String matKhau){
+        SQLiteDatabase db = getWritableDatabase();
+
+        // Kiểm tra mật khẩu dựa trên số điện thoại và mật khẩu
+        Cursor c = db.rawQuery("SELECT * FROM KHACHHANG WHERE soDienThoai=? AND matKhau=?", new String[]{soDienThoai, matKhau});
+
+        if(c.getCount() > 0){
+            // Nếu có kết quả từ truy vấn, tức là mật khẩu đúng
+            return true;
+        } else {
+            // Nếu không có kết quả từ truy vấn, tức là mật khẩu sai
+            return false;
+        }
     }
+
 
 }
