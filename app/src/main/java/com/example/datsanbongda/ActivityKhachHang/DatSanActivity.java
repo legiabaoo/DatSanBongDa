@@ -96,7 +96,8 @@ public class DatSanActivity extends AppCompatActivity {
         setSupportActionBar(tbDatSan);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back);
-        getSupportActionBar().setTitle("");
+        getSupportActionBar().setTitle("Đặt sân");
+
         //getIntent
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();

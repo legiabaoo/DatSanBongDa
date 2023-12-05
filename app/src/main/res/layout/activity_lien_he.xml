@@ -4,23 +4,29 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
-
-    <ImageView
-        android:layout_margin="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_back"
-        android:id="@+id/ImgBack"
-        />
-    <TextView
-        android:fontFamily="@font/open_sans"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Liên Hệ Chủ Sân"
-        android:textSize="40dp"
-        android:gravity="center"
-        android:layout_marginTop="20dp"
-        />
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_margin="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back"
+            android:id="@+id/ImgBack"
+            />
+        <TextView
+            android:fontFamily="@font/gg_san_bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Liên Hệ Chủ Sân"
+            android:textSize="20dp"
+
+            android:layout_marginTop="18dp"
+            />
+
+    </LinearLayout>
+
 
 
     <LinearLayout
@@ -45,6 +51,7 @@
                 />
 
             <TextView
+                android:fontFamily="@font/ggsansmedium"
                 android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -77,6 +84,7 @@
                 android:src="@drawable/ic_call"
                 />
             <TextView
+                android:fontFamily="@font/ggsansmedium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="0386881033"
@@ -103,7 +111,9 @@
             android:layout_height="30dp"
             android:src="@drawable/ic_location"
             />
-        <TextView android:layout_marginLeft="20dp"
+        <TextView
+            android:fontFamily="@font/ggsansmedium"
+            android:layout_marginLeft="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Công viên phần mềm Quang
@@ -113,6 +123,7 @@ QTSC Building 1, Trung, P Q.12, Thành phố Hồ Chí Minh, Việt Nam."
     </LinearLayout>
 
     <Button
+        android:fontFamily="@font/ggsansbold"
         android:id="@+id/btnXacNhanLienHe"
         android:layout_width="300dp"
         android:layout_height="50dp"

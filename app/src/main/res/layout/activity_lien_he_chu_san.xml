@@ -5,23 +5,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <ImageView
-        android:layout_margin="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_back"
-        android:id="@+id/ImgBack"
-        />
-    <TextView
-        android:fontFamily="@font/open_sans"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Liên Hệ Chủ Sân"
-        android:textSize="40dp"
-        android:gravity="center"
-        android:layout_marginTop="20dp"
-        />
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_margin="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back"
+            android:id="@+id/ImgBack"
+            />
+        <TextView
+            android:fontFamily="@font/gg_san_bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Liên Hệ Chủ Sân"
+            android:textSize="20dp"
 
+            android:layout_marginTop="18dp"
+            />
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/LN_fb"
@@ -50,6 +55,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Phùng Thái Dương"
+                android:fontFamily="@font/ggsansmedium"
                 android:gravity="center"
                 android:textSize="20dp" />
         </LinearLayout>
@@ -83,6 +89,7 @@
                 android:layout_height="wrap_content"
                 android:text="0386881033"
                 android:textSize="20dp"
+                android:fontFamily="@font/ggsansmedium"
                 android:textStyle="bold"
                 android:gravity="center" />
         </LinearLayout>
@@ -111,9 +118,11 @@
             android:text="Công viên phần mềm Quang
 QTSC Building 1, Trung, P Q.12, Thành phố Hồ Chí Minh, Việt Nam."
             android:textSize="20dp"
+            android:fontFamily="@font/ggsansmedium"
             />
     </LinearLayout>
     <Button
+        android:fontFamily="@font/ggsansbold"
         android:id="@+id/btnChinhSuaLienHe"
         android:layout_width="300dp"
         android:layout_height="50dp"
@@ -135,6 +144,7 @@ QTSC Building 1, Trung, P Q.12, Thành phố Hồ Chí Minh, Việt Nam."
         android:background="@drawable/cus1"
         android:backgroundTint="#317773"
         android:text="Trở về"
+        android:fontFamily="@font/ggsansbold"
         android:textAlignment="center"
         android:textColor="@color/white"
         app:backgroundTint="@null" />

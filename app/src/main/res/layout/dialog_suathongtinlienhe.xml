@@ -8,6 +8,7 @@
     android:padding="20dp">
 
     <TextView
+        android:fontFamily="@font/ggsansbold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Chỉnh Sửa Liên Hệ"
@@ -23,6 +24,7 @@
         android:layout_marginTop="15dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:fontFamily="@font/ggsansregular"
             android:id="@+id/edtSdtChinhSua"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -40,6 +42,7 @@
         android:layout_marginTop="15dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:fontFamily="@font/ggsansregular"
             android:id="@+id/edtLinkfb"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -60,6 +63,7 @@
         android:orientation="horizontal">
 
         <Button
+            android:fontFamily="@font/ggsansbold"
             android:id="@+id/btnUpdateLienHe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -72,6 +76,7 @@
             app:backgroundTint="@null" />
 
         <Button
+            android:fontFamily="@font/ggsansbold"
             android:id="@+id/btnCancelLienHe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -11,7 +11,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="230dp"
-        android:background="@drawable/custom_header"
+        android:background="@drawable/cus_home"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -92,12 +92,13 @@
             android:background="@drawable/custom_nutcanhan"
             android:drawableRight="@drawable/ic_next_24"
             android:fontFamily="@font/open_sans"
-            android:text="Doanh Thu"
+            android:text="Doanh thu"
             android:textColor="@color/black"
             android:textSize="22dp"
             app:backgroundTint="@null" />
 
         <Button
+            android:id="@+id/btnLienHecaNhan"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="30dp"
@@ -120,7 +121,7 @@
             android:background="@drawable/custom_nutcanhan"
             android:drawableRight="@drawable/ic_next_24"
             android:fontFamily="@font/open_sans"
-            android:text="Thông tin Sân"
+            android:text="Thông tin sân"
             android:textColor="@color/black"
             android:textSize="22dp"
             app:backgroundTint="@null" />

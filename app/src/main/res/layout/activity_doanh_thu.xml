@@ -19,10 +19,11 @@
             android:src="@drawable/ic_back" />
 
         <TextView
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:fontFamily="@font/rosario"
+            android:fontFamily="@font/gg_san_bold"
             android:text="Tổng doanh thu"
             android:textColor="#000000"
             android:textSize="24dp"
@@ -58,6 +59,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginBottom="10dp"
+                android:fontFamily="@font/ggsansmedium"
                 android:textStyle="italic"
                 android:text="Từ ngày"
                 android:textSize="20dp" />
@@ -76,6 +78,7 @@
                     android:layout_height="wrap_content"
                     android:clickable="false"
                     android:cursorVisible="false"
+                    android:fontFamily="@font/ggsansmedium"
                     android:focusable="false"
                     android:inputType="none"
                     android:padding="10dp"
@@ -108,6 +111,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                android:fontFamily="@font/ggsansmedium"
                 android:layout_marginBottom="10dp"
                 android:text="Đến ngày"
                 android:textSize="20dp" />
@@ -125,6 +129,7 @@
                     android:layout_height="wrap_content"
                     android:clickable="false"
                     android:cursorVisible="false"
+                    android:fontFamily="@font/ggsansmedium"
                     android:focusable="false"
                     android:inputType="none"
                     android:padding="10dp"
@@ -149,6 +154,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvDoanhThu"
+        android:fontFamily="@font/ggsansmedium"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>

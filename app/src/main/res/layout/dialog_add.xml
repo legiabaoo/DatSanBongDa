@@ -8,6 +8,7 @@
     android:padding="20dp">
 
     <TextView
+        android:fontFamily="@font/ggsansbold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Thêm Sân "
@@ -23,6 +24,7 @@
         android:layout_marginTop="5dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:fontFamily="@font/ggsansmedium"
             android:id="@+id/edtTenSanThem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -35,6 +37,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
+        android:fontFamily="@font/ggsansmedium"
         android:id="@+id/trangthaisua"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -55,12 +58,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hoạt động"
+            android:fontFamily="@font/ggsansmedium"
             android:textSize="20dp" />
 
         <RadioButton
             android:id="@+id/rb_ngunghoatdongThem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/ggsansmedium"
             android:text="Ngừng hoạt động"
             android:textSize="20dp" />
 

@@ -40,7 +40,6 @@ public class LienHeChuSanActivity extends AppCompatActivity {
         TextView txtSdt = findViewById(R.id.txtSdt);
 
 
-
         LinearLayout LN_fb = findViewById(R.id.LN_fb);
         LinearLayout LN_dt = findViewById(R.id.LN_dt);
         LinearLayout LN_map = findViewById(R.id.LN_map);
@@ -162,7 +161,6 @@ public class LienHeChuSanActivity extends AppCompatActivity {
         }
     }
     private void makePhoneCall() {
-
         // Số điện thoại cần gọi
         String phoneNumber = "tel:" + sdt;
 

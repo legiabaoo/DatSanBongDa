@@ -26,6 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_toEndOf="@+id/image"
+            android:fontFamily="@font/ggsansbold"
             android:hint="Ten san "
             android:textColor="@color/design_default_color_error"
             android:textSize="24sp"
@@ -33,6 +34,7 @@
 
         <TextView
             android:id="@+id/txtgiaSan"
+            android:fontFamily="@font/ggsansregular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txttenSanLichSu"
@@ -44,6 +46,7 @@
 
         <TextView
             android:id="@+id/txtThoigian"
+            android:fontFamily="@font/ggsansregular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtgiaSan"
@@ -57,7 +60,7 @@
             android:id="@+id/txtNgayDatLichSu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/icChiTietVe"
+            android:fontFamily="@font/ggsansregular"
             android:layout_alignParentEnd="true"
             android:layout_marginLeft="10dp"
             android:hint="Trang thai "

@@ -34,16 +34,18 @@
                     android:orientation="vertical"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp">
+<!--                    <TextView-->
+<!--                        android:fontFamily="@font/ggsansbold"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:text="Đặt Sân"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textSize="30dp"-->
+<!--                        android:textStyle="bold" />-->
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="10dp"
-                        android:text="Đặt Sân"
-                        android:textColor="@color/black"
-                        android:textSize="30dp"
-                        android:textStyle="bold" />
-                    <TextView
+                        android:fontFamily="@font/opensanssemibold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Loại Sân"
@@ -52,10 +54,14 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
                         android:layout_marginBottom="10dp">
+
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/ggsansmedium"
                             tools:ignore="MissingConstraints"
                             android:background="@drawable/cus_edt"
                             android:clickable="false"
@@ -78,6 +84,7 @@
                             android:id="@+id/iv_LoaiSan"/>
                     </androidx.constraintlayout.widget.ConstraintLayout>
                     <TextView
+                        android:fontFamily="@font/opensanssemibold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Sân"
@@ -86,6 +93,8 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
                         android:layout_marginBottom="10dp">
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
@@ -97,6 +106,7 @@
                             android:cursorVisible="false"
                             android:inputType="none"
                             android:text="Chọn sân"
+                            android:fontFamily="@font/ggsansmedium"
                             android:padding="7dp"
                             android:paddingStart="20dp"
                             android:id="@+id/tIETSan"/>
@@ -112,6 +122,7 @@
                             android:id="@+id/iv_San"/>
                     </androidx.constraintlayout.widget.ConstraintLayout>
                     <TextView
+                        android:fontFamily="@font/opensanssemibold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Ngày"
@@ -119,12 +130,15 @@
                         android:layout_marginBottom="10dp"/>
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp">
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             tools:ignore="MissingConstraints"
+                            android:fontFamily="@font/ggsansmedium"
                             android:background="@drawable/cus_edt"
                             android:clickable="false"
                             android:focusable="false"
@@ -146,17 +160,20 @@
                             android:id="@+id/iv_Ngay"/>
                     </androidx.constraintlayout.widget.ConstraintLayout>
                     <TextView
+                        android:fontFamily="@font/opensanssemibold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Giờ Đã Được Đặt"
                         android:textSize="20dp"
                         android:layout_marginBottom="10dp"/>
                     <androidx.recyclerview.widget.RecyclerView
+                        android:fontFamily="@font/ggsansmedium"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/rvDatSan"
                         android:layout_marginBottom="10dp"/>
                     <TextView
+                        android:fontFamily="@font/opensanssemibold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Giờ Bắt Đầu"
@@ -164,11 +181,14 @@
                         android:layout_marginBottom="10dp"/>
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/tIETGioBD"
+                            android:fontFamily="@font/ggsansmedium"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/cus_edt"
@@ -194,6 +214,7 @@
                             android:id="@+id/iv_GioBD"/>
                     </androidx.constraintlayout.widget.ConstraintLayout>
                     <TextView
+                        android:fontFamily="@font/opensanssemibold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Giờ Kết Thúc"
@@ -202,6 +223,8 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
                         android:layout_marginBottom="10dp">
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
@@ -210,6 +233,7 @@
                             android:background="@drawable/cus_edt"
                             android:clickable="false"
                             android:focusable="false"
+                            android:fontFamily="@font/ggsansmedium"
                             android:cursorVisible="false"
                             android:inputType="none"
                             android:text="Chọn giờ kết thúc"
@@ -228,6 +252,7 @@
                             android:id="@+id/iv_GioKT"/>
                     </androidx.constraintlayout.widget.ConstraintLayout>
                     <TextView
+                        android:fontFamily="@font/opensanssemibold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Thông Báo"
@@ -235,6 +260,8 @@
                         android:layout_marginBottom="10dp"/>
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
                         android:layout_height="match_parent"
                         android:layout_marginBottom="10dp"
                         app:layout_constraintHeight_percent="100">
@@ -242,6 +269,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="90dp"
                             tools:ignore="MissingConstraints"
+                            android:fontFamily="@font/ggsansmedium"
                             android:background="@drawable/cus_edit_tb"
                             android:clickable="false"
                             android:focusable="false"
@@ -267,6 +295,7 @@
                             android:id="@+id/iv_ThongBao"/>
                     </androidx.constraintlayout.widget.ConstraintLayout>
                     <Button
+                        android:fontFamily="@font/ggsanssemibold"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Đặt Sân"
