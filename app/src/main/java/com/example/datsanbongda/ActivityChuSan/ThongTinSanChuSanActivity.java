@@ -2,6 +2,7 @@ package com.example.datsanbongda.ActivityChuSan;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -201,6 +202,7 @@ public class ThongTinSanChuSanActivity extends AppCompatActivity {
                 finish();
             }
         });
+        getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.colorThanhCong));
 
     }
 

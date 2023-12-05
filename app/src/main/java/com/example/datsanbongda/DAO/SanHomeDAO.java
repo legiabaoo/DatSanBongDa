@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.datsanbongda.database.DbHelper;
+import com.example.datsanbongda.model.ChuSan;
 import com.example.datsanbongda.model.San5Home;
 import com.example.datsanbongda.model.San7Home;
 
@@ -86,6 +87,15 @@ public class SanHomeDAO {
         cv.put("trangThaiSan",String.valueOf(san5.getTrangThai()));
         cv.put("maLoaiSan",String.valueOf(san5.getLoaiSan()));
         long check = database.insert("SAN",null, cv);
+        return check != -1 ;
+    }
+    public boolean updataLienHe(ChuSan chusan){
+        SQLiteDatabase database = dbHelper.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("soDienThoai",chusan.getSoDienThoai());
+        cv.put("facebook",chusan.getFacebook());
+        long check = database.update("CHUSAN", cv, "maChuSan=?",
+                new String[]{String.valueOf(chusan.getMaChuSan())});
         return check != -1 ;
     }
 }

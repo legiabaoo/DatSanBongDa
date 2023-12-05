@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 
 import com.example.datsanbongda.R;
 
@@ -24,7 +25,7 @@ public class DatChoActivity extends AppCompatActivity {
         TextView txtThangNam = findViewById(R.id.txtThangNam);
         TextView txtNgay = findViewById(R.id.txtNgay);
 
-
+        getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.white));
         //toolbar
         Toolbar tbDatSanChiTiet = findViewById(R.id.tbDatSanChiTiet);
         setSupportActionBar(tbDatSanChiTiet);
