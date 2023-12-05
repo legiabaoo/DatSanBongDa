@@ -3,7 +3,9 @@ package com.example.datsanbongda.ActivityKhachHang;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -43,8 +45,13 @@ public class DoiMatKhauActivity extends AppCompatActivity {
         });
 
         db = new DbHelper(this);
-        Intent intent = getIntent();
-        txt_sdt.setText(intent.getStringExtra("user"));
+
+
+
+        SharedPreferences sharedPreferences = getSharedPreferences("Data", Context.MODE_PRIVATE);
+        String sdt = sharedPreferences.getString("soDienThoai", "");
+        txt_sdt.setText("0"+sdt);
+
 
         btn_XN.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,22 +61,26 @@ public class DoiMatKhauActivity extends AppCompatActivity {
                 String oldpass = Mk_cu.getText().toString();
                 String newconfi = Mk_NhapLai.getText().toString();
 
-
-                if (oldpass.isEmpty()|| newpass.isEmpty() || newconfi.isEmpty()) {
-                    Toast.makeText(DoiMatKhauActivity.this, "Vui lòng nhập đầy đủ thông tin !", Toast.LENGTH_SHORT).show();
-                }
-
-                else {
-                    if (newconfi.compareTo(newpass) == 0) {
-                        boolean check = db.updatePassKH(txtreset, newpass);
-                        if (check) {
-                            startActivity(new Intent(DoiMatKhauActivity.this,  MainActivity.class));
-                            Toast.makeText(DoiMatKhauActivity.this, "Cập nhật mật khẩu thành công !", Toast.LENGTH_SHORT).show();
+                if (oldpass.isEmpty() || newpass.isEmpty() || newconfi.isEmpty()) {
+                    Toast.makeText(DoiMatKhauActivity.this, "Vui lòng nhập đầy đủ thông tin!", Toast.LENGTH_SHORT).show();
+                } else {
+                    // Kiểm tra mật khẩu cũ bằng hàm KiemTraPass
+                    if (db.KiemTraPass(txtreset,oldpass)) {
+                        // Mật khẩu cũ đúng
+                        if (newconfi.compareTo(newpass) == 0) {
+                            boolean check = db.updatePassKH(txtreset, newpass);
+                            if (check) {
+                                startActivity(new Intent(DoiMatKhauActivity.this, MainActivity.class));
+                                Toast.makeText(DoiMatKhauActivity.this, "Cập nhật mật khẩu thành công!", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(DoiMatKhauActivity.this, "Mật khẩu chưa được cập nhật!", Toast.LENGTH_SHORT).show();
+                            }
                         } else {
-                            Toast.makeText(DoiMatKhauActivity.this, "Mật khẩu chưa được cập nhật!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(DoiMatKhauActivity.this, "Mật khẩu không trùng khớp", Toast.LENGTH_SHORT).show();
                         }
                     } else {
-                        Toast.makeText(DoiMatKhauActivity.this, "Mật khẩu không trùng khớp", Toast.LENGTH_SHORT).show();
+                        // Mật khẩu cũ sai
+                        Toast.makeText(DoiMatKhauActivity.this, "Mật khẩu cũ không chính xác", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

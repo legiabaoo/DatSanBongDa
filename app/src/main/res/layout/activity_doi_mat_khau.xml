@@ -74,7 +74,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/cus3"
             android:drawablePadding="10dp"
-            android:hint="Nhập mật khẩu"
+            android:hint="Nhập mật khẩu mới"
             android:textColor="#504D4D"
             android:textStyle="bold" />
     </com.google.android.material.textfield.TextInputLayout>

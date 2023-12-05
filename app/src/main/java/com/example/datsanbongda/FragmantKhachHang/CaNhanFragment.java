@@ -43,7 +43,7 @@ public class CaNhanFragment extends Fragment {
         // Hiển thị thông tin trên TextView
 
         txtTenKh.setText(tenkh);
-        txtSdt.setText(sdt);
+        txtSdt.setText("0"+sdt);
 
         btnDangXuatKhachHang.setOnClickListener(new View.OnClickListener() {
             @Override

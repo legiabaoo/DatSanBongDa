@@ -157,14 +157,21 @@ public class DbHelper extends SQLiteOpenHelper {
             return false;
         }
     }
-    public boolean KiemTraPass(String soDienThoai){
+
+    public boolean KiemTraPass(String soDienThoai, String matKhau){
         SQLiteDatabase db = getWritableDatabase();
-        Cursor c = db.rawQuery("select matKhau from KHACHANG where soDienThoai=?",new String[]{soDienThoai});
-        if(c.getCount()>0){
-            return  true;
-        }else{
-            return  false;
+
+        // Kiểm tra mật khẩu dựa trên số điện thoại và mật khẩu
+        Cursor c = db.rawQuery("SELECT * FROM KHACHHANG WHERE soDienThoai=? AND matKhau=?", new String[]{soDienThoai, matKhau});
+
+        if(c.getCount() > 0){
+            // Nếu có kết quả từ truy vấn, tức là mật khẩu đúng
+            return true;
+        } else {
+            // Nếu không có kết quả từ truy vấn, tức là mật khẩu sai
+            return false;
         }
     }
+
 
 }
