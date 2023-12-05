@@ -1,11 +1,17 @@
 package com.example.datsanbongda.ActivityKhachHang;
 
+import android.Manifest;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,9 +26,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.datsanbongda.ConfigNotification;
 import com.example.datsanbongda.DAO.DatSanDAO;
 import com.example.datsanbongda.DAO.LichSuDatSanDAO;
 
@@ -165,6 +175,7 @@ public class DatSanActivity extends AppCompatActivity {
                     boolean checkDS = lichSuDuyetSanDAO.themDuyetSan(lichSuDuyetSan);
                     if(checkLS && checkDS){
                         Toast.makeText(DatSanActivity.this, "Đặt sân thành công", Toast.LENGTH_SHORT).show();
+                        sendNotification();
                     }else {
                         Toast.makeText(DatSanActivity.this, "Đặt sân thất bại", Toast.LENGTH_SHORT).show();
                     }
@@ -372,5 +383,37 @@ public class DatSanActivity extends AppCompatActivity {
             onBackPressed();
         }
         return super.onOptionsItemSelected(item);
+    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 7979) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    sendNotification();
+                }
+            }
+        }
+    }
+    private void sendNotification() {
+        Bitmap logo = BitmapFactory.decodeResource(getResources(), R.drawable.sanbongda);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, ConfigNotification.CHANNEL_ID)
+                .setSmallIcon(R.drawable.logosan)
+                .setContentTitle("Khách đặt sân kìa")
+                .setContentText("Vào duyệt ngay thôi!!!")
+                .setStyle(new NotificationCompat.BigPictureStyle()
+                        .bigPicture(logo)
+                        .bigLargeIcon(null))
+                .setLargeIcon(logo)
+                .setColor(Color.BLUE)
+                .setAutoCancel(true);
+
+        NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+
+        }    else {
+            ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.POST_NOTIFICATIONS},7979);
+        }
+        notificationManagerCompat.notify((int) new Date().getTime(), builder.build());
     }
 }
