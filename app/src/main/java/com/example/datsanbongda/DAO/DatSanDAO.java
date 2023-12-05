@@ -41,7 +41,7 @@ public class DatSanDAO {
                         "INNER JOIN KHACHHANG ON DOANHTHU.maKhachHang = KHACHHANG.maKhachHang " +
                         "WHERE date(REPLACE(SUBSTR(ngay, 7, 4) || '-' || SUBSTR(ngay, 4, 2) || '-' || SUBSTR(ngay, 1, 2), '/', '-')) = date(?) "+
                         "AND tenSan =?"
-                , new String[]{tngay, String.valueOf(tenSan)});
+                , new String[]{tngay, tenSan});
 
         if (cursor.getCount() > 0) {
             cursor.moveToFirst();
@@ -62,6 +62,75 @@ public class DatSanDAO {
         }
         return list;
     }
+    public boolean kiemTraDatSan(String tngay, String tenSan, String thoiGianBatDau, String thoiGianKetThuc){
+        SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();
+        boolean flag;
+        // Chuyển đổi định dạng ngày
+        SimpleDateFormat inputFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+        SimpleDateFormat outputFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
 
+        try {
+            Date date = inputFormat.parse(tngay);
+            tngay = outputFormat.format(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        Cursor cursor = null;
+        Cursor cursor1 = null;
+        Cursor cursor2 = null;
+        try {
+            cursor = sqLiteDatabase.rawQuery(
+                    "SELECT DOANHTHU.*, SAN.tenSan, KHACHHANG.tenKhachHang " +
+                            "FROM DOANHTHU " +
+                            "INNER JOIN SAN ON DOANHTHU.maSan = SAN.maSan " +
+                            "INNER JOIN KHACHHANG ON DOANHTHU.maKhachHang = KHACHHANG.maKhachHang " +
+                            "WHERE " +
+                            "date(REPLACE(SUBSTR(ngay, 7, 4) || '-' || SUBSTR(ngay, 4, 2) || '-' || SUBSTR(ngay, 1, 2), '/', '-')) = date(?) " +
+                            "AND tenSan =? " +
+                            "AND datetime(thoiGianBatDau)=datetime(?) AND datetime(thoiGianKetThuc)=datetime(?)",
+                    new String[]{tngay, tenSan, thoiGianBatDau, thoiGianKetThuc});
+            cursor1 = sqLiteDatabase.rawQuery(
+                    "SELECT DOANHTHU.*, SAN.tenSan, KHACHHANG.tenKhachHang " +
+                            "FROM DOANHTHU " +
+                            "INNER JOIN SAN ON DOANHTHU.maSan = SAN.maSan " +
+                            "INNER JOIN KHACHHANG ON DOANHTHU.maKhachHang = KHACHHANG.maKhachHang " +
+                            "WHERE " +
+                            "date(REPLACE(SUBSTR(ngay, 7, 4) || '-' || SUBSTR(ngay, 4, 2) || '-' || SUBSTR(ngay, 1, 2), '/', '-')) = date(?) " +
+                            "AND tenSan =? " +
+                            "AND (datetime(thoiGianBatDau)<datetime(?) AND datetime(?)<datetime(thoiGianKetThuc) OR " +
+                            "datetime(thoiGianBatDau)<datetime(?) AND datetime(?)<datetime(thoiGianKetThuc))",
+                    new String[]{tngay, tenSan, thoiGianBatDau, thoiGianBatDau, thoiGianKetThuc, thoiGianKetThuc});
+            cursor2 = sqLiteDatabase.rawQuery(
+                    "SELECT DOANHTHU.*, SAN.tenSan, KHACHHANG.tenKhachHang " +
+                            "FROM DOANHTHU " +
+                            "INNER JOIN SAN ON DOANHTHU.maSan = SAN.maSan " +
+                            "INNER JOIN KHACHHANG ON DOANHTHU.maKhachHang = KHACHHANG.maKhachHang " +
+                            "WHERE " +
+                            "date(REPLACE(SUBSTR(ngay, 7, 4) || '-' || SUBSTR(ngay, 4, 2) || '-' || SUBSTR(ngay, 1, 2), '/', '-')) = date(?) " +
+                            "AND tenSan =? " +
+                            "AND datetime(thoiGianBatDau)>datetime(?) AND " +
+                            "datetime(?)>datetime(thoiGianKetThuc)",
+                    new String[]{tngay, tenSan, thoiGianBatDau, thoiGianKetThuc});
+            // Kiểm tra số lượng bản ghi trong Cursor
+            if (cursor != null && cursor.getCount() > 0) {
+                flag = false; // Có dữ liệu, trùng
+            } else {
+                if (cursor2 != null && cursor2.getCount() > 0){
+                    flag = false;
+                }else if(cursor1 != null && cursor1.getCount() > 0){
+                    flag = false;
+                }else{
+                    flag = true;
+                }
+            }
+        } finally {
+            // Đảm bảo đóng Cursor
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+
+        return flag;
+    }
 
 }

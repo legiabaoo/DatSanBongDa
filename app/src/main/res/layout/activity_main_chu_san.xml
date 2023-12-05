@@ -24,7 +24,7 @@
         android:background="#FFFFFF"
         app:fabCradleMargin="10dp"
         app:fabCradleRoundedCornerRadius="50dp"
-        >
+        app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottonNavigation"

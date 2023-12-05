@@ -65,7 +65,7 @@ public class DatSanActivity extends AppCompatActivity {
     private DbHelper dbHelper;
     private int maSan, maLoaiSan;
     private RecyclerView rvDatSan;
-
+    private DatSanDAO datSanDAO;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -112,12 +112,14 @@ public class DatSanActivity extends AppCompatActivity {
                 Calendar calendar = Calendar.getInstance();
                 int gioHT = calendar.get(Calendar.HOUR_OF_DAY);
                 int phutHT = calendar.get(Calendar.MINUTE);
-
-                int year1 = currentDate.get(Calendar.YEAR);
-                int month1 = currentDate.get(Calendar.MONTH);
-                int day1 = currentDate.get(Calendar.DAY_OF_MONTH)-1;
-                int day2 = day1+1;
-                currentDate.set(year1, month1, day1);
+                int year1=0, month1=0, day1, day2=0;
+                if(!tIETNgay.getText().toString().equals("Chọn ngày")){
+                    year1 = currentDate.get(Calendar.YEAR);
+                    month1 = currentDate.get(Calendar.MONTH);
+                    day1 = currentDate.get(Calendar.DAY_OF_MONTH)-1;
+                    day2 = day1+1;
+                    currentDate.set(year1, month1, day1);
+                }
 
                 if(tIETLoaiSan.getText().toString().equals("Chọn loai sân") || tIETSan.getText().toString().equals("Chọn sân") ||
                 tIETNgay.getText().toString().equals("Chọn ngày") || tIETGioDB.getText().toString().equals("Chọn giờ bắt đầu") ||
@@ -145,7 +147,12 @@ public class DatSanActivity extends AppCompatActivity {
                 } else if (Integer.parseInt(gioKT[0])-Integer.parseInt(gioBD[0])<1) {
                     thongbao+="Vui lòng chọn thời gian đá hơn 1 tiếng";
                     tIETThongBao.setText(thongbao);
-                } else{
+                }
+                else if (datSanDAO.kiemTraDatSan(tIETNgay.getText().toString(), tIETSan.getText().toString(),
+                        tIETGioDB.getText().toString(), tIETGioKT.getText().toString())==false) {
+                    Toast.makeText(DatSanActivity.this, "Lịch này đã được đặt trước", Toast.LENGTH_SHORT).show();
+                }
+                else{
                     String thoiGianBatDau = tIETGioDB.getText().toString();
                     String thoiGianKetThuc = tIETGioKT.getText().toString();
                     String ngay = tIETNgay.getText().toString();
@@ -267,7 +274,7 @@ public class DatSanActivity extends AppCompatActivity {
     }
 
     private void loadData() {
-        DatSanDAO datSanDAO = new DatSanDAO(this);
+        datSanDAO = new DatSanDAO(this);
         ArrayList<DoanhThu> list = new ArrayList<>();
         String ngay = tIETNgay.getText().toString();
         String tenSan = tIETSan.getText().toString();
