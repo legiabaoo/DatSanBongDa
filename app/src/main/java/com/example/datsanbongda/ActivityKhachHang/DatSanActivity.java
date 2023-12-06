@@ -179,6 +179,9 @@ public class DatSanActivity extends AppCompatActivity {
                     }
                     int maChuSan = 1;
                     int maKhachHang = 1;
+                    SharedPreferences sharedPreferences = getSharedPreferences("Data", Context.MODE_PRIVATE);
+                    String soDienThoai = sharedPreferences.getString("soDienThoai", "");
+                    datSanDAO.taoMaThanhToan(soDienThoai);
                     LichSuDatSan lichSuDatSan = new LichSuDatSan(thoiGianBatDau, thoiGianKetThuc, ngay, ngayDat, trangThai, maSan, maChuSan, maKhachHang);
                     boolean checkLS = lichSuDatSanDAO.themLichSu(lichSuDatSan);
                     LichSuDuyetSan lichSuDuyetSan = new LichSuDuyetSan(thoiGianBatDau, thoiGianKetThuc, ngay, ngayDat, trangThai, maSan, maChuSan, maKhachHang);
@@ -189,9 +192,7 @@ public class DatSanActivity extends AppCompatActivity {
                     }else {
                         Toast.makeText(DatSanActivity.this, "Đặt sân thất bại", Toast.LENGTH_SHORT).show();
                     }
-                    SharedPreferences sharedPreferences = getSharedPreferences("Data", Context.MODE_PRIVATE);
-                    String soDienThoai = sharedPreferences.getString("soDienThoai", "");
-                    datSanDAO.taoMaThanhToan(soDienThoai);
+
                     startActivity(new Intent(DatSanActivity.this, ThanhToanActivity.class));
 //                    Intent intent = new Intent(DatSanActivity.this, DatChoActivity.class);
 //                    Bundle bundle = new Bundle();

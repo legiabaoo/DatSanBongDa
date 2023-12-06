@@ -163,7 +163,8 @@ public class LichSuDuyetSanAdapter extends RecyclerView.Adapter<LichSuDuyetSanAd
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView txtTenSanDuyetSan, txtGiaSanDuyetSan,
-                txtThoiGianDuyetSan, txtDongY, txtTuChoi, txtNgayDatDuyetSan;
+                txtThoiGianDuyetSan, txtDongY, txtTuChoi, txtNgayDatDuyetSan
+                , txtMa;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -173,6 +174,7 @@ public class LichSuDuyetSanAdapter extends RecyclerView.Adapter<LichSuDuyetSanAd
             txtGiaSanDuyetSan = itemView.findViewById(R.id.txtGiaSanDuyetSan);
             txtThoiGianDuyetSan = itemView.findViewById(R.id.txtThoiGianDuyetSan);
             txtNgayDatDuyetSan = itemView.findViewById(R.id.txtNgayDatDuyetSan);
+            txtMa = itemView.findViewById(R.id.txtMa);
         }
     }
 }

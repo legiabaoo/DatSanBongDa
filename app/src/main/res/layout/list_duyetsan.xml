@@ -21,20 +21,19 @@
             android:src="@drawable/s1" />
 
         <TextView
-            android:fontFamily="@font/gg_san_bold"
             android:id="@+id/txtTenSanDuyetSan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginLeft="10dp"
             android:layout_toEndOf="@+id/image"
+            android:fontFamily="@font/gg_san_bold"
             android:hint="Ten san "
             android:textColor="@color/design_default_color_error"
             android:textSize="24sp"
             android:textStyle="bold" />
 
         <TextView
-            android:fontFamily="@font/ggsansregular"
             android:id="@+id/txtGiaSanDuyetSan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -42,10 +41,10 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_toEndOf="@+id/image"
+            android:fontFamily="@font/ggsansregular"
             android:hint="Gia san " />
 
         <TextView
-            android:fontFamily="@font/ggsansregular"
             android:id="@+id/txtThoiGianDuyetSan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -53,6 +52,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_toEndOf="@+id/image"
+            android:fontFamily="@font/ggsansregular"
             android:text="Thời gian"
             android:textColor="@color/design_default_color_primary" />
 
@@ -64,31 +64,39 @@
             android:layout_alignParentEnd="true"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="8dp"
+            android:drawableLeft="@drawable/ic_check_24"
             android:fontFamily="@font/ggsansregular"
             android:text="Đồng ý"
-            android:drawableLeft="@drawable/ic_check_24"
             android:textStyle="italic" />
 
         <TextView
             android:id="@+id/txtTuChoi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_above="@+id/txtMa"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:drawableLeft="@drawable/ic_clear_24"
+            android:fontFamily="@font/ggsansregular"
+            android:text="Từ chối " />
+
+        <TextView
+            android:id="@+id/txtMa"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_above="@+id/txtNgayDatDuyetSan"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="15dp"
-            android:fontFamily="@font/ggsansregular"
-            android:drawableLeft="@drawable/ic_clear_24"
-            android:text="Từ chối " />
+            android:text="789001" />
 
         <TextView
             android:id="@+id/txtNgayDatDuyetSan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:fontFamily="@font/ggsansregular"
             android:layout_alignParentBottom="true"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
+            android:fontFamily="@font/ggsansregular"
             android:hint="Ngay"
             android:textStyle="italic" />
 
