@@ -30,7 +30,7 @@
             android:fontFamily="@font/gg_san_bold"
             android:hint="Ten san "
             android:textColor="@color/design_default_color_error"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtTenSanDuyetSan"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:layout_toEndOf="@+id/image"
             android:fontFamily="@font/ggsansregular"
             android:hint="Gia san " />
@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtGiaSanDuyetSan"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:layout_toEndOf="@+id/image"
             android:fontFamily="@font/ggsansregular"
             android:text="Thời gian"
@@ -63,13 +63,14 @@
             android:layout_above="@+id/txtTuChoi"
             android:layout_alignParentEnd="true"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="8dp"
+            android:layout_marginRight="15dp"
             android:drawableLeft="@drawable/ic_check_24"
             android:fontFamily="@font/ggsansregular"
             android:text="Đồng ý"
             android:textStyle="italic" />
 
         <TextView
+            android:layout_marginRight="15dp"
             android:id="@+id/txtTuChoi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -81,6 +82,7 @@
             android:text="Từ chối " />
 
         <TextView
+            android:layout_marginRight="8dp"
             android:id="@+id/txtMa"
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
@@ -90,6 +92,7 @@
             android:text="789001" />
 
         <TextView
+            android:layout_marginRight="15dp"
             android:id="@+id/txtNgayDatDuyetSan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

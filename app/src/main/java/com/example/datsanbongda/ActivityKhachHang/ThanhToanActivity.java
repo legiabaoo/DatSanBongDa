@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
+import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.app.AlertDialog;
@@ -51,6 +52,7 @@ public class ThanhToanActivity extends AppCompatActivity {
         list = new ArrayList<>();
         dbHelper = new DbHelper(this);
 
+        getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.white));
         setSupportActionBar(toolbarThanhToan);
         getSupportActionBar().setTitle("Thanh Toán");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

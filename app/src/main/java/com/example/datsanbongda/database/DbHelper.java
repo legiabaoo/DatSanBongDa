@@ -55,7 +55,7 @@ public class DbHelper extends SQLiteOpenHelper {
         0: cho xac nhan
         1: thanh cong
         */
-        db.execSQL("INSERT INTO DATCHO VALUES(1, '16:00', '17:30', '1/12/2023', '25/11/2023', 2, 1, 1, 1), (2, '17:00', '18:00', '30/11/2023', '27/11/2023',1, 2, 1, 1)");
+//        db.execSQL("INSERT INTO DATCHO VALUES(1, '16:00', '17:30', '1/12/2023', '25/11/2023', 2, 1, 1, 1), (2, '17:00', '18:00', '30/11/2023', '27/11/2023',1, 2, 1, 1)");
 
         String tDatChoChuSan = "CREATE TABLE DATCHOCHUSAN(maVe integer primary key autoincrement, thoiGianBatDau text, thoiGianKetThuc text, ngay text, ngayDat text,trangThaiDatCho integer, maThanhToan text, " +
                 "maSan integer references SAN(maSan), maKhachHang integer references KHACHHANG(maKhachHang), maChuSan integer references CHUSAN(maChuSan))";
