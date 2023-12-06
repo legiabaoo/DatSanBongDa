@@ -32,7 +32,7 @@
                     android:textColor="@color/white"
                     android:textSize="28dp"
                     android:textStyle="bold"
-                    android:fontFamily="@font/rosario"/>
+                    android:fontFamily="@font/ggsansmedium"/>
                 <TextView
                     android:layout_marginLeft="45dp"
                     android:layout_marginTop="5dp"
@@ -42,7 +42,7 @@
                     android:textColor="@color/black"
                     android:textSize="20dp"
                     android:textStyle="bold"
-                    android:fontFamily="@font/rosario"/>
+                    android:fontFamily="@font/gg_san_bold"/>
 
             </LinearLayout>
             <LinearLayout
@@ -73,7 +73,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="116dp"
                         android:layout_marginTop="8dp"
-                        android:fontFamily="sans-serif-smallcaps"
+                        android:fontFamily="@font/ggsansmedium"
                         android:text="Chủ Sân"
                         android:textAlignment="textEnd"
                         android:textColor="@color/black"
@@ -119,7 +119,7 @@
                     android:text="Thông tin sân"
                     android:textStyle="bold"
                     android:layout_gravity="center"
-                    android:fontFamily="@font/rosario"
+                    android:fontFamily="@font/ggsansbold"
                     android:textColor="#317773"
                     />
 
@@ -147,7 +147,7 @@
                     android:textStyle="bold"
                     android:textColor="#317773"
                     android:layout_gravity="center"
-                    android:fontFamily="@font/rosario"
+                    android:fontFamily="@font/ggsansbold"
                     />
 
             </LinearLayout>
@@ -166,6 +166,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="24dp"
+                android:fontFamily="@font/ggsansmedium"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:text="Các sân hiện có"/>
@@ -190,7 +191,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:fontFamily="@font/ggsansbold"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:text="Sân 7 người"
                     android:layout_marginBottom="10dp"
@@ -200,11 +202,12 @@
                     android:textStyle="italic"
                     />
                 <TextView
-                    android:layout_marginLeft="150dp"
+                    android:layout_marginLeft="140dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
                     android:textSize="18dp"
+                    android:fontFamily="@font/ggsansmedium"
                     android:textColor="#4CAF50"
                     android:id="@+id/txtThemSan"
                     android:text="Thêm sân"/>
@@ -220,7 +223,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:fontFamily="@font/ggsansbold"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:text="Sân 5 người"
                     android:layout_marginBottom="10dp"
@@ -230,13 +234,14 @@
                     android:textStyle="italic"
                     />
                 <TextView
-                    android:layout_marginLeft="150dp"
+                    android:layout_marginLeft="140dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
                     android:textSize="18dp"
                     android:textColor="#4CAF50"
                     android:id="@+id/txtThemSan5"
+                    android:fontFamily="@font/ggsansmedium"
                     android:text="Thêm sân"/>
             </LinearLayout>
             <androidx.recyclerview.widget.RecyclerView

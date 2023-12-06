@@ -11,7 +11,7 @@
         android:fontFamily="@font/ggsansbold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Thêm Sân "
+        android:text="Chỉnh Sửa Liên Hệ"
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textColor="#D93401"
@@ -21,55 +21,38 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp">
+        android:layout_marginTop="15dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:fontFamily="@font/ggsansmedium"
-            android:id="@+id/edtTenSanThem"
+            android:fontFamily="@font/ggsansregular"
+            android:id="@+id/edtSdtChinhSua"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ic_soccer_24"
+            android:drawableLeft="@drawable/ic_phone_24"
             android:drawablePadding="10dp"
-            android:hint="Tên sân"
+            android:hint="Số điện thoại "
 
             android:textColor="@color/black"
             android:textSize="20dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:fontFamily="@font/ggsansmedium"
-        android:id="@+id/trangthaisua"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:inputType="none"
-        android:text="Trạng thái"
-        android:textSize="26dp"
-        android:textStyle="bold" />
+        android:layout_marginTop="15dp">
 
-    <RadioGroup
-        android:id="@+id/radio_groupThem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp">
-
-        <RadioButton
-            android:id="@+id/rb_hoatdongThem"
-            android:layout_width="wrap_content"
+        <com.google.android.material.textfield.TextInputEditText
+            android:fontFamily="@font/ggsansregular"
+            android:id="@+id/edtLinkfb"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hoạt động"
-            android:fontFamily="@font/ggsansmedium"
-            android:textSize="20dp" />
+            android:drawableLeft="@drawable/ic_add_link_24"
+            android:drawablePadding="10dp"
+            android:hint="Link Facebook"
 
-        <RadioButton
-            android:id="@+id/rb_ngunghoatdongThem"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/ggsansmedium"
-            android:text="Ngừng hoạt động"
+            android:textColor="@color/black"
             android:textSize="20dp" />
-
-    </RadioGroup>
+    </com.google.android.material.textfield.TextInputLayout>
 
 
     <LinearLayout
@@ -80,11 +63,12 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btnUpdateTrangThai"
+            android:fontFamily="@font/ggsansbold"
+            android:id="@+id/btnUpdateLienHe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/custom_button"
-            android:text="thêm"
+            android:text="cập nhật"
 
             android:textAllCaps="true"
             android:textSize="20dp"
@@ -92,10 +76,11 @@
             app:backgroundTint="@null" />
 
         <Button
-            android:id="@+id/btnCancelTrangThai"
+            android:fontFamily="@font/ggsansbold"
+            android:id="@+id/btnCancelLienHe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="30dp"
             android:background="@drawable/custom_button"
             android:text="hủy"
             android:textAllCaps="true"

@@ -7,31 +7,40 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
+
     tools:context=".ActivityKhachHang.MainActivity">
-
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="50dp"
-        android:fontFamily="@font/rosario"
-        android:text="Lịch sử đặt sân"
-        android:textColor="#000000"
-        android:textSize="24dp"
-        android:textStyle="bold"
-        android:gravity="center"/>
+        android:orientation="vertical"
+        android:background="@drawable/cus_home"
+        android:layout_height="200dp">
+        <TextView
 
-    <androidx.appcompat.widget.SearchView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="40dp"
-        android:background="@drawable/cus"
-        android:queryHint="Tim Kiem" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="50dp"
+            android:fontFamily="@font/ggsansbold"
+            android:text="Lịch sử đặt sân"
+            android:textColor="#000000"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+        <androidx.appcompat.widget.SearchView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/cus"
+            android:queryHint="Tim Kiem" />
+    </LinearLayout>
+
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvLichSu"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="470dp" />
 </LinearLayout>

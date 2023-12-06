@@ -43,6 +43,7 @@
                     tools:ignore="MissingConstraints"
                     android:orientation="vertical">
                     <TextView
+                        android:fontFamily="@font/ggsansbold"
                         android:id="@+id/txtTenSanCTS"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -58,6 +59,7 @@
                         android:layout_marginStart="20dp"
                         android:text="403 tch10, q12, tp.hcm"
                         android:textAllCaps="true"
+                        android:fontFamily="@font/ggsansregular"
                         android:textSize="15dp"
                         android:textColor="@color/gray"/>
                     <TextView
@@ -66,6 +68,7 @@
                         android:layout_height="wrap_content"
                         android:text="Đang hoạt động"
                         android:gravity="center"
+                        android:fontFamily="@font/ggsansregular"
                         android:textSize="20dp"
                         android:textColor="#55E890"
                         android:textStyle="italic"
@@ -85,6 +88,7 @@
                         android:layout_height="wrap_content"
                         android:text="Đặt Sân"
                         android:id="@+id/btnDatSan"
+                        android:fontFamily="@font/ggsansbold"
                         android:layout_marginEnd="20dp"
                         android:backgroundTint="#3A5B22"
                         android:layout_marginTop="60dp"/>
@@ -106,6 +110,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Sân 5"
+                    android:fontFamily="@font/ggsansregular"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
                     android:textSize="20dp"
@@ -119,10 +124,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="16dp"
+                        android:fontFamily="@font/ggsansregular"
                         android:text="Sáng: 6h -> 18h"/>
                     <TextView
                         android:layout_marginTop="5dp"
                         android:layout_width="wrap_content"
+                        android:fontFamily="@font/ggsansregular"
                         android:layout_height="wrap_content"
                         android:textSize="16dp"
                         android:text="Tối:    18h -> 6h"/>
@@ -135,6 +142,7 @@
                         android:id="@+id/txtGiaChiTietSang"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/ggsansregular"
                         android:text="150.000 vnđ"
                         android:textColor="@color/bluelight"
                         android:textStyle="bold"
@@ -147,6 +155,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
+                        android:fontFamily="@font/ggsansregular"
                         android:drawableLeft="@drawable/ic_nights_stay_24"
                         android:text="300.000 vnđ"
                         android:textSize="18dp"
@@ -183,12 +192,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Đánh giá"
+                android:fontFamily="@font/ggsanssemibold"
                 android:textColor="@color/black"
                 android:textSize="24dp"
                 android:layout_marginStart="20dp"
                 android:textStyle="bold"
                 android:layout_marginTop="-10dp"/>
             <androidx.recyclerview.widget.RecyclerView
+                android:fontFamily="@font/ggsansregular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="0dp"

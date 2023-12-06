@@ -19,6 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="F4 Football"
+        android:fontFamily="@font/ggsansbold"
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textSize="30dp"
@@ -30,6 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
+        android:fontFamily="@font/ggsansmedium"
         android:hint="Số Điện Thoại" />
 
     <EditText
@@ -38,6 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:layout_marginTop="25dp"
+        android:fontFamily="@font/ggsansmedium"
         android:hint="Mật Khẩu" />
     <LinearLayout
         android:layout_width="match_parent"
@@ -51,6 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ghi nhớ đăng nhập"
+            android:fontFamily="@font/ggsansmedium"
             android:textSize="17dp"
             />
         <TextView
@@ -58,6 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Quên mật khẩu"
+            android:fontFamily="@font/ggsansmedium"
             android:textSize="17dp"
             />
     </LinearLayout>
@@ -73,6 +78,7 @@
         android:backgroundTint="#317773"
         android:text="Đăng Nhập"
         android:textAlignment="center"
+        android:fontFamily="@font/ggsansbold"
         android:textColor="@color/white"
         app:backgroundTint="@null" />
 
@@ -85,6 +91,7 @@
         android:background="@drawable/cus1"
         android:backgroundTint="#317773"
         android:text="Đăng Kí"
+        android:fontFamily="@font/ggsansbold"
         android:textAlignment="center"
         android:textColor="@color/white"
         app:backgroundTint="@null"

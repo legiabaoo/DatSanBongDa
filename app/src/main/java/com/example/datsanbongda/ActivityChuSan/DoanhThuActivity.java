@@ -1,6 +1,7 @@
 package com.example.datsanbongda.ActivityChuSan;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -9,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.datsanbongda.DAO.DoanhThuDAO;
@@ -42,7 +44,7 @@ public class DoanhThuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doanh_thu);
-
+        ImageView imgBack = findViewById(R.id.imgBackDoanhThu);
         tIETNgayBD = findViewById(R.id.tIETNgayDoanhThuBD);
         tIETNgayKT = findViewById(R.id.tIETNgayDoanhthuKT);
         txtTongDoanhThu = findViewById(R.id.txtTongDoanhThu);
@@ -52,7 +54,12 @@ public class DoanhThuActivity extends AppCompatActivity {
         loadData();
 
         txtTongDoanhThu.setText(dinhdangtien(doanhThuDAO.tongDoanhThu(tIETNgayBD.getText().toString(), tIETNgayKT.getText().toString())));
-
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         tIETNgayBD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,6 +72,7 @@ public class DoanhThuActivity extends AppCompatActivity {
                 showDatePickerDialogKT();
             }
         });
+        getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.white));
     }
 
     private void loadData() {
@@ -150,4 +158,5 @@ public class DoanhThuActivity extends AppCompatActivity {
         // Chuyển đổi int thành định dạng tiền tệ và trả về kết quả
         return currencyFormatter.format(amount);
     }
+
 }

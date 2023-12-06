@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,8 +28,6 @@
 
     </LinearLayout>
 
-
-
     <LinearLayout
         android:id="@+id/LN_fb"
         android:layout_width="match_parent"
@@ -51,11 +50,12 @@
                 />
 
             <TextView
-                android:fontFamily="@font/ggsansmedium"
+                android:id="@+id/txtFacebook"
                 android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Phùng Thái Dương"
+                android:fontFamily="@font/ggsansmedium"
                 android:gravity="center"
                 android:textSize="20dp" />
         </LinearLayout>
@@ -84,12 +84,13 @@
                 android:src="@drawable/ic_call"
                 />
             <TextView
-                android:fontFamily="@font/ggsansmedium"
+                android:id="@+id/txtSdt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="0386881033"
                 android:textSize="20dp"
-          android:textStyle="bold"
+                android:fontFamily="@font/ggsansmedium"
+                android:textStyle="bold"
                 android:gravity="center" />
         </LinearLayout>
 
@@ -111,27 +112,39 @@
             android:layout_height="30dp"
             android:src="@drawable/ic_location"
             />
-        <TextView
-            android:fontFamily="@font/ggsansmedium"
-            android:layout_marginLeft="20dp"
+        <TextView android:layout_marginLeft="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Công viên phần mềm Quang
 QTSC Building 1, Trung, P Q.12, Thành phố Hồ Chí Minh, Việt Nam."
             android:textSize="20dp"
+            android:fontFamily="@font/ggsansmedium"
             />
     </LinearLayout>
-
     <Button
         android:fontFamily="@font/ggsansbold"
-        android:id="@+id/btnXacNhanLienHe"
+        android:id="@+id/btnChinhSuaLienHe"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
         android:background="@drawable/cus1"
         android:backgroundTint="#317773"
+        android:text="Chỉnh sửa"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        app:backgroundTint="@null" />
+
+    <Button
+        android:id="@+id/btnXacNhanLienHe"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/cus1"
+        android:backgroundTint="#317773"
         android:text="Trở về"
+        android:fontFamily="@font/ggsansbold"
         android:textAlignment="center"
         android:textColor="@color/white"
         app:backgroundTint="@null" />

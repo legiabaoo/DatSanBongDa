@@ -26,6 +26,7 @@
                 android:id="@+id/ImgBackthongtin"
                 />
             <TextView
+                android:fontFamily="@font/ggsansbold"
                 android:textAlignment="center"
                 android:translationY="-50dp"
                 android:layout_width="match_parent"
@@ -34,7 +35,7 @@
                 android:textColor="@color/white"
                 android:textSize="30dp"
                 android:textStyle="bold"
-                android:fontFamily="@font/rosario"/>
+              />
 
 
         </LinearLayout>
@@ -67,16 +68,7 @@
                 android:textSize="24dp"
                 android:textStyle="bold"
                 />
-            <TextView
-                android:id="@+id/txtDatsan7"
-                android:layout_marginLeft="175dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Đặt sân "
-                android:textStyle="bold"
-                android:textSize="20dp"
-                android:textColor="@color/colorThatBai"
-               />
+
         </LinearLayout>
 
         <LinearLayout
@@ -88,6 +80,7 @@
                 android:layout_height="80dp"
                 android:src="@drawable/mattroi" />
             <TextView
+                android:fontFamily="@font/ggsansmedium"
                 android:id="@+id/txtGiaSan7Sang"
                 android:layout_marginLeft="15dp"
                 android:layout_width="wrap_content"
@@ -99,11 +92,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="VND/h "
+                android:text="/h "
                 android:textStyle="italic"
                 android:fontFamily="@font/open_sans"
                 android:textSize="22dp"
-                android:textColor="@color/black"
+                android:textColor="@color/colorThanhCong"
                 android:layout_marginTop="20dp"/>
 
         </LinearLayout>
@@ -116,23 +109,26 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:src="@drawable/snapedit_1701009551791" />
+
             <TextView
+                android:fontFamily="@font/ggsansmedium"
                 android:id="@+id/txtGiaSan7Toi"
-                android:layout_marginLeft="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
                 android:text="450.000 "
-                android:textSize="24dp"
                 android:textColor="@color/colorThanhCong"
-                android:layout_marginTop="20dp"/>
+                android:textSize="24dp" />
+
             <TextView
                 android:textStyle="italic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="VND/h "
+                android:text="/h "
                 android:textSize="22dp"
                 android:fontFamily="@font/open_sans"
-                android:textColor="@color/black"
+                android:textColor="@color/colorThanhCong"
                 android:layout_marginTop="20dp"/>
 
         </LinearLayout>
@@ -164,16 +160,7 @@
                 android:textSize="24dp"
                 android:textStyle="bold"
                 />
-            <TextView
-                android:id="@+id/txtDatSan5"
-                android:layout_marginLeft="175dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Đặt sân "
-                android:textStyle="bold"
-                android:textSize="20dp"
-                android:textColor="@color/colorThatBai"
-                />
+
         </LinearLayout>
 
         <LinearLayout
@@ -185,6 +172,7 @@
                 android:layout_height="80dp"
                 android:src="@drawable/mattroi" />
             <TextView
+                android:fontFamily="@font/ggsansmedium"
                 android:id="@+id/txtGiaSan5Sang"
                 android:layout_marginLeft="15dp"
                 android:layout_width="wrap_content"
@@ -196,11 +184,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="VND/h "
+                android:text="/h "
                 android:textStyle="italic"
                 android:fontFamily="@font/open_sans"
                 android:textSize="22dp"
-                android:textColor="@color/black"
+                android:textColor="@color/colorThanhCong"
                 android:layout_marginTop="20dp"/>
 
         </LinearLayout>
@@ -214,6 +202,7 @@
                 android:layout_height="80dp"
                 android:src="@drawable/snapedit_1701009551791" />
             <TextView
+                android:fontFamily="@font/ggsansmedium"
                 android:id="@+id/txtGiaSan5Toi"
                 android:layout_marginLeft="15dp"
                 android:layout_width="wrap_content"
@@ -226,10 +215,10 @@
                 android:textStyle="italic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="VND/h "
+                android:text="/h "
                 android:textSize="22dp"
                 android:fontFamily="@font/open_sans"
-                android:textColor="@color/black"
+                android:textColor="@color/colorThanhCong"
                 android:layout_marginTop="20dp"/>
 
         </LinearLayout>

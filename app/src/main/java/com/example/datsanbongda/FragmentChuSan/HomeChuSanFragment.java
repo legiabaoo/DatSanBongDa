@@ -19,6 +19,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.datsanbongda.ActivityChuSan.LienHeChuSanActivity;
 import com.example.datsanbongda.ActivityChuSan.ThongTinSanChuSanActivity;
 import com.example.datsanbongda.ActivityKhachHang.LienHeActivity;
 import com.example.datsanbongda.DAO.SanHomeDAO;
@@ -205,7 +206,7 @@ public class HomeChuSanFragment extends Fragment {
         lienhe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(), LienHeActivity.class));
+                startActivity(new Intent(getActivity(), LienHeChuSanActivity.class));
             }
         });
 

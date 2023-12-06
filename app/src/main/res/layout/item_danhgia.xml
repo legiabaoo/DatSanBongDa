@@ -36,6 +36,7 @@
                 android:text="Le Gia Bao"
                 android:textSize="15dp"
                 android:textColor="@color/black"
+                android:fontFamily="@font/ggsansregular"
                 android:layout_gravity="center_vertical"/>
         </LinearLayout>
         <LinearLayout
@@ -73,12 +74,14 @@
                         android:src="@drawable/ic_star_gray"/>
                 </LinearLayout>
                 <TextView
+                    android:fontFamily="@font/ggsansregular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="10/11/2023"
                     android:layout_marginStart="10dp"/>
             </LinearLayout>
             <TextView
+                android:fontFamily="@font/ggsansmedium"
                 android:id="@+id/txtDanhGia"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

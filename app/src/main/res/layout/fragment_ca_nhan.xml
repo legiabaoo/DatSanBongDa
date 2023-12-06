@@ -11,7 +11,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="230dp"
-        android:background="@drawable/custom_header"
+        android:background="@drawable/cus_home"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:fontFamily="@font/rosarivo"
+            android:fontFamily="@font/ggsansbold"
             android:text="Cá nhân"
             android:textColor="@color/black"
             android:textSize="32dp"
@@ -62,6 +62,7 @@
                 android:layout_marginTop="15dp"
                 android:fontFamily="@font/open_sans"
                 android:text="Phùng Thái Dương"
+                android:textAllCaps="true"
                 android:textColor="#25265E"
                 android:textSize="20dp" />
 

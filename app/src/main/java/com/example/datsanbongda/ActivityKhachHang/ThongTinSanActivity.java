@@ -1,6 +1,7 @@
 package com.example.datsanbongda.ActivityKhachHang;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,10 +22,9 @@ public class ThongTinSanActivity extends AppCompatActivity {
         TextView txtGiaSangSan7 = findViewById(R.id.txtGiaSan7Sang);
         TextView txtGiaToiSan5 = findViewById(R.id.txtGiaSan5Toi);
         TextView txtGiaToiSan7 = findViewById(R.id.txtGiaSan7Toi);
-        TextView txtDatSan7 = findViewById(R.id.txtDatsan7);
-        TextView txtDatSan5 = findViewById(R.id.txtDatSan5);
 
 
+        getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.colorThanhCong));
 
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,19 +32,6 @@ public class ThongTinSanActivity extends AppCompatActivity {
                 finish();
             }
         });
-        txtDatSan5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(ThongTinSanActivity.this, DatSanActivity.class));
 
-            }
-        });
-        txtDatSan7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(ThongTinSanActivity.this, DatSanActivity.class));
-
-            }
-        });
     }
 }
