@@ -2,8 +2,8 @@ package com.example.datsanbongda.model;
 
 public class LichSuDuyetSan {
     int maVe, trangThai, maSan, maKhachHang, maChuSan;
-    String ngay, thoiGianBatDau, thoiGianKetThuc, tenSan, tenKhachHang, ngayDat;
-    public LichSuDuyetSan(String thoiGianBatDau, String thoiGianKetThuc, String ngay, String ngayDat, int trangThai, int maSan, int maKhachHang, int maChuSan) {
+    String ngay, thoiGianBatDau, thoiGianKetThuc, tenSan, tenKhachHang, ngayDat, maThanhToan;
+    public LichSuDuyetSan(String thoiGianBatDau, String thoiGianKetThuc, String ngay, String ngayDat, int trangThai, int maSan, int maKhachHang, int maChuSan, String maThanhToan) {
         this.maVe = maVe;
         this.trangThai = trangThai;
         this.maSan = maSan;
@@ -13,8 +13,9 @@ public class LichSuDuyetSan {
         this.thoiGianBatDau = thoiGianBatDau;
         this.thoiGianKetThuc = thoiGianKetThuc;
         this.ngayDat = ngayDat;
+        this.maThanhToan = maThanhToan;
     }
-    public LichSuDuyetSan(int maVe, String thoiGianBatDau, String thoiGianKetThuc, String ngay, String ngayDat, int trangThai, int maSan, int maKhachHang, int maChuSan, String tenSan, String tenKhachHang) {
+    public LichSuDuyetSan(int maVe, String thoiGianBatDau, String thoiGianKetThuc, String ngay, String ngayDat, int trangThai, String maThanhToan, int maSan, int maKhachHang, int maChuSan, String tenSan, String tenKhachHang) {
         this.maVe = maVe;
         this.trangThai = trangThai;
         this.maSan = maSan;
@@ -26,11 +27,34 @@ public class LichSuDuyetSan {
         this.tenSan = tenSan;
         this.tenKhachHang = tenKhachHang;
         this.ngayDat = ngayDat;
+        this.maThanhToan = maThanhToan;
     }
+//    public LichSuDuyetSan(int maVe, String thoiGianBatDau, String thoiGianKetThuc, String ngay, String ngayDat, int trangThai, int maSan, int maKhachHang, int maChuSan, String tenSan, String tenKhachHang) {
+//        this.maVe = maVe;
+//        this.trangThai = trangThai;
+//        this.maSan = maSan;
+//        this.maKhachHang = maKhachHang;
+//        this.maChuSan = maChuSan;
+//        this.ngay = ngay;
+//        this.thoiGianBatDau = thoiGianBatDau;
+//        this.thoiGianKetThuc = thoiGianKetThuc;
+//        this.tenSan = tenSan;
+//        this.tenKhachHang = tenKhachHang;
+//        this.ngayDat = ngayDat;
+//
+//    }
 
     public LichSuDuyetSan(int maVe, int trangThai) {
         this.maVe = maVe;
         this.trangThai = trangThai;
+    }
+
+    public String getMaThanhToan() {
+        return maThanhToan;
+    }
+
+    public void setMaThanhToan(String maThanhToan) {
+        this.maThanhToan = maThanhToan;
     }
 
     public String getNgayDat() {

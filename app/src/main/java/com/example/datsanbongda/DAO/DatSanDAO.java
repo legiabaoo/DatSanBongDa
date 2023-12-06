@@ -133,10 +133,11 @@ public class DatSanDAO {
 
         return flag;
     }
-    public void taoMaThanhToan(String soDienThoai){
+    public void taoMaThanhToan(String soDienThoai, int maVe){
         SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("noiDung", soDienThoai);
+        contentValues.put("maVe", maVe);
         sqLiteDatabase.insert("MATHANHTOAN", null, contentValues);
     }
 }

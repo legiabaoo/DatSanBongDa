@@ -81,6 +81,7 @@ public class LichSuDuyetSanAdapter extends RecyclerView.Adapter<LichSuDuyetSanAd
 //            holder.txtTrangThai.setTextColor(ContextCompat.getColor(context, R.color.colorThatBai));
 //        }
         holder.txtTenSanDuyetSan.setText(list.get(holder.getAdapterPosition()).getTenSan());
+        holder.txtMa.setText(list.get(holder.getAdapterPosition()).getMaThanhToan());
 
         String[] gioBD = list.get(holder.getAdapterPosition()).getThoiGianBatDau().split(":");
         int igioBD = Integer.parseInt(gioBD[0]);

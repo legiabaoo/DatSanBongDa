@@ -32,6 +32,11 @@
         <activity
             android:name=".ActivityChuSan.ThongTinSanChuSanActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".ActivityKhachHang.ThanhToanActivity"
+            android:label="@string/app_name"/>
+
         <activity
             android:name=".ActivityKhachHang.ThongTinSanActivity"
             android:exported="false" />

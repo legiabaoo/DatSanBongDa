@@ -45,6 +45,7 @@ import com.example.datsanbongda.database.DbHelper;
 import com.example.datsanbongda.model.DoanhThu;
 import com.example.datsanbongda.model.LichSuDatSan;
 import com.example.datsanbongda.model.LichSuDuyetSan;
+import com.example.datsanbongda.model.MaThanhToan;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.text.SimpleDateFormat;
@@ -181,14 +182,18 @@ public class DatSanActivity extends AppCompatActivity {
                     int maKhachHang = 1;
                     SharedPreferences sharedPreferences = getSharedPreferences("Data", Context.MODE_PRIVATE);
                     String soDienThoai = sharedPreferences.getString("soDienThoai", "");
-                    datSanDAO.taoMaThanhToan(soDienThoai);
+                    ArrayList<LichSuDuyetSan> list = new ArrayList<>();
+                    list = lichSuDuyetSanDAO.getDSDuyetSan();
+                    int maVe = list.size()+1;
+                    datSanDAO.taoMaThanhToan(soDienThoai, maVe);
+                    String maThanhToan = setNoiDung();
                     LichSuDatSan lichSuDatSan = new LichSuDatSan(thoiGianBatDau, thoiGianKetThuc, ngay, ngayDat, trangThai, maSan, maChuSan, maKhachHang);
                     boolean checkLS = lichSuDatSanDAO.themLichSu(lichSuDatSan);
-                    LichSuDuyetSan lichSuDuyetSan = new LichSuDuyetSan(thoiGianBatDau, thoiGianKetThuc, ngay, ngayDat, trangThai, maSan, maChuSan, maKhachHang);
+                    LichSuDuyetSan lichSuDuyetSan = new LichSuDuyetSan(thoiGianBatDau, thoiGianKetThuc, ngay, ngayDat, trangThai, maSan, maChuSan, maKhachHang, maThanhToan);
                     boolean checkDS = lichSuDuyetSanDAO.themDuyetSan(lichSuDuyetSan);
                     if(checkLS && checkDS){
                         Toast.makeText(DatSanActivity.this, "Đặt sân thành công", Toast.LENGTH_SHORT).show();
-
+                        sendNotification();
                     }else {
                         Toast.makeText(DatSanActivity.this, "Đặt sân thất bại", Toast.LENGTH_SHORT).show();
                     }
@@ -398,5 +403,57 @@ public class DatSanActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 7979) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    sendNotification();
+                }
+            }
+        }
+    }
+    private void sendNotification() {
+        Bitmap logo = BitmapFactory.decodeResource(getResources(), R.drawable.sanbongda);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, ConfigNotification.CHANNEL_ID)
+                .setSmallIcon(R.drawable.logosan)
+                .setContentTitle("Khách đặt sân kìa")
+                .setContentText("Vào duyệt ngay thôi!!!")
+                .setStyle(new NotificationCompat.BigPictureStyle()
+                        .bigPicture(logo)
+                        .bigLargeIcon(null))
+                .setLargeIcon(logo)
+                .setColor(Color.BLUE)
+                .setAutoCancel(true);
 
+        NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+
+        }    else {
+            ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.POST_NOTIFICATIONS},7979);
+        }
+        notificationManagerCompat.notify((int) new Date().getTime(), builder.build());
+    }
+    private String setNoiDung(){
+        ArrayList<MaThanhToan> list = new ArrayList<>();
+        int count=0;
+        SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM MATHANHTOAN",null);
+        if(cursor.moveToFirst()){
+            do {
+                list.add(new MaThanhToan(cursor.getInt(0),
+                        cursor.getString(1)));
+            }while (cursor.moveToNext());
+        }
+        count=list.size();
+        String sdt = list.get(count-1).getNoiDung().substring(6, 9);
+        String maTT = String.valueOf(list.get(count-1).getMaThanhToan());
+        if(maTT.length()==1){
+            maTT="00"+maTT;
+        } else if (maTT.length()==2) {
+            maTT="0"+maTT;
+        }
+        return sdt+maTT;
+    }
 }
