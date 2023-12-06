@@ -45,6 +45,7 @@ import com.example.datsanbongda.database.DbHelper;
 import com.example.datsanbongda.model.DoanhThu;
 import com.example.datsanbongda.model.LichSuDatSan;
 import com.example.datsanbongda.model.LichSuDuyetSan;
+import com.example.datsanbongda.model.MaThanhToan;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.text.SimpleDateFormat;
@@ -181,10 +182,14 @@ public class DatSanActivity extends AppCompatActivity {
                     int maKhachHang = 1;
                     SharedPreferences sharedPreferences = getSharedPreferences("Data", Context.MODE_PRIVATE);
                     String soDienThoai = sharedPreferences.getString("soDienThoai", "");
-                    datSanDAO.taoMaThanhToan(soDienThoai);
+                    ArrayList<LichSuDuyetSan> list = new ArrayList<>();
+                    list = lichSuDuyetSanDAO.getDSDuyetSan();
+                    int maVe = list.size()+1;
+                    datSanDAO.taoMaThanhToan(soDienThoai, maVe);
+                    String maThanhToan = setNoiDung();
                     LichSuDatSan lichSuDatSan = new LichSuDatSan(thoiGianBatDau, thoiGianKetThuc, ngay, ngayDat, trangThai, maSan, maChuSan, maKhachHang);
                     boolean checkLS = lichSuDatSanDAO.themLichSu(lichSuDatSan);
-                    LichSuDuyetSan lichSuDuyetSan = new LichSuDuyetSan(thoiGianBatDau, thoiGianKetThuc, ngay, ngayDat, trangThai, maSan, maChuSan, maKhachHang);
+                    LichSuDuyetSan lichSuDuyetSan = new LichSuDuyetSan(thoiGianBatDau, thoiGianKetThuc, ngay, ngayDat, trangThai, maSan, maChuSan, maKhachHang, maThanhToan);
                     boolean checkDS = lichSuDuyetSanDAO.themDuyetSan(lichSuDuyetSan);
                     if(checkLS && checkDS){
                         Toast.makeText(DatSanActivity.this, "Đặt sân thành công", Toast.LENGTH_SHORT).show();
@@ -429,5 +434,26 @@ public class DatSanActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.POST_NOTIFICATIONS},7979);
         }
         notificationManagerCompat.notify((int) new Date().getTime(), builder.build());
+    }
+    private String setNoiDung(){
+        ArrayList<MaThanhToan> list = new ArrayList<>();
+        int count=0;
+        SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM MATHANHTOAN",null);
+        if(cursor.moveToFirst()){
+            do {
+                list.add(new MaThanhToan(cursor.getInt(0),
+                        cursor.getString(1)));
+            }while (cursor.moveToNext());
+        }
+        count=list.size();
+        String sdt = list.get(count-1).getNoiDung().substring(6, 9);
+        String maTT = String.valueOf(list.get(count-1).getMaThanhToan());
+        if(maTT.length()==1){
+            maTT="00"+maTT;
+        } else if (maTT.length()==2) {
+            maTT="0"+maTT;
+        }
+        return sdt+maTT;
     }
 }

@@ -22,6 +22,7 @@ public class LichSuDuyetSanDAO {
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT DATCHOCHUSAN.*, SAN.tenSan, KHACHHANG.tenKhachHang FROM DATCHOCHUSAN " +
                 "INNER JOIN SAN ON DATCHOCHUSAN.maSan = SAN.maSan " +
                 "INNER JOIN KHACHHANG ON KHACHHANG.maKhachHang = DATCHOCHUSAN.maKhachHang " +
+                "INNER JOIN MATHANHTOAN ON DATCHOCHUSAN.maVe = MATHANHTOAN.maVe " +
                 "WHERE trangThaiDatCho=0",null);
         if (cursor.getCount() > 0) {
             cursor.moveToFirst();
@@ -32,11 +33,12 @@ public class LichSuDuyetSanDAO {
                         cursor.getString(3),
                         cursor.getString(4),
                         cursor.getInt(5),
-                        cursor.getInt(6),
+                        cursor.getString(6),
                         cursor.getInt(7),
                         cursor.getInt(8),
-                        cursor.getString(9),
-                        cursor.getString(10)));
+                        cursor.getInt(9),
+                        cursor.getString(10),
+                        cursor.getString(11)));
             } while (cursor.moveToNext());
 
         }
@@ -53,6 +55,7 @@ public class LichSuDuyetSanDAO {
         contentValues.put("maKhachHang", lichSuDuyetSan.getMaKhachHang());
         contentValues.put("maChuSan", lichSuDuyetSan.getMaChuSan());
         contentValues.put("ngayDat", lichSuDuyetSan.getNgayDat());
+        contentValues.put("maThanhToan", lichSuDuyetSan.getMaThanhToan());
         long check = sqLiteDatabase.insert("DATCHOCHUSAN", null, contentValues);
         return check!=-1;
     }
