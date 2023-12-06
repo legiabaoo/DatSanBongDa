@@ -23,6 +23,7 @@ import com.example.datsanbongda.R;
 import com.example.datsanbongda.database.DbHelper;
 import com.example.datsanbongda.model.LichSuDatSan;
 
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -59,11 +60,31 @@ public class LichSuDatSanAdapter extends RecyclerView.Adapter<LichSuDatSanAdapte
         if(cursorSAN.moveToFirst()){
             maLoaiSan = cursorSAN.getInt(0);
         }
-        Cursor cursor = sqLiteDatabase.rawQuery("SELECT tienSanSang, tienSanToi FROM LOAISAN WHERE maLoaiSan=?", new String[]{String.valueOf(maLoaiSan)});
-        if (cursor.moveToFirst()){
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT tienSanSang, tienSanToi FROM LOAISAN WHERE maLoaiSan=?"
+                ,new String[]{String.valueOf(maLoaiSan)});
+        if(cursor.moveToFirst()){
             giaSanSang = cursor.getInt(0);
             giaSanToi = cursor.getInt(1);
         }
+//        Cursor cursorGiaSang = sqLiteDatabase.rawQuery("SELECT LOAISAN.tienSanSang, LOAISAN.tienSanToi FROM DATCHO " +
+//                "INNER JOIN SAN ON DATCHO.maSan = SAN.maSan " +
+//                "INNER JOIN KHACHHANG ON DATCHO.maKhachHang = KHACHHANG.maKhachHang " +
+//                "INNER JOIN LOAISAN ON LOAISAN.maLoaiSan = SAN.maLoaiSan " +
+//                "WHERE LOAISAN.maLoaiSan=? AND " +
+//                "datetime(?)<datetime(thoiGianBatDau) AND datetime(thoiGianBatDau)<datetime(?)", new String[]{String.valueOf(maLoaiSan), "6:00", "18:00"});
+//        Cursor cursorGiaToi = sqLiteDatabase.rawQuery("SELECT LOAISAN.tienSanSang, LOAISAN.tienSanToi FROM DATCHO " +
+//                "INNER JOIN SAN ON DATCHO.maSan = SAN.maSan " +
+//                "INNER JOIN KHACHHANG ON DATCHO.maKhachHang = KHACHHANG.maKhachHang " +
+//                "INNER JOIN LOAISAN ON LOAISAN.maLoaiSan = SAN.maLoaiSan " +
+//                "WHERE LOAISAN.maLoaiSan=? AND " +
+//                "datetime(?)>datetime(thoiGianBatDau) AND datetime(thoiGianBatDau)>datetime(?)", new String[]{String.valueOf(maLoaiSan), "6:00", "18:00"});
+//        if (cursorGiaSang.getCount()>0){
+//            cursorGiaSang.moveToFirst();
+//            giaSanSang = cursorGiaSang.getInt(0);
+//        }else if(cursorGiaToi.getCount()>0){
+//            cursorGiaToi.moveToFirst();
+//            giaSanSang = cursorGiaToi.getInt(1);
+//        }
 
         holder.txtThoiGian.setText(list.get(holder.getAdapterPosition()).getThoiGianBatDau()+"" +
                 " - "+list.get(holder.getAdapterPosition()).getThoiGianKetThuc()+" - "+
@@ -87,18 +108,25 @@ public class LichSuDatSanAdapter extends RecyclerView.Adapter<LichSuDatSanAdapte
         String[] gioKT = list.get(holder.getAdapterPosition()).getThoiGianKetThuc().split(":");
         int igioKT = Integer.parseInt(gioKT[0]);
         int iphutKT = Integer.parseInt(gioKT[1]);
+        int tienSan = 0;
 
-        int tienSan = (igioKT-igioBD)*giaSanSang;
-        if(tienSan>1000){
-            tienSan = tienSan/1000;
-        }
+        if(igioBD<6 || igioBD>=18){
+            tienSan = (igioKT-igioBD)*giaSanToi;
+            if(iphutKT-iphutBD==30){
+                tienSan+=giaSanToi/2;
+            }else if(iphutKT-iphutBD==-30){
+                tienSan-=giaSanToi/2;
+            }
+        } else if (igioBD>=6 && igioBD<18) {
+            tienSan = (igioKT-igioBD)*giaSanSang;
 
-        if(iphutKT-iphutBD==30){
-            tienSan+=giaSanSang/1000/2;
-        }else if(iphutKT-iphutBD==-30){
-            tienSan-=giaSanSang/1000/2;
+            if(iphutKT-iphutBD==30){
+                tienSan+=giaSanSang/2;
+            }else if(iphutKT-iphutBD==-30){
+                tienSan-=giaSanSang/2;
+            }
         }
-        holder.txtGia.setText(tienSan+".000");
+        holder.txtGia.setText(dinhdangtien(tienSan));
         holder.txtNgay.setText(String.valueOf(list.get(holder.getAdapterPosition()).getNgayDat()));
 
         holder.icChiTietVe.setOnClickListener(new View.OnClickListener() {
@@ -153,5 +181,12 @@ public class LichSuDatSanAdapter extends RecyclerView.Adapter<LichSuDatSanAdapte
             icChiTietVe = itemView.findViewById(R.id.icChiTietVe);
             txtNgay = itemView.findViewById(R.id.txtNgayDatLichSu);
         }
+    }
+    private String dinhdangtien(int amount) {
+        // Tạo một đối tượng NumberFormat với Locale.getDefault() để định dạng theo ngôn ngữ và quốc gia của thiết bị
+        NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(Locale.getDefault());
+
+        // Chuyển đổi int thành định dạng tiền tệ và trả về kết quả
+        return currencyFormatter.format(amount);
     }
 }

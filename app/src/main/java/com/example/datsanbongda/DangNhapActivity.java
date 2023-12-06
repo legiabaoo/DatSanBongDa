@@ -68,24 +68,24 @@ public class DangNhapActivity extends AppCompatActivity {
                     }
                 }
 //                test nhanh
-//                if(sdt.equals("1")){
+//                if (sdt.equals("1")) {
 //                    startActivity(new Intent(DangNhapActivity.this, MainChuSanActivity.class));
 //                    finish();
-//                }else{
+//                } else {
 //                    startActivity(new Intent(DangNhapActivity.this, MainActivity.class));
 //                    finish();
 //                }
             }
         });
 
-                btnDangKy.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        startActivity(new Intent(DangNhapActivity.this, DangKiActivity.class));
-                    }
-                });
-
-                getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.white));
-
+        btnDangKy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DangNhapActivity.this, DangKiActivity.class));
             }
-        }
+        });
+
+        getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.white));
+
+    }
+}

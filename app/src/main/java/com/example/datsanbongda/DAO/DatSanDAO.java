@@ -1,5 +1,6 @@
 package com.example.datsanbongda.DAO;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -132,5 +133,10 @@ public class DatSanDAO {
 
         return flag;
     }
-
+    public void taoMaThanhToan(String soDienThoai){
+        SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("noiDung", soDienThoai);
+        sqLiteDatabase.insert("MATHANHTOAN", null, contentValues);
+    }
 }

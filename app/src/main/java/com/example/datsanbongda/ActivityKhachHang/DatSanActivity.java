@@ -3,8 +3,10 @@ package com.example.datsanbongda.ActivityKhachHang;
 import android.Manifest;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -186,7 +188,10 @@ public class DatSanActivity extends AppCompatActivity {
                     }else {
                         Toast.makeText(DatSanActivity.this, "Đặt sân thất bại", Toast.LENGTH_SHORT).show();
                     }
-                    startActivity(new Intent(DatSanActivity.this, MainActivity.class));
+                    SharedPreferences sharedPreferences = getSharedPreferences("Data", Context.MODE_PRIVATE);
+                    String soDienThoai = sharedPreferences.getString("soDienThoai", "");
+                    datSanDAO.taoMaThanhToan(soDienThoai);
+                    startActivity(new Intent(DatSanActivity.this, ThanhToanActivity.class));
 //                    Intent intent = new Intent(DatSanActivity.this, DatChoActivity.class);
 //                    Bundle bundle = new Bundle();
 //                    bundle.putString("San", tIETSan.getText().toString());
