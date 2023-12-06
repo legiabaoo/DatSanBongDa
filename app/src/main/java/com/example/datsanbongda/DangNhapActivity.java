@@ -50,9 +50,17 @@ public class DangNhapActivity extends AppCompatActivity {
                 String matkhau = edtMatKhau.getText().toString();
                 DbHelper dbHelper = new DbHelper(DangNhapActivity.this);
 
-                if (sdt.equals("0123456789") && matkhau.equals("admin")) {
+                if (dbHelper.DangNhapChuSan(sdt, matkhau)) {
                     Toast.makeText(DangNhapActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(DangNhapActivity.this, MainChuSanActivity.class));
+                    if (chk_Remember.isChecked()) {
+                        // Save credentials in SharedPreferences
+                        SharedPreferences sharedPreferences = getSharedPreferences("Data", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putString("savedUsername", sdt);
+                        editor.putString("savedPassword", matkhau);
+                        editor.apply();
+                    }
                 } else if (sdt.isEmpty() || matkhau.isEmpty()) {
                     Toast.makeText(DangNhapActivity.this, "Vui lòng nhập lại", Toast.LENGTH_SHORT).show();
                 } else {

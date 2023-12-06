@@ -12,6 +12,7 @@ import android.widget.Button;
 
 import com.example.datsanbongda.ActivityChuSan.DoanhThuActivity;
 import com.example.datsanbongda.ActivityChuSan.LienHeChuSanActivity;
+import com.example.datsanbongda.ActivityKhachHang.ThongTinSanActivity;
 import com.example.datsanbongda.DangNhapActivity;
 import com.example.datsanbongda.R;
 
@@ -25,7 +26,15 @@ public class CaNhanChuSanFragment extends Fragment {
         View view =inflater.inflate(R.layout.fragment_ca_nhan_chu_san, container, false);
         Button btnDangXuatChuSan = view.findViewById(R.id.btnDangXuatChuSan);
         Button btnDoanhThu = view.findViewById(R.id.btnDoanhThu);
-        Button btnLienHe = view.findViewById(R.id.btnLienHecaNhan);
+        Button btnLienHe = view.findViewById(R.id.btnLienHeCaNhan);
+        Button btnThongTinSan = view.findViewById(R.id.btnThongTinSan);
+
+        btnThongTinSan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), ThongTinSanActivity.class));
+            }
+        });
 
         btnLienHe.setOnClickListener(new View.OnClickListener() {
             @Override

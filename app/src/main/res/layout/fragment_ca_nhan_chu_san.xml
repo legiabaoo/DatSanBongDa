@@ -98,7 +98,7 @@
             app:backgroundTint="@null" />
 
         <Button
-            android:id="@+id/btnLienHecaNhan"
+            android:id="@+id/btnLienHeCaNhan"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="30dp"
@@ -113,6 +113,7 @@
             app:backgroundTint="@null" />
 
         <Button
+            android:id="@+id/btnThongTinSan"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="30dp"

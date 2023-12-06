@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import com.example.datsanbongda.model.ChuSan;
 import com.example.datsanbongda.model.KhachHang;
 
 import java.util.ArrayList;
@@ -44,7 +45,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
         String tChuSan = "CREATE TABLE CHUSAN(maChuSan integer primary key, taiKhoan text, matKhau text, soDienThoai text, facebook text)";
         db.execSQL(tChuSan);
-        db.execSQL("INSERT INTO CHUSAN VALUES(1, 'phungthaiduong123', '12345678', '0987654321', 'https://www.facebook.com/thaiduong.phung.102')");
+        db.execSQL("INSERT INTO CHUSAN VALUES(1, '0123456789', 'admin', '0987654321', 'https://www.facebook.com/thaiduong.phung.102')");
 
         String tDatCho = "CREATE TABLE DATCHO(maVe integer primary key autoincrement, thoiGianBatDau text, thoiGianKetThuc text, ngay text, ngayDat text,trangThaiDatCho integer ," +
                 "maSan integer references SAN(maSan), maKhachHang integer references KHACHHANG(maKhachHang), maChuSan integer references CHUSAN(maChuSan))";
@@ -121,6 +122,16 @@ public class DbHelper extends SQLiteOpenHelper {
         }
         return  khachhang;
 
+    }
+    public boolean DangNhapChuSan(String sdt, String matKhau){
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM CHUSAN WHERE taiKhoan=? and matKhau=?",
+                new String[]{sdt, matKhau});
+        if(cursor.getCount()>0){
+            return true;
+        }else {
+            return false;
+        }
     }
 
     // hàm cập nhật lại password

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -28,8 +29,16 @@ public class DangKiActivity extends AppCompatActivity {
         EditText edtSdt = findViewById(R.id.edtSdt);
         EditText edtMatkhau = findViewById(R.id.edtMatkhau);
         ImageView imgBack = findViewById(R.id.imgBackDangki);
+        CheckBox checkBoxDK = findViewById(R.id.checkBoxDK);
 
         Bundle bundle = new Bundle();
+
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         btnDangki.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,31 +46,30 @@ public class DangKiActivity extends AppCompatActivity {
                 String hoten = edtHoten.getText().toString();
                 String sdt = edtSdt.getText().toString();
                 String matkhau = edtMatkhau.getText().toString();
-                String nhaplaimk =edtNhapLaiMk.getText().toString();
+                String nhaplaimk = edtNhapLaiMk.getText().toString();
 
                 DbHelper dbHelper = new DbHelper(DangKiActivity.this);
-                if(hoten.isEmpty() || matkhau.isEmpty() || sdt.isEmpty()){
+                if (hoten.isEmpty() || matkhau.isEmpty() || sdt.isEmpty()) {
                     Toast.makeText(DangKiActivity.this, "Vui Lòng Nhập Đầy Đủ Thông Tin", Toast.LENGTH_SHORT).show();
-
-                }
-                else {
+                } else if (!checkBoxDK.isChecked()) {
+                    Toast.makeText(DangKiActivity.this, "Vui Lòng Nhấn Vào Tôi Đồng Ý Với Các Điều Khoản Và Chính Sách", Toast.LENGTH_SHORT).show();
+                } else {
                     boolean check = dbHelper.KiemTraDangNhap(sdt);
-                    if(check){
+                    if (check) {
                         edtSdt.setError("Số điện thoại đã được đăng kí!");
-                    }else if(sdt.length()==10 ){
+                    } else if (sdt.length() == 10) {
 
-                        if(nhaplaimk.compareTo(matkhau) == 0 ){
+                        if (nhaplaimk.compareTo(matkhau) == 0) {
 
-                                dbHelper.DangKi(hoten,sdt,matkhau);
-                                Toast.makeText(DangKiActivity.this, "Đã tạo thành công tài khoản", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(DangKiActivity.this, DangNhapActivity.class));
+                            dbHelper.DangKi(hoten, sdt, matkhau);
+                            Toast.makeText(DangKiActivity.this, "Đã tạo thành công tài khoản", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(DangKiActivity.this, DangNhapActivity.class));
 
 
-
-                        }else {
+                        } else {
                             Toast.makeText(DangKiActivity.this, "Mật khẩu không khớp", Toast.LENGTH_SHORT).show();
                         }
-                    }else {
+                    } else {
                         edtSdt.setError("Số điện thoại không phù hợp");
                     }
                 }

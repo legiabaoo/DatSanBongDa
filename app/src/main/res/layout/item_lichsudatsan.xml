@@ -62,8 +62,7 @@
             android:layout_height="wrap_content"
             android:layout_above="@+id/icChiTietVe"
             android:layout_alignParentEnd="true"
-            android:layout_marginLeft="10dp"
-            android:hint="Trang thai "
+            android:hint="Trang thai"
             android:textStyle="italic" />
 
         <ImageView
@@ -73,7 +72,7 @@
             android:layout_above="@+id/txtTrangThai"
             android:layout_alignParentEnd="true"
             android:src="@drawable/ic_next"
-            android:layout_marginTop="15dp"/>
+            android:layout_marginTop="22dp" />
 
         <TextView
             android:fontFamily="@font/ggsansregular"
@@ -82,7 +81,6 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
             android:hint="Ngay"
             android:textStyle="italic" />
