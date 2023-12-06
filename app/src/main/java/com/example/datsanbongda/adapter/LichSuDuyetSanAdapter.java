@@ -176,5 +176,7 @@ public class LichSuDuyetSanAdapter extends RecyclerView.Adapter<LichSuDuyetSanAd
             txtNgayDatDuyetSan = itemView.findViewById(R.id.txtNgayDatDuyetSan);
             txtMa = itemView.findViewById(R.id.txtMa);
         }
+
     }
+
 }

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:fontFamily="@font/ggsansbold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="Chính sách của sân"/>
+        <TextView
+            android:fontFamily="@font/ggsansregular"
+            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1.Bạn phải thanh toán chính xác tiền cọc mặc định là 150.000đ thì mới được duyệt sân."/>
+        <TextView
+            android:fontFamily="@font/ggsansregular"
+            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2. Khi đã cọc tiền cho chủ sân thì khi bạn không đến đá thì chủ sân sẽ không hoàn tiền cọc lại cho bạn."/>
+        <TextView
+            android:fontFamily="@font/ggsansregular"
+            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3. Trong trường họp sân của bạn không được duyệt, chủ sân sẽ chuyển lại tiền cọc cho bạn."/>
+        <TextView
+            android:fontFamily="@font/ggsansregular"
+            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4. Nếu bạn lỡ chuyển tiền cọc dư hoặc thiếu thì có thế liên hệ chủ sân ở trong mục Liên Hệ để được giải quyết."/>
+        <TextView
+            android:fontFamily="@font/ggsansregular"
+            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5. Sao khi đến sân đá xong bạn phải thanh toán hết số tiền còn lại khi đặt sân"/>
+        <TextView
+            android:fontFamily="@font/ggsansregular"
+            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6. Bạn phải nhập đúng mã hiện lên ở trang thanh toán và phần nội dung chuyển tiền."/>
+        <TextView
+            android:fontFamily="@font/ggsansregular"
+            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="7. Nếu đã làm đúng các bước mà sân vẫn chưa duyệt hãy Liên Hệ chủ sân và chửi chủ sân"/>
+        <TextView
+            android:fontFamily="@font/ggsansregular"
+            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8. Bạn muốn thanh toán full tiền sân của bạn thì hãy: ĐỢI TRONG BẢN CẬP NHẬP TIẾP THEO(bây giờ các bạn dev app làm khum kịp)"/>
+        <Button
+            android:fontFamily="@font/ggsansbold"
+            android:id="@+id/btntrove"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/cus1"
+            android:backgroundTint="#317773"
+            android:text="Trở về"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            app:backgroundTint="@null" />
+    </LinearLayout>
+
+</LinearLayout>

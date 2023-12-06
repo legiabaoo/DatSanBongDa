@@ -188,7 +188,7 @@ public class DatSanActivity extends AppCompatActivity {
                     boolean checkDS = lichSuDuyetSanDAO.themDuyetSan(lichSuDuyetSan);
                     if(checkLS && checkDS){
                         Toast.makeText(DatSanActivity.this, "Đặt sân thành công", Toast.LENGTH_SHORT).show();
-                        sendNotification();
+
                     }else {
                         Toast.makeText(DatSanActivity.this, "Đặt sân thất bại", Toast.LENGTH_SHORT).show();
                     }
@@ -398,36 +398,5 @@ public class DatSanActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == 7979) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                    sendNotification();
-                }
-            }
-        }
-    }
-    private void sendNotification() {
-        Bitmap logo = BitmapFactory.decodeResource(getResources(), R.drawable.sanbongda);
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, ConfigNotification.CHANNEL_ID)
-                .setSmallIcon(R.drawable.logosan)
-                .setContentTitle("Khách đặt sân kìa")
-                .setContentText("Vào duyệt ngay thôi!!!")
-                .setStyle(new NotificationCompat.BigPictureStyle()
-                        .bigPicture(logo)
-                        .bigLargeIcon(null))
-                .setLargeIcon(logo)
-                .setColor(Color.BLUE)
-                .setAutoCancel(true);
 
-        NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
-        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
-
-        }    else {
-            ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.POST_NOTIFICATIONS},7979);
-        }
-        notificationManagerCompat.notify((int) new Date().getTime(), builder.build());
-    }
 }
