@@ -92,7 +92,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="/h "
+                android:text="/1 giờ "
                 android:textStyle="italic"
                 android:fontFamily="@font/open_sans"
                 android:textSize="22dp"
@@ -124,7 +124,7 @@
                 android:textStyle="italic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="/h "
+                android:text="/1 giờ "
                 android:textSize="22dp"
                 android:fontFamily="@font/open_sans"
                 android:textColor="@color/colorThanhCong"
@@ -198,9 +198,8 @@
                 android:fontFamily="@font/ggsansmedium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="/h "
+                android:text="/1 giờ "
                 android:textStyle="italic"
-
                 android:textSize="22dp"
                 android:textColor="@color/colorThanhCong"
                 android:layout_marginTop="20dp"/>
@@ -230,7 +229,7 @@
                 android:textStyle="italic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="/h "
+                android:text="/1 giờ "
                 android:textSize="22dp"
                 android:fontFamily="@font/ggsansmedium"
                 android:textColor="@color/colorThanhCong"

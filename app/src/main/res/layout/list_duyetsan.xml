@@ -16,7 +16,7 @@
             android:id="@+id/image"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="5dp"
             android:layout_marginRight="10dp"
             android:src="@drawable/s1" />
 
@@ -24,8 +24,8 @@
             android:id="@+id/txtTenSanDuyetSan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="15dp"
             android:layout_toEndOf="@+id/image"
             android:fontFamily="@font/gg_san_bold"
             android:hint="Ten san "
@@ -38,7 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtTenSanDuyetSan"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:layout_toEndOf="@+id/image"
             android:fontFamily="@font/ggsansregular"
@@ -49,7 +49,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtGiaSanDuyetSan"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:layout_toEndOf="@+id/image"
             android:fontFamily="@font/ggsansregular"
@@ -62,15 +62,14 @@
             android:layout_height="wrap_content"
             android:layout_above="@+id/txtTuChoi"
             android:layout_alignParentEnd="true"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginEnd="2dp"
             android:drawableLeft="@drawable/ic_check_24"
             android:fontFamily="@font/ggsansregular"
             android:text="Đồng ý"
             android:textStyle="italic" />
 
         <TextView
-            android:layout_marginRight="15dp"
+
             android:id="@+id/txtTuChoi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -82,23 +81,23 @@
             android:text="Từ chối " />
 
         <TextView
-            android:layout_marginRight="8dp"
             android:id="@+id/txtMa"
-            android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@+id/txtNgayDatDuyetSan"
             android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="2dp"
             android:text="789001" />
 
         <TextView
-            android:layout_marginRight="15dp"
+
             android:id="@+id/txtNgayDatDuyetSan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginLeft="10dp"
+            android:layout_marginEnd="4dp"
             android:fontFamily="@font/ggsansregular"
             android:hint="Ngay"
             android:textStyle="italic" />

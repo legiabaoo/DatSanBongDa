@@ -129,6 +129,7 @@ public class LichSuDatSanAdapter extends RecyclerView.Adapter<LichSuDatSanAdapte
         holder.txtGia.setText(dinhdangtien(tienSan));
         holder.txtNgay.setText(String.valueOf(list.get(holder.getAdapterPosition()).getNgayDat()));
 
+        int finalTienSan = tienSan;
         holder.icChiTietVe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -140,6 +141,7 @@ public class LichSuDatSanAdapter extends RecyclerView.Adapter<LichSuDatSanAdapte
                     bundle.putString("GioKT", list.get(holder.getAdapterPosition()).getThoiGianKetThuc());
                     bundle.putString("Thu", layThu(list.get(holder.getAdapterPosition()).getNgay()));
                     bundle.putString("NgayThangNam", list.get(holder.getAdapterPosition()).getNgay());
+                    bundle.putInt("TienSan", finalTienSan);
 
                     intent.putExtras(bundle);
                     context.startActivity(intent);

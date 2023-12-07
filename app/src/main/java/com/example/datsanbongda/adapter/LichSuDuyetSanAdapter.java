@@ -24,7 +24,9 @@ import com.example.datsanbongda.model.DoanhThu;
 import com.example.datsanbongda.model.LichSuDatSan;
 import com.example.datsanbongda.model.LichSuDuyetSan;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class LichSuDuyetSanAdapter extends RecyclerView.Adapter<LichSuDuyetSanAdapter.ViewHolder> {
     private Context context;
@@ -90,19 +92,26 @@ public class LichSuDuyetSanAdapter extends RecyclerView.Adapter<LichSuDuyetSanAd
         int igioKT = Integer.parseInt(gioKT[0]);
         int iphutKT = Integer.parseInt(gioKT[1]);
 
-        int tienSan = (igioKT - igioBD) * giaSanSang;
-        if (tienSan > 1000) {
-            tienSan = tienSan / 1000;
-        }
+        int tienSan = 0;
+        if(igioBD<6 || igioBD>=18){
+            tienSan = (igioKT-igioBD)*giaSanToi;
+            if(iphutKT-iphutBD==30){
+                tienSan+=giaSanToi/2;
+            }else if(iphutKT-iphutBD==-30){
+                tienSan-=giaSanToi/2;
+            }
+        } else if (igioBD>=6 && igioBD<18) {
+            tienSan = (igioKT-igioBD)*giaSanSang;
 
-        if (iphutKT - iphutBD == 30) {
-            tienSan += giaSanSang / 1000 / 2;
-        } else if (iphutKT - iphutBD == -30) {
-            tienSan -= giaSanSang / 1000 / 2;
+            if(iphutKT-iphutBD==30){
+                tienSan+=giaSanSang/2;
+            }else if(iphutKT-iphutBD==-30){
+                tienSan-=giaSanSang/2;
+            }
         }
-        int finalTienSan = tienSan*1000;
-        holder.txtGiaSanDuyetSan.setText(tienSan + ".000");
+        holder.txtGiaSanDuyetSan.setText(dinhdangtien(tienSan));
         holder.txtNgayDatDuyetSan.setText(String.valueOf(list.get(holder.getAdapterPosition()).getNgayDat()));
+        int finalTienSan = tienSan;
         holder.txtDongY.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -115,7 +124,7 @@ public class LichSuDuyetSanAdapter extends RecyclerView.Adapter<LichSuDuyetSanAd
                 String thoiGianKetThuc = list.get(holder.getAdapterPosition()).getThoiGianKetThuc();
                 String ngay = list.get(holder.getAdapterPosition()).getNgay();
                 String ngayDat = list.get(holder.getAdapterPosition()).getNgayDat();
-                int tienSanDoanhThu = finalTienSan;
+                int tienSanDoanhThu = Integer.parseInt(String.valueOf(finalTienSan));
                 int maChuSan = list.get(holder.getAdapterPosition()).getMaChuSan();
                 int maKhachHang = list.get(holder.getAdapterPosition()).getMaKhachHang();
                 DoanhThu doanhThu = new DoanhThu(thoiGianBatDau, thoiGianKetThuc, ngay, ngayDat, tienSanDoanhThu, trangThai, Integer.parseInt(maSan), maChuSan, maKhachHang);
@@ -178,6 +187,13 @@ public class LichSuDuyetSanAdapter extends RecyclerView.Adapter<LichSuDuyetSanAd
             txtMa = itemView.findViewById(R.id.txtMa);
         }
 
+    }
+    private String dinhdangtien(int amount) {
+        // Tạo một đối tượng NumberFormat với Locale.getDefault() để định dạng theo ngôn ngữ và quốc gia của thiết bị
+        NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(Locale.getDefault());
+
+        // Chuyển đổi int thành định dạng tiền tệ và trả về kết quả
+        return currencyFormatter.format(amount);
     }
 
 }

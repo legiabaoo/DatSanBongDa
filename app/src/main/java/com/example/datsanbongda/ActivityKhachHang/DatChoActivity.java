@@ -12,6 +12,9 @@ import androidx.core.content.ContextCompat;
 
 import com.example.datsanbongda.R;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 public class DatChoActivity extends AppCompatActivity {
 
     @Override
@@ -45,20 +48,10 @@ public class DatChoActivity extends AppCompatActivity {
         String[] gioKT = bundle.getString("GioKT").split(":");
         int igioKT = Integer.parseInt(gioKT[0]);
         int iphutKT = Integer.parseInt(gioKT[1]);
-
-        int tienSan = (igioKT-igioBD)*150000;
-        if(tienSan>1000){
-            tienSan = tienSan/1000;
-        }
-
-        if(iphutKT-iphutBD==30){
-            tienSan+=150/2;
-        }else if(iphutKT-iphutBD==-30){
-            tienSan-=150/2;
-        }
 //
         String thu = bundle.getString("Thu");
         String[] date = bundle.getString("NgayThangNam").split("/");
+        int tienSan = bundle.getInt("TienSan");
         String day = String.valueOf(date[0]);
         String thang = String.valueOf(date[1]);
         String nam  = String.valueOf(date[2]);
@@ -66,7 +59,7 @@ public class DatChoActivity extends AppCompatActivity {
         txtThangNam.setText("Tháng "+thang+", "+nam);
         txtNgay.setText(day);
         txtThu.setText(thu);
-        txtGia.setText(String.valueOf(tienSan)+".000");
+        txtGia.setText(dinhdangtien(tienSan));
         txtGio.setText(bundle.getString("GioBD")+" - "+bundle.getString("GioKT"));
         txtSan.setText(san);
 
@@ -77,5 +70,12 @@ public class DatChoActivity extends AppCompatActivity {
             onBackPressed();
         }
         return super.onOptionsItemSelected(item);
+    }
+    private String dinhdangtien(int amount) {
+        // Tạo một đối tượng NumberFormat với Locale.getDefault() để định dạng theo ngôn ngữ và quốc gia của thiết bị
+        NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(Locale.getDefault());
+
+        // Chuyển đổi int thành định dạng tiền tệ và trả về kết quả
+        return currencyFormatter.format(amount);
     }
 }
