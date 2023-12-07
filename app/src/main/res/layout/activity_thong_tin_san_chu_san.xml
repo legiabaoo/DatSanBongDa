@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ActivityKhachHang.ThongTinSanActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="250dp"
@@ -13,18 +14,20 @@
         android:orientation="horizontal"
 
         >
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_weight="1">
+
             <ImageView
                 android:layout_margin="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_back"
-                android:id="@+id/ImgBackthongtin"
-                />
+                android:id="@+id/ImgBackthongtin" />
+
             <TextView
                 android:fontFamily="@font/ggsansbold"
                 android:textAlignment="center"
@@ -34,8 +37,7 @@
                 android:text="Thông tin sân"
                 android:textColor="@color/white"
                 android:textSize="30dp"
-                android:textStyle="bold"
-             />
+                android:textStyle="bold" />
 
 
         </LinearLayout>
@@ -53,10 +55,12 @@
         android:orientation="vertical"
         android:padding="10dp"
         android:weightSum="3">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:orientation="horizontal"
             android:layout_height="wrap_content">
+
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -66,8 +70,7 @@
                 android:textAlignment="center"
                 android:textColor="@color/datecolor"
                 android:textSize="24dp"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -75,10 +78,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <ImageView
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:src="@drawable/mattroi" />
+
             <TextView
                 android:fontFamily="@font/ggsansmedium"
                 android:id="@+id/txtGiaSan7Sang"
@@ -88,7 +93,8 @@
                 android:text="300.000 "
                 android:textSize="24dp"
                 android:textColor="@color/colorThanhCong"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -97,7 +103,7 @@
                 android:fontFamily="@font/open_sans"
                 android:textSize="22dp"
                 android:textColor="@color/colorThanhCong"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp" />
 
 
         </LinearLayout>
@@ -106,10 +112,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <ImageView
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:src="@drawable/snapedit_1701009551791" />
+
             <TextView
                 android:fontFamily="@font/ggsansmedium"
                 android:id="@+id/txtGiaSan7Toi"
@@ -119,7 +127,8 @@
                 android:text="450.000 "
                 android:textSize="24dp"
                 android:textColor="@color/colorThanhCong"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp" />
+
             <TextView
                 android:textStyle="italic"
                 android:layout_width="wrap_content"
@@ -128,9 +137,10 @@
                 android:textSize="22dp"
                 android:fontFamily="@font/open_sans"
                 android:textColor="@color/colorThanhCong"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp" />
 
         </LinearLayout>
+
         <Button
             android:fontFamily="@font/ggsansmedium"
             android:layout_width="wrap_content"
@@ -143,8 +153,7 @@
             android:textSize="20dp"
             android:textStyle="bold"
             android:layout_marginLeft="100dp"
-            android:id="@+id/btnChinhSuaThongtinSan7"
-            />
+            android:id="@+id/btnChinhSuaThongtinSan7" />
     </LinearLayout>
 
     <LinearLayout
@@ -158,10 +167,12 @@
         android:orientation="vertical"
         android:padding="10dp"
         android:weightSum="3">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:orientation="horizontal"
             android:layout_height="wrap_content">
+
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -171,8 +182,7 @@
                 android:textAlignment="center"
                 android:textColor="@color/datecolor"
                 android:textSize="24dp"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -180,10 +190,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <ImageView
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:src="@drawable/mattroi" />
+
             <TextView
                 android:fontFamily="@font/ggsansmedium"
                 android:id="@+id/txtGiaSan5Sang"
@@ -193,7 +205,8 @@
                 android:text="150.000 "
                 android:textSize="24dp"
                 android:textColor="@color/colorThanhCong"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp" />
+
             <TextView
                 android:fontFamily="@font/ggsansmedium"
                 android:layout_width="wrap_content"
@@ -202,7 +215,7 @@
                 android:textStyle="italic"
                 android:textSize="22dp"
                 android:textColor="@color/colorThanhCong"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp" />
 
         </LinearLayout>
 
@@ -210,10 +223,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <ImageView
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:src="@drawable/snapedit_1701009551791" />
+
             <TextView
                 android:fontFamily="@font/ggsansmedium"
                 android:id="@+id/txtGiaSan5Toi"
@@ -233,9 +248,10 @@
                 android:textSize="22dp"
                 android:fontFamily="@font/ggsansmedium"
                 android:textColor="@color/colorThanhCong"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp" />
 
         </LinearLayout>
+
         <Button
             android:fontFamily="@font/ggsansmedium"
             android:id="@+id/btnChinhSuaThongtinSan5"
@@ -247,10 +263,8 @@
             android:textColor="@color/black"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:layout_marginLeft="100dp"
-            />
+            android:layout_marginLeft="100dp" />
     </LinearLayout>
-
 
 
 </LinearLayout>

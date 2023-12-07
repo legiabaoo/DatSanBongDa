@@ -74,9 +74,10 @@ public class DbHelper extends SQLiteOpenHelper {
         db.execSQL(tDoanhThu);
         /*
         Trang thai
-        2: bi huy
+
         0: cho xac nhan
         1: thanh cong
+        2: bi huy
         */
         db.execSQL("INSERT INTO DOANHTHU VALUES(1, '16:00', '17:30', '01/12/2023', '25/11/2023', 225000, 2, 1, 1, 1), (2, '17:00', '18:00', '30/11/2023', '27/11/2023', 150000,1, 2, 1, 1)");
 
