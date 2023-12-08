@@ -30,7 +30,7 @@
                     android:layout_height="wrap_content"
                     android:text="F4 Football"
                     android:textColor="@color/white"
-                    android:textSize="28dp"
+                    android:textSize="25dp"
                     android:textStyle="bold"
                     android:fontFamily="@font/ggsansmedium"/>
                 <TextView

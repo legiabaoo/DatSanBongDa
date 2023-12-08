@@ -191,12 +191,11 @@ public class DatSanActivity extends AppCompatActivity {
                     boolean checkLS = lichSuDatSanDAO.themLichSu(lichSuDatSan);
                     LichSuDuyetSan lichSuDuyetSan = new LichSuDuyetSan(thoiGianBatDau, thoiGianKetThuc, ngay, ngayDat, trangThai, maSan, maChuSan, maKhachHang, maThanhToan);
                     boolean checkDS = lichSuDuyetSanDAO.themDuyetSan(lichSuDuyetSan);
-                    if(checkLS && checkDS){
-                        Toast.makeText(DatSanActivity.this, "Đặt sân thành công", Toast.LENGTH_SHORT).show();
-                        sendNotification();
-                    }else {
-                        Toast.makeText(DatSanActivity.this, "Đặt sân thất bại", Toast.LENGTH_SHORT).show();
-                    }
+//                    if(checkLS && checkDS){
+//                        Toast.makeText(DatSanActivity.this, "Đặt sân thành công", Toast.LENGTH_SHORT).show();
+//                    }else {
+//                        Toast.makeText(DatSanActivity.this, "Đặt sân thất bại", Toast.LENGTH_SHORT).show();
+//                    }
 
                     startActivity(new Intent(DatSanActivity.this, ThanhToanActivity.class));
 //                    Intent intent = new Intent(DatSanActivity.this, DatChoActivity.class);

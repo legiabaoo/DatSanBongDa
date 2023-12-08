@@ -69,17 +69,17 @@ public class DbHelper extends SQLiteOpenHelper {
         */
 //        db.execSQL("INSERT INTO DATCHOCHUSAN VALUES(1, '16:00', '17:30', '1/12/2023', '25/11/2023', 2, 1, 1, 1), (2, '17:00', '18:00', '30/11/2023', '27/11/2023',1, 2, 1, 1)");
 
-        String tDoanhThu = "CREATE TABLE DOANHTHU(maVe integer primary key autoincrement, thoiGianBatDau text, thoiGianKetThuc text, ngay text, ngayDat text, tienDoanhThu integer, trangThaiDatCho integer ," +
+        String tDoanhThu = "CREATE TABLE DOANHTHU(maVe integer primary key autoincrement, thoiGianBatDau text, thoiGianKetThuc text, ngay text, ngayDat text, tienDoanhThu integer, trangThaiDatCho integer, " +
                 "maSan integer references SAN(maSan), maKhachHang integer references KHACHHANG(maKhachHang), maChuSan integer references CHUSAN(maChuSan))";
         db.execSQL(tDoanhThu);
         /*
         Trang thai
-
         0: cho xac nhan
         1: thanh cong
         2: bi huy
+        Trang Thai doanh thu 2: coc 3: thanh toan du
         */
-        db.execSQL("INSERT INTO DOANHTHU VALUES(1, '16:00', '17:30', '01/12/2023', '25/11/2023', 225000, 2, 1, 1, 1), (2, '17:00', '18:00', '30/11/2023', '27/11/2023', 150000,1, 2, 1, 1)");
+//        db.execSQL("INSERT INTO DOANHTHU VALUES(1, '16:00', '17:30', '01/12/2023', '25/11/2023', 225000, 2, 1, 1, 1), (2, '17:00', '18:00', '30/11/2023', '27/11/2023', 150000,1, 2, 1, 1)");
 
         String tMaThanhToan = "CREATE TABLE MATHANHTOAN(maThanhToan integer primary key autoincrement, noiDung text, maVe integer references DATCHOCHUSAN(maVe))";
         db.execSQL(tMaThanhToan);

@@ -165,9 +165,9 @@ public class LichSuDuyetSanAdapter extends RecyclerView.Adapter<LichSuDuyetSanAd
         return list.size();
     }
 
-    public void updateList(ArrayList<LichSuDuyetSan> list) {
+    public void updateList(ArrayList<LichSuDuyetSan> newlist) {
         list.clear();
-        list.addAll(list);
+        list.addAll(newlist);
         notifyDataSetChanged();
     }
 

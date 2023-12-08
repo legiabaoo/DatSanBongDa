@@ -30,7 +30,7 @@
                     android:layout_height="wrap_content"
                     android:text="F4 Football"
                     android:textColor="@color/white"
-                    android:textSize="28dp"
+                    android:textSize="25dp"
                     android:textStyle="bold"
                     android:fontFamily="@font/ggsansmedium"/>
                 <TextView
@@ -71,7 +71,7 @@
                         android:id="@+id/txtTenKH"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="116dp"
+                        android:layout_marginStart="136dp"
                         android:layout_marginTop="8dp"
                         android:fontFamily="@font/ggsansmedium"
                         android:text="Chủ Sân"

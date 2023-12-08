@@ -22,7 +22,6 @@ public class LichSuDuyetSanDAO {
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT DATCHOCHUSAN.*, SAN.tenSan, KHACHHANG.tenKhachHang FROM DATCHOCHUSAN " +
                 "INNER JOIN SAN ON DATCHOCHUSAN.maSan = SAN.maSan " +
                 "INNER JOIN KHACHHANG ON KHACHHANG.maKhachHang = DATCHOCHUSAN.maKhachHang " +
-//                "INNER JOIN MATHANHTOAN ON DATCHOCHUSAN.maVe = MATHANHTOAN.maVe " +
                 "WHERE trangThaiDatCho=0",null);
         if (cursor.getCount() > 0) {
             cursor.moveToFirst();

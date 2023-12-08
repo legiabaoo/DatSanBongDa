@@ -62,9 +62,34 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/ggsansregular"
             android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
             android:layout_marginLeft="10dp"
-            android:hint="Trang thai "
+            android:layout_marginTop="20dp"
+            android:hint="Trang thai"
             android:textStyle="italic" />
+        <TextView
+            android:id="@+id/txtThanhToanDu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/txtHuy"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="2dp"
+            android:drawableLeft="@drawable/ic_check_24"
+            android:fontFamily="@font/ggsansregular"
+            android:text="Đã thanh toán"
+            android:textStyle="italic" />
+
+        <TextView
+
+            android:id="@+id/txtHuy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/txtNgayDatLichSu"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:drawableLeft="@drawable/ic_clear_24"
+            android:fontFamily="@font/ggsansregular"
+            android:text="Hủy" />
 
 <!--        <ImageView-->
 <!--            android:id="@+id/icChiTietVe"-->

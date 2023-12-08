@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import com.example.datsanbongda.database.DbHelper;
 import com.example.datsanbongda.model.DoanhThu;
 import com.example.datsanbongda.model.LichSuDatSan;
+import com.example.datsanbongda.model.LichSuDuyetSan;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -119,7 +120,7 @@ public class DoanhThuDAO {
         contentValues.put("thoiGianBatDau", doanhThu.getThoiGianBatDau());
         contentValues.put("thoiGianKetThuc", doanhThu.getThoiGianKetThuc());
         contentValues.put("ngay", doanhThu.getNgay());
-        contentValues.put("trangthaiDatCho", doanhThu.getTrangThai());
+        contentValues.put("trangThaiDatCho", doanhThu.getTrangThai());
         contentValues.put("maSan", doanhThu.getMaSan());
         contentValues.put("maKhachHang", doanhThu.getMaKhachHang());
         contentValues.put("maChuSan", doanhThu.getMaChuSan());
@@ -130,14 +131,23 @@ public class DoanhThuDAO {
     }
 
     public int tongDoanhThu(String ngayBD, String ngayKT) {
-        int tongDoanhThu = 0;
+        int tongDoanhThuCoc = 0, tongDoanhThu=0;
         if(ngayBD.equals("Chọn ngày")&&ngayKT.equals("Chọn ngày")){
             SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();
-            Cursor cursor = sqLiteDatabase.rawQuery("SELECT tienDoanhThu from DOANHTHU ", null);
+            Cursor cursor = sqLiteDatabase.rawQuery("SELECT tienDoanhThu from DOANHTHU " +
+                    "WHERE trangThaiDatCho=3", null);
             if (cursor.getCount() > 0) {
                 cursor.moveToFirst();
                 do {
                     tongDoanhThu += cursor.getInt(0);
+                } while (cursor.moveToNext());
+            }
+            Cursor cursor1 = sqLiteDatabase.rawQuery("SELECT tienDoanhThu from DOANHTHU " +
+                    "WHERE trangThaiDatCho=1", null);
+            if(cursor1.getCount()>0){
+                cursor1.moveToFirst();
+                do{
+                    tongDoanhThuCoc += 150000;
                 } while (cursor.moveToNext());
             }
         }else{
@@ -153,7 +163,13 @@ public class DoanhThuDAO {
                 } while (cursor.moveToNext());
             }
         }
-        return tongDoanhThu;
+        return tongDoanhThuCoc+tongDoanhThu;
     }
-
+    public boolean updateDoanhThu(int maVe, int trangThai){
+        SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("trangThaiDatCho", trangThai);
+        int check = sqLiteDatabase.update("DOANHTHU", contentValues, "maVe=?", new String[]{String.valueOf(maVe)});
+        return check!=0;
+    }
 }
