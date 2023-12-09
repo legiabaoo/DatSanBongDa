@@ -73,13 +73,22 @@ public class DoanhThuAdapter extends RecyclerView.Adapter<DoanhThuAdapter.ViewHo
         holder.txtThoiGian.setText(list.get(holder.getAdapterPosition()).getThoiGianBatDau()+"" +
                 " - "+list.get(holder.getAdapterPosition()).getThoiGianKetThuc()+" - "+
                 list.get(holder.getAdapterPosition()).getNgay());
+
         int trangThai = list.get(holder.getAdapterPosition()).getTrangThai();
         if (trangThai == 3) {
             holder.txtDaThanhToan.setVisibility(View.GONE);
             holder.txtHuy.setVisibility(View.GONE);
-        } else {
+            int tienCoc = Integer.parseInt(context.getResources().getString(R.string.tienCoc));
+            int giaDu = list.get(holder.getAdapterPosition()).getTienSan()-tienCoc;
+            holder.txtGia.setText("Đã trả: "+dinhdangtien(tienCoc+giaDu));
+            holder.txtGiaDu.setText("Còn lại: "+dinhdangtien(0));
+        } else if (trangThai==1){
             holder.txtDaThanhToan.setVisibility(View.VISIBLE);
             holder.txtHuy.setVisibility(View.VISIBLE);
+            int tienCoc = Integer.parseInt(context.getResources().getString(R.string.tienCoc));
+            holder.txtGia.setText("Đã trả: "+dinhdangtien(tienCoc));
+            int giaDu = list.get(holder.getAdapterPosition()).getTienSan()-tienCoc;
+            holder.txtGiaDu.setText("Còn lại: "+dinhdangtien(giaDu));
         }
 
         holder.txtTenSan.setText(list.get(holder.getAdapterPosition()).getTenSan());
@@ -91,9 +100,7 @@ public class DoanhThuAdapter extends RecyclerView.Adapter<DoanhThuAdapter.ViewHo
         int igioKT = Integer.parseInt(gioKT[0]);
         int iphutKT = Integer.parseInt(gioKT[1]);
 
-//        holder.txtGia.setText("+"+tienSan+".000");
-        String tienCoc = context.getResources().getString(R.string.tienCoc);
-        holder.txtGia.setText("+"+tienCoc+"/"+dinhdangtien(list.get(holder.getAdapterPosition()).getTienSan()));
+
         holder.txtNgay.setText(String.valueOf(list.get(holder.getAdapterPosition()).getNgayDat()));
         holder.txtDaThanhToan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -151,7 +158,7 @@ public class DoanhThuAdapter extends RecyclerView.Adapter<DoanhThuAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView txtTenSan, txtGia,txtThoiGian, txtTrangThai, txtNgay, txtDaThanhToan, txtHuy;
+        TextView txtTenSan, txtGia,txtThoiGian, txtTrangThai, txtNgay, txtDaThanhToan, txtHuy, txtGiaDu;
         ImageView icChiTietVe;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -163,6 +170,7 @@ public class DoanhThuAdapter extends RecyclerView.Adapter<DoanhThuAdapter.ViewHo
             txtNgay = itemView.findViewById(R.id.txtNgayDatLichSu);
             txtDaThanhToan = itemView.findViewById(R.id.txtThanhToanDu);
             txtHuy = itemView.findViewById(R.id.txtHuy);
+            txtGiaDu = itemView.findViewById(R.id.txtgiaSanDu);
         }
     }
     private String dinhdangtien(int amount) {
