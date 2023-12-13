@@ -149,12 +149,12 @@ public class DatSanActivity extends AppCompatActivity {
                     thongbao+="Vui lòng chọn thời gian đá hơn 1 tiếng";
                     tIETThongBao.setText(thongbao);
                 } else if (Integer.parseInt(gioKT[0])-Integer.parseInt(gioBD[0])<1) {
-                    thongbao+="Vui lòng chọn thời gian đá hơn 1 tiếng";
-                    tIETThongBao.setText(thongbao);
+
                 }
                 else if (datSanDAO.kiemTraDatSan(tIETNgay.getText().toString(), tIETSan.getText().toString(),
                         tIETGioDB.getText().toString(), tIETGioKT.getText().toString())==false) {
-                    Toast.makeText(DatSanActivity.this, "Lịch này đã được đặt trước", Toast.LENGTH_SHORT).show();
+                    thongbao+="Lịch này đã được đặt trước";
+                    tIETThongBao.setText(thongbao);
                 }
                 else{
                     String thoiGianBatDau = tIETGioDB.getText().toString();
