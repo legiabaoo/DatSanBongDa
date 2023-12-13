@@ -111,47 +111,17 @@ public class DoanhThuAdapter extends RecyclerView.Adapter<DoanhThuAdapter.ViewHo
 //                    Toast.makeText(context, "Thành Công", Toast.LENGTH_SHORT).show();
                     holder.txtDaThanhToan.setVisibility(View.GONE);
                     holder.txtHuy.setVisibility(View.GONE);
+                    int tienCoc = Integer.parseInt(context.getResources().getString(R.string.tienCoc));
+                    int giaDu = list.get(holder.getAdapterPosition()).getTienSan()-tienCoc;
+                    holder.txtGia.setText("Đã trả: "+dinhdangtien(tienCoc+giaDu));
+                    holder.txtGiaDu.setText("Còn lại: "+dinhdangtien(0));
                 }else{
 //                    Toast.makeText(context, "Thất Bại", Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
-//        holder.icChiTietVe.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if(list.get(holder.getAdapterPosition()).getTrangThai()==1){
-//                    Intent intent = new Intent(context, DatChoActivity.class);
-//                    Bundle bundle = new Bundle();
-//                    bundle.putString("San", list.get(holder.getAdapterPosition()).getTenSan());
-//                    bundle.putString("GioBD", list.get(holder.getAdapterPosition()).getThoiGianBatDau());
-//                    bundle.putString("GioKT", list.get(holder.getAdapterPosition()).getThoiGianKetThuc());
-//                    bundle.putString("Thu", layThu(list.get(holder.getAdapterPosition()).getNgay()));
-//                    bundle.putString("NgayThangNam", list.get(holder.getAdapterPosition()).getNgay());
-//
-//                    intent.putExtras(bundle);
-//                    context.startActivity(intent);
-//                }else if(list.get(holder.getAdapterPosition()).getTrangThai()==0){
-//                    Toast.makeText(context, "Để xem vui lòng chờ xác nhận", Toast.LENGTH_SHORT).show();
-//                }else if(list.get(holder.getAdapterPosition()).getTrangThai()==2){
-//                    Toast.makeText(context, "Sân bạn đặt đã thất bại", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
     }
-    public String layThu(String ngayThangNam){
-        String[] date = ngayThangNam.split("/");
-        Calendar calendar = Calendar.getInstance();
-        int ngay = Integer.parseInt(date[0]);
-        int thang = Integer.parseInt(date[1])-1;
-        int nam = Integer.parseInt(date[2]);
-        calendar.set(nam, thang, ngay);
-        Date date1 = calendar.getTime();
-        SimpleDateFormat sdf = new SimpleDateFormat("EEEE", Locale.getDefault());
-        String dayOfWeek = sdf.format(date1);
-        return dayOfWeek;
-    }
-
     @Override
     public int getItemCount() {
         return list.size();

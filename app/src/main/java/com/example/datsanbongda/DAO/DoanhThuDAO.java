@@ -33,7 +33,8 @@ public class DoanhThuDAO {
                     "SELECT DOANHTHU.*, SAN.tenSan, KHACHHANG.tenKhachHang " +
                             "FROM DOANHTHU " +
                             "INNER JOIN SAN ON DOANHTHU.maSan = SAN.maSan " +
-                            "INNER JOIN KHACHHANG ON DOANHTHU.maKhachHang = KHACHHANG.maKhachHang ", null);
+                            "INNER JOIN KHACHHANG ON DOANHTHU.maKhachHang = KHACHHANG.maKhachHang "+
+                            "ORDER BY DOANHTHU.maVe DESC", null);
             if (cursor.getCount() > 0) {
                 cursor.moveToFirst();
                 do {
@@ -51,21 +52,6 @@ public class DoanhThuDAO {
                             cursor.getString(11)));
                 } while (cursor.moveToNext());
             }
-            Collections.sort(list, new Comparator<DoanhThu>() {
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
-
-                @Override
-                public int compare(DoanhThu o1, DoanhThu o2) {
-                    try {
-                        Date date1 = simpleDateFormat.parse(o1.getNgayDat());
-                        Date date2 = simpleDateFormat.parse(o2.getNgayDat());
-                        return date2.compareTo(date1);
-                    } catch (ParseException e) {
-                        e.printStackTrace();
-                        return 0;
-                    }
-                }
-            });
         }else{
             SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();
             Cursor cursor = sqLiteDatabase.rawQuery(
@@ -75,7 +61,8 @@ public class DoanhThuDAO {
                             "INNER JOIN KHACHHANG ON DOANHTHU.maKhachHang = KHACHHANG.maKhachHang " +
                             "WHERE date(REPLACE(SUBSTR(ngayDat, 7, 4) || '-' || SUBSTR(ngayDat, 4, 2) || '-' || SUBSTR(ngayDat, 1, 2), '/', '-')) " +
                             "BETWEEN date(REPLACE(SUBSTR(?, 7, 4) || '-' || SUBSTR(?, 4, 2) || '-' || SUBSTR(?, 1, 2), '/', '-')) " +
-                            "AND date(REPLACE(SUBSTR(?, 7, 4) || '-' || SUBSTR(?, 4, 2) || '-' || SUBSTR(?, 1, 2), '/', '-'))",
+                            "AND date(REPLACE(SUBSTR(?, 7, 4) || '-' || SUBSTR(?, 4, 2) || '-' || SUBSTR(?, 1, 2), '/', '-')) "
+                    + "ORDER BY DOANHTHU.maVe DESC",
                     new String[]{ngayBD, ngayBD, ngayBD, ngayKT, ngayKT, ngayKT});
             if (cursor.getCount() > 0) {
                 cursor.moveToFirst();
@@ -94,21 +81,6 @@ public class DoanhThuDAO {
                             cursor.getString(11)));
                 } while (cursor.moveToNext());
             }
-            Collections.sort(list, new Comparator<DoanhThu>() {
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
-
-                @Override
-                public int compare(DoanhThu o1, DoanhThu o2) {
-                    try {
-                        Date date1 = simpleDateFormat.parse(o1.getNgayDat());
-                        Date date2 = simpleDateFormat.parse(o2.getNgayDat());
-                        return date2.compareTo(date1);
-                    } catch (ParseException e) {
-                        e.printStackTrace();
-                        return 0;
-                    }
-                }
-            });
         }
 
         return list;

@@ -29,7 +29,8 @@ public class LichSuDatSanDAO {
 
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT DATCHO.*, SAN.tenSan, KHACHHANG.tenKhachHang FROM DATCHO " +
                 "INNER JOIN SAN ON DATCHO.maSan = SAN.maSan " +
-                "INNER JOIN KHACHHANG ON DATCHO.maKhachHang = KHACHHANG.maKhachHang", null);
+                "INNER JOIN KHACHHANG ON DATCHO.maKhachHang = KHACHHANG.maKhachHang " +
+                "ORDER BY DATCHO.maVe DESC", null);
         if (cursor.getCount() > 0) {
             cursor.moveToFirst();
             do {
@@ -47,20 +48,6 @@ public class LichSuDatSanDAO {
             } while (cursor.moveToNext());
 
         }
-        Collections.sort(list, new Comparator<LichSuDatSan>() {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
-            @Override
-            public int compare(LichSuDatSan o1, LichSuDatSan o2) {
-                try {
-                    Date date1 = simpleDateFormat.parse(o1.getNgayDat());
-                    Date date2 = simpleDateFormat.parse(o2.getNgayDat());
-                    return date2.compareTo(date1);
-                }catch (ParseException e){
-                    e.printStackTrace();
-                    return 0;
-                }
-            }
-        });
         return list;
     }
     public boolean themLichSu(LichSuDatSan lichSuDatSan){

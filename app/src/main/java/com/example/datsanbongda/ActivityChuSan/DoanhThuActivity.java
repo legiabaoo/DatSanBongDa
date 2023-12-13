@@ -53,7 +53,7 @@ public class DoanhThuActivity extends AppCompatActivity {
 
         loadData();
 
-        txtTongDoanhThu.setText(dinhdangtien(doanhThuDAO.tongDoanhThu(tIETNgayBD.getText().toString(), tIETNgayKT.getText().toString())));
+//        txtTongDoanhThu.setText(dinhdangtien(doanhThuDAO.tongDoanhThu(tIETNgayBD.getText().toString(), tIETNgayKT.getText().toString())));
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
