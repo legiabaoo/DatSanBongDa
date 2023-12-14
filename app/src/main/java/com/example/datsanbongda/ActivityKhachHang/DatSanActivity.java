@@ -150,7 +150,8 @@ public class DatSanActivity extends AppCompatActivity {
                     thongbao+="Vui lòng chọn thời gian đá hơn 1 tiếng";
                     tIETThongBao.setText(thongbao);
                 } else if (Integer.parseInt(gioKT[0])-Integer.parseInt(gioBD[0])<1) {
-
+                    thongbao+="Vui lòng chọn thời gian đá hơn 1 tiếng";
+                    tIETThongBao.setText(thongbao);
                 }
                 else if (datSanDAO.kiemTraDatSan(tIETNgay.getText().toString(), tIETSan.getText().toString(),
                         tIETGioDB.getText().toString(), tIETGioKT.getText().toString())==false) {
@@ -311,7 +312,7 @@ public class DatSanActivity extends AppCompatActivity {
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                         // Xử lý khi người dùng chọn giờ và phút
                         // Ở đây, bạn có thể làm gì đó với giờ và phút được chọn
-                        if(minute != 0 && minute !=30){
+                        if(minute != 0 && minute !=30 ){
                             if(hourOfDay<10){
                                 minute = (minute<30)?0:30;
                                 if(minute==0){
@@ -330,6 +331,22 @@ public class DatSanActivity extends AppCompatActivity {
                                     String selectedTime = hourOfDay + ":" + minute;
                                     tIETGioDB.setText(selectedTime);
                                 }
+                            }
+                        }else if (minute==0){
+                            if(hourOfDay<10){
+                                String selectedTime = "0"+hourOfDay + ":0" + minute;
+                                tIETGioDB.setText(selectedTime);
+                            }else{
+                                String selectedTime = hourOfDay + ":0" + minute;
+                                tIETGioDB.setText(selectedTime);
+                            }
+                        } else if (minute==30) {
+                            if(hourOfDay<10){
+                                String selectedTime = "0"+hourOfDay + ":" + minute;
+                                tIETGioDB.setText(selectedTime);
+                            }else{
+                                String selectedTime = hourOfDay + ":" + minute;
+                                tIETGioDB.setText(selectedTime);
                             }
                         }
                     }
@@ -356,7 +373,7 @@ public class DatSanActivity extends AppCompatActivity {
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                         // Xử lý khi người dùng chọn giờ và phút
                         // Ở đây, bạn có thể làm gì đó với giờ và phút được chọn
-                        if(minute != 0 && minute !=30){
+                        if(minute != 0 && minute !=30 ){
                             if(hourOfDay<10){
                                 minute = (minute<30)?0:30;
                                 if(minute==0){
@@ -375,6 +392,22 @@ public class DatSanActivity extends AppCompatActivity {
                                     String selectedTime = hourOfDay + ":" + minute;
                                     tIETGioKT.setText(selectedTime);
                                 }
+                            }
+                        }else if (minute==0){
+                            if(hourOfDay<10){
+                                String selectedTime = "0"+hourOfDay + ":0" + minute;
+                                tIETGioKT.setText(selectedTime);
+                            }else{
+                                String selectedTime = hourOfDay + ":0" + minute;
+                                tIETGioKT.setText(selectedTime);
+                            }
+                        } else if (minute==30) {
+                            if(hourOfDay<10){
+                                String selectedTime = "0"+hourOfDay + ":" + minute;
+                                tIETGioKT.setText(selectedTime);
+                            }else{
+                                String selectedTime = hourOfDay + ":" + minute;
+                                tIETGioKT.setText(selectedTime);
                             }
                         }
                     }
