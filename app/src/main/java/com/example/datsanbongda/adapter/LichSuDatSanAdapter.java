@@ -109,17 +109,31 @@ public class LichSuDatSanAdapter extends RecyclerView.Adapter<LichSuDatSanAdapte
         int igioKT = Integer.parseInt(gioKT[0]);
         int iphutKT = Integer.parseInt(gioKT[1]);
         int tienSan = 0;
-
-        if(igioBD<6 || igioBD>=18){
-            tienSan = (igioKT-igioBD)*giaSanToi;
+        int gioLe = 0;
+        int tienSanLe =0;
+        if(igioBD>=18 || igioBD<6 ){
+            if(igioKT>6){
+                gioLe = igioKT-6;
+                tienSanLe = gioLe*giaSanSang;
+            } else if (iphutKT<18) {
+                gioLe = 18-igioKT;
+                tienSanLe = gioLe*giaSanSang;
+            }
+            tienSan = (igioKT-igioBD-gioLe)*giaSanToi+tienSanLe;
             if(iphutKT-iphutBD==30){
                 tienSan+=giaSanToi/2;
             }else if(iphutKT-iphutBD==-30){
                 tienSan-=giaSanToi/2;
             }
         } else if (igioBD>=6 && igioBD<18) {
-            tienSan = (igioKT-igioBD)*giaSanSang;
-
+            if(igioKT<6){
+                gioLe = 6-igioKT;
+                tienSanLe = gioLe*giaSanToi;
+            } else if (igioKT>18) {
+                gioLe = igioKT - 18;
+                tienSanLe = gioLe*giaSanToi;
+            }
+            tienSan = (igioKT-igioBD-gioLe)*giaSanSang+tienSanLe;
             if(iphutKT-iphutBD==30){
                 tienSan+=giaSanSang/2;
             }else if(iphutKT-iphutBD==-30){
