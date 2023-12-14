@@ -93,20 +93,49 @@ public class LichSuDuyetSanAdapter extends RecyclerView.Adapter<LichSuDuyetSanAd
         int iphutKT = Integer.parseInt(gioKT[1]);
 
         int tienSan = 0;
-        if (igioBD < 6 || igioBD >= 18) {
-            tienSan = (igioKT - igioBD) * giaSanToi;
-            if (iphutKT - iphutBD == 30) {
-                tienSan += giaSanToi / 2;
-            } else if (iphutKT - iphutBD == -30) {
-                tienSan -= giaSanToi / 2;
+        int gioLe = 0;
+        int tienSanLe =0;
+        if(igioBD>=18 || igioBD<6 ){
+            if(igioKT>6 && igioKT<18){
+                gioLe = igioKT-6;
+                tienSanLe = gioLe*giaSanSang;
+                tienSan = (igioKT-igioBD-gioLe)*giaSanToi+tienSanLe;
+                if(iphutKT-iphutBD==30){
+                    tienSan+=giaSanToi/2;
+                }else if(iphutKT-iphutBD==-30){
+                    tienSan-=giaSanToi/2;
+                }
+            } else if (igioKT<18 && igioKT>6) {
+                gioLe = 18-igioKT;
+                tienSanLe = gioLe*giaSanSang;
+                tienSan = (igioKT-igioBD-gioLe)*giaSanToi+tienSanLe;
+                if(iphutKT-iphutBD==30){
+                    tienSan+=giaSanToi/2;
+                }else if(iphutKT-iphutBD==-30){
+                    tienSan-=giaSanToi/2;
+                }
+            }else {
+                tienSan = (igioKT-igioBD)*giaSanToi;
+                if(iphutKT-iphutBD==30){
+                    tienSan+=giaSanToi/2;
+                }else if(iphutKT-iphutBD==-30){
+                    tienSan-=giaSanToi/2;
+                }
             }
-        } else if (igioBD >= 6 && igioBD < 18) {
-            tienSan = (igioKT - igioBD) * giaSanSang;
 
-            if (iphutKT - iphutBD == 30) {
-                tienSan += giaSanSang / 2;
-            } else if (iphutKT - iphutBD == -30) {
-                tienSan -= giaSanSang / 2;
+        } else if (igioBD>=6 && igioBD<18) {
+            if(igioKT<6){
+                gioLe = 6-igioKT;
+                tienSanLe = gioLe*giaSanToi;
+            } else if (igioKT>18) {
+                gioLe = igioKT - 18;
+                tienSanLe = gioLe*giaSanToi;
+            }
+            tienSan = (igioKT-igioBD-gioLe)*giaSanSang+tienSanLe;
+            if(iphutKT-iphutBD==30){
+                tienSan+=giaSanSang/2;
+            }else if(iphutKT-iphutBD==-30){
+                tienSan-=giaSanSang/2;
             }
         }
         holder.txtGiaSanDuyetSan.setText(dinhdangtien(tienSan));

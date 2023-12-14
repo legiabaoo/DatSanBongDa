@@ -113,6 +113,7 @@ public class DatSanActivity extends AppCompatActivity {
                 thongbao="";
                 String[] gioBD = tIETGioDB.getText().toString().split(":");
                 String[] gioKT = tIETGioKT.getText().toString().split(":");
+
                 Calendar calendar = Calendar.getInstance();
                 int gioHT = calendar.get(Calendar.HOUR_OF_DAY);
                 int phutHT = calendar.get(Calendar.MINUTE);
@@ -311,14 +312,25 @@ public class DatSanActivity extends AppCompatActivity {
                         // Xử lý khi người dùng chọn giờ và phút
                         // Ở đây, bạn có thể làm gì đó với giờ và phút được chọn
                         if(minute != 0 && minute !=30){
-                            minute = (minute<30)?0:30;
-                        }
-                        if(minute==0){
-                            String selectedTime = hourOfDay + ":0" + minute;
-                            tIETGioDB.setText(selectedTime);
-                        }else{
-                            String selectedTime = hourOfDay + ":" + minute;
-                            tIETGioDB.setText(selectedTime);
+                            if(hourOfDay<10){
+                                minute = (minute<30)?0:30;
+                                if(minute==0){
+                                    String selectedTime = "0"+hourOfDay + ":0" + minute;
+                                    tIETGioDB.setText(selectedTime);
+                                }else{
+                                    String selectedTime = "0"+hourOfDay + ":" + minute;
+                                    tIETGioDB.setText(selectedTime);
+                                }
+                            }else{
+                                minute = (minute<30)?0:30;
+                                if(minute==0){
+                                    String selectedTime = hourOfDay + ":0" + minute;
+                                    tIETGioDB.setText(selectedTime);
+                                }else{
+                                    String selectedTime = hourOfDay + ":" + minute;
+                                    tIETGioDB.setText(selectedTime);
+                                }
+                            }
                         }
                     }
                 },
@@ -345,14 +357,25 @@ public class DatSanActivity extends AppCompatActivity {
                         // Xử lý khi người dùng chọn giờ và phút
                         // Ở đây, bạn có thể làm gì đó với giờ và phút được chọn
                         if(minute != 0 && minute !=30){
-                            minute = (minute<30)?0:30;
-                        }
-                        if(minute==0){
-                            String selectedTime = hourOfDay + ":0" + minute;
-                            tIETGioKT.setText(selectedTime);
-                        }else{
-                            String selectedTime = hourOfDay + ":" + minute;
-                            tIETGioKT.setText(selectedTime);
+                            if(hourOfDay<10){
+                                minute = (minute<30)?0:30;
+                                if(minute==0){
+                                    String selectedTime = "0"+hourOfDay + ":0" + minute;
+                                    tIETGioKT.setText(selectedTime);
+                                }else{
+                                    String selectedTime = "0"+hourOfDay + ":" + minute;
+                                    tIETGioKT.setText(selectedTime);
+                                }
+                            }else{
+                                minute = (minute<30)?0:30;
+                                if(minute==0){
+                                    String selectedTime = hourOfDay + ":0" + minute;
+                                    tIETGioKT.setText(selectedTime);
+                                }else{
+                                    String selectedTime = hourOfDay + ":" + minute;
+                                    tIETGioKT.setText(selectedTime);
+                                }
+                            }
                         }
                     }
                 },

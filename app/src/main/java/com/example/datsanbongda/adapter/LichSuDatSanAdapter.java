@@ -108,6 +108,7 @@ public class LichSuDatSanAdapter extends RecyclerView.Adapter<LichSuDatSanAdapte
         String[] gioKT = list.get(holder.getAdapterPosition()).getThoiGianKetThuc().split(":");
         int igioKT = Integer.parseInt(gioKT[0]);
         int iphutKT = Integer.parseInt(gioKT[1]);
+
         int tienSan = 0;
         int gioLe = 0;
         int tienSanLe =0;

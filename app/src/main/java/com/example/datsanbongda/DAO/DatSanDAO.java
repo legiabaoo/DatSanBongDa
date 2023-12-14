@@ -109,7 +109,7 @@ public class DatSanDAO {
                             "WHERE " +
                             "date(REPLACE(SUBSTR(ngay, 7, 4) || '-' || SUBSTR(ngay, 4, 2) || '-' || SUBSTR(ngay, 1, 2), '/', '-')) = date(?) " +
                             "AND tenSan =? " +
-                            "AND datetime(thoiGianBatDau)>datetime(?) AND " +
+                            "AND datetime(?)<datetime(thoiGianBatDau) AND " +
                             "datetime(?)>datetime(thoiGianKetThuc)",
                     new String[]{tngay, tenSan, thoiGianBatDau, thoiGianKetThuc});
             // Kiểm tra số lượng bản ghi trong Cursor
