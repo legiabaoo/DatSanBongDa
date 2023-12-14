@@ -54,7 +54,7 @@ public class DangNhapActivity extends AppCompatActivity {
                     Toast.makeText(DangNhapActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(DangNhapActivity.this, MainChuSanActivity.class));
                     if (chk_Remember.isChecked()) {
-                        // Save credentials in SharedPreferences
+                        // luu sdt va mk vao SharedPreferences
                         SharedPreferences sharedPreferences = getSharedPreferences("Data", Context.MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putString("savedUsername", sdt);
@@ -76,14 +76,7 @@ public class DangNhapActivity extends AppCompatActivity {
                     } else {
                         Toast.makeText(DangNhapActivity.this, "Tài Khoản Và Mật Khẩu Không Tồn Tại", Toast.LENGTH_SHORT).show();
                     }
-                    if (chk_Remember.isChecked()) {
-                        // Save credentials in SharedPreferences
-                        SharedPreferences sharedPreferences = getSharedPreferences("Data", Context.MODE_PRIVATE);
-                        SharedPreferences.Editor editor = sharedPreferences.edit();
-                        editor.putString("savedUsername", sdt);
-                        editor.putString("savedPassword", matkhau);
-                        editor.apply();
-                    }
+
                 }
 //                test nhanh
 //                if(sdt.equals("1")){
