@@ -14,14 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="@color/colorThanhCong"
-    app:fabCradleMargin="10dp"
-    app:fabCradleRoundedCornerRadius="50dp"
-    app:contentInsetStart="16dp"
-    app:popupTheme="@style/Animation.Design.BottomSheetDialog"
-    app:layout_anchor="@id/FrameLayout"
-    app:layout_anchorGravity="bottom"
-    app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior">
+        >
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationKH"

@@ -59,6 +59,7 @@ public class ChiTietSanActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back);
+
         getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.white));
         //data
         danhGiaDAO = new DanhGiaDAO(this);
@@ -126,6 +127,7 @@ public class ChiTietSanActivity extends AppCompatActivity {
         list = danhGiaDAO.getDSDanhGia();
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         rclViewChiTietSan.setLayoutManager(linearLayoutManager);
+
         DanhGiaAdapter danhGiaAdapter = new DanhGiaAdapter(this, list, danhGiaDAO);
         rclViewChiTietSan.setAdapter(danhGiaAdapter);
     }

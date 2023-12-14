@@ -75,7 +75,7 @@ public class San7HomeChuSanAdapter extends RecyclerView.Adapter<San7HomeChuSanAd
                         int maSan = list.get(holder.getAdapterPosition()).getMaSan();
                         boolean check = sanHomeDAO.deleteSan(maSan);
                         if(check){
-                            Toast.makeText(context, "Xóa Sản Phẩm Thành Công!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "Xóa Sân Thành Công!", Toast.LENGTH_SHORT).show();
                             list.clear();
                             list = sanHomeDAO.getDSSan7();
                             notifyItemRemoved(holder.getAdapterPosition());

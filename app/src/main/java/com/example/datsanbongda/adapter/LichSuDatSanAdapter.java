@@ -1,7 +1,9 @@
 package com.example.datsanbongda.adapter;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -10,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +25,7 @@ import com.example.datsanbongda.DAO.LichSuDatSanDAO;
 import com.example.datsanbongda.R;
 import com.example.datsanbongda.database.DbHelper;
 import com.example.datsanbongda.model.LichSuDatSan;
+import com.example.datsanbongda.model.LichSuDuyetSan;
 
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -181,6 +185,45 @@ public class LichSuDatSanAdapter extends RecyclerView.Adapter<LichSuDatSanAdapte
                 }
             }
         });
+        holder.lick.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Cảnh Báo");
+                builder.setIcon(R.drawable.ic_warning_24);
+                builder.setMessage("Bạn có muốn xóa lịch sử này không ?");
+
+                builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        int mave = list.get(holder.getAdapterPosition()).getMaVe();
+                        boolean check = lichSuDatSanDAO.deleteLichSu(mave);
+                        if(check){
+                            Toast.makeText(context, "Xóa Lịch Sử Thành Công!", Toast.LENGTH_SHORT).show();
+                            list.clear();
+                            list = lichSuDatSanDAO.getDSLichSuGiamDan();
+                            notifyItemRemoved(holder.getAdapterPosition());
+
+                        }else {
+                            Toast.makeText(context, "Xóa khum có được", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                });
+                builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                AlertDialog alertDialog =builder.create();
+                alertDialog.show();
+
+
+                return true;
+            }
+        });
     }
     public String layThu(String ngayThangNam){
         String[] date = ngayThangNam.split("/");
@@ -202,9 +245,11 @@ public class LichSuDatSanAdapter extends RecyclerView.Adapter<LichSuDatSanAdapte
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView txtTenSan, txtGia,txtThoiGian, txtTrangThai, txtNgay;
+        RelativeLayout lick;
         ImageView icChiTietVe;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            lick = itemView.findViewById(R.id.lick);
             txtTenSan = itemView.findViewById(R.id.txttenSanLichSu);
             txtThoiGian = itemView.findViewById(R.id.txtThoigian);
             txtGia = itemView.findViewById(R.id.txtgiaSan);
@@ -219,5 +264,10 @@ public class LichSuDatSanAdapter extends RecyclerView.Adapter<LichSuDatSanAdapte
 
         // Chuyển đổi int thành định dạng tiền tệ và trả về kết quả
         return currencyFormatter.format(amount);
+    }
+    public void updateList(ArrayList<LichSuDatSan> newlist) {
+        list.clear();
+        list.addAll(newlist);
+        notifyDataSetChanged();
     }
 }
