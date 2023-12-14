@@ -18,6 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.datsanbongda.ActivityChuSan.DoanhThuActivity;
 import com.example.datsanbongda.ActivityKhachHang.DatChoActivity;
 import com.example.datsanbongda.DAO.DoanhThuDAO;
 import com.example.datsanbongda.DAO.LichSuDatSanDAO;
@@ -39,11 +40,13 @@ public class DoanhThuAdapter extends RecyclerView.Adapter<DoanhThuAdapter.ViewHo
     private DoanhThuDAO doanhThuDAO;
     private int giaSanSang, giaSanToi, maLoaiSan;
     private DbHelper dbHelper;
+    private DoanhThuActivity doanhThuActivity;
 
-    public DoanhThuAdapter(Context context, ArrayList<DoanhThu> list, DoanhThuDAO doanhThuDAO) {
+    public DoanhThuAdapter(Context context, ArrayList<DoanhThu> list, DoanhThuDAO doanhThuDAO, DoanhThuActivity doanhThuActivity) {
         this.context = context;
         this.list = list;
         this.doanhThuDAO = doanhThuDAO;
+        this.doanhThuActivity = doanhThuActivity;
     }
 
     @NonNull
@@ -82,6 +85,7 @@ public class DoanhThuAdapter extends RecyclerView.Adapter<DoanhThuAdapter.ViewHo
             int giaDu = list.get(holder.getAdapterPosition()).getTienSan()-tienCoc;
             holder.txtGia.setText("Đã trả: "+dinhdangtien(tienCoc+giaDu));
             holder.txtGiaDu.setText("Còn lại: "+dinhdangtien(0));
+            holder.txtGiaDu.setTextColor(ContextCompat.getColor(context, R.color.colorThanhCong));
         } else if (trangThai==1){
             holder.txtDaThanhToan.setVisibility(View.VISIBLE);
             holder.txtHuy.setVisibility(View.VISIBLE);
@@ -89,6 +93,15 @@ public class DoanhThuAdapter extends RecyclerView.Adapter<DoanhThuAdapter.ViewHo
             holder.txtGia.setText("Đã trả: "+dinhdangtien(tienCoc));
             int giaDu = list.get(holder.getAdapterPosition()).getTienSan()-tienCoc;
             holder.txtGiaDu.setText("Còn lại: "+dinhdangtien(giaDu));
+            holder.txtGiaDu.setTextColor(ContextCompat.getColor(context, R.color.colorThanhCong));
+        } else if (trangThai==4) {
+            holder.txtDaThanhToan.setVisibility(View.GONE);
+            holder.txtHuy.setVisibility(View.GONE);
+            int tienCoc = Integer.parseInt(context.getResources().getString(R.string.tienCoc));
+            holder.txtGia.setText("Đã trả: "+dinhdangtien(tienCoc));
+            int giaDu = list.get(holder.getAdapterPosition()).getTienSan()-tienCoc;
+            holder.txtGiaDu.setText("Còn lại: "+dinhdangtien(giaDu));
+            holder.txtGiaDu.setTextColor(ContextCompat.getColor(context, R.color.colorThatBai));
         }
 
         holder.txtTenSan.setText(list.get(holder.getAdapterPosition()).getTenSan());
@@ -115,6 +128,27 @@ public class DoanhThuAdapter extends RecyclerView.Adapter<DoanhThuAdapter.ViewHo
                     int giaDu = list.get(holder.getAdapterPosition()).getTienSan()-tienCoc;
                     holder.txtGia.setText("Đã trả: "+dinhdangtien(tienCoc+giaDu));
                     holder.txtGiaDu.setText("Còn lại: "+dinhdangtien(0));
+                    doanhThuActivity.updateTotalRevenue();
+                }else{
+//                    Toast.makeText(context, "Thất Bại", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        holder.txtHuy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int trangThai=4;
+                boolean check= doanhThuDAO.updateDoanhThu(list.get(holder.getAdapterPosition()).getMaVe(), trangThai);
+                if (check){
+//                    Toast.makeText(context, "Thành Công", Toast.LENGTH_SHORT).show();
+                    holder.txtDaThanhToan.setVisibility(View.GONE);
+                    holder.txtHuy.setVisibility(View.GONE);
+                    int tienCoc = Integer.parseInt(context.getResources().getString(R.string.tienCoc));
+                    holder.txtGia.setText("Đã trả: "+dinhdangtien(tienCoc));
+                    int giaDu = list.get(holder.getAdapterPosition()).getTienSan()-tienCoc;
+                    holder.txtGiaDu.setText("Còn lại: "+dinhdangtien(giaDu));
+                    holder.txtGiaDu.setTextColor(ContextCompat.getColor(context, R.color.colorThatBai));
+                    doanhThuActivity.updateTotalRevenue();
                 }else{
 //                    Toast.makeText(context, "Thất Bại", Toast.LENGTH_SHORT).show();
                 }

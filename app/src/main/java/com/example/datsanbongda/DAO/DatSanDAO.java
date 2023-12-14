@@ -116,9 +116,9 @@ public class DatSanDAO {
             if (cursor != null && cursor.getCount() > 0) {
                 flag = false; // Có dữ liệu, trùng
             } else {
-                if (cursor2 != null && cursor2.getCount() > 0){
+                if (cursor1 != null && cursor1.getCount() > 0){
                     flag = false;
-                }else if(cursor1 != null && cursor1.getCount() > 0){
+                }else if(cursor2 != null && cursor2.getCount() > 0){
                     flag = false;
                 }else{
                     flag = true;

@@ -103,11 +103,11 @@ public class DoanhThuDAO {
     }
 
     public int tongDoanhThu(String ngayBD, String ngayKT) {
-        int tongDoanhThuCoc = 0, tongDoanhThu=0;
+        int tongDoanhThuCoc = 0, tongDoanhThu=0, tongDoanhThuHuy = 0;
         if(ngayBD.equals("Chọn ngày")&&ngayKT.equals("Chọn ngày")){
             SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();
             Cursor cursor = sqLiteDatabase.rawQuery("SELECT tienDoanhThu from DOANHTHU " +
-                    "WHERE trangThaiDatCho=3", null);
+                    "WHERE trangThaiDatCho=3 ", null);
             if (cursor.getCount() > 0) {
                 cursor.moveToFirst();
                 do {
@@ -115,18 +115,26 @@ public class DoanhThuDAO {
                 } while (cursor.moveToNext());
             }
             Cursor cursor1 = sqLiteDatabase.rawQuery("SELECT tienDoanhThu from DOANHTHU " +
-                    "WHERE trangThaiDatCho=1", null);
+                    "WHERE trangThaiDatCho=1 ", null);
             if(cursor1.getCount()>0){
                 cursor1.moveToFirst();
                 do{
                     tongDoanhThuCoc += 150000;
-                } while (cursor.moveToNext());
+                } while (cursor1.moveToNext());
+            }
+            Cursor cursor2 = sqLiteDatabase.rawQuery("SELECT tienDoanhThu from DOANHTHU " +
+                    "WHERE trangThaiDatCho=4", null);
+            if(cursor2.getCount()>0){
+                cursor2.moveToFirst();
+                do{
+                    tongDoanhThuHuy += 150000;
+                } while (cursor2.moveToNext());
             }
         }else{
             SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();
             Cursor cursor = sqLiteDatabase.rawQuery("SELECT tienDoanhThu from DOANHTHU WHERE date(REPLACE(SUBSTR(ngayDat, 7, 4) || '-' || SUBSTR(ngayDat, 4, 2) || '-' || SUBSTR(ngayDat, 1, 2), '/', '-'))" +
                             "BETWEEN date(REPLACE(SUBSTR(?, 7, 4) || '-' || SUBSTR(?, 4, 2) || '-' || SUBSTR(?, 1, 2), '/', '-'))" +
-                            "AND date(REPLACE(SUBSTR(?, 7, 4) || '-' || SUBSTR(?, 4, 2) || '-' || SUBSTR(?, 1, 2), '/', '-')) "
+                            "AND date(REPLACE(SUBSTR(?, 7, 4) || '-' || SUBSTR(?, 4, 2) || '-' || SUBSTR(?, 1, 2), '/', '-')) AND trangThaiDatCho=3 "
                     , new String[]{ngayBD, ngayBD, ngayBD, ngayKT, ngayKT, ngayKT});
             if (cursor.getCount() > 0) {
                 cursor.moveToFirst();
@@ -134,8 +142,28 @@ public class DoanhThuDAO {
                     tongDoanhThu += cursor.getInt(0);
                 } while (cursor.moveToNext());
             }
+            Cursor cursor1 = sqLiteDatabase.rawQuery("SELECT tienDoanhThu from DOANHTHU WHERE date(REPLACE(SUBSTR(ngayDat, 7, 4) || '-' || SUBSTR(ngayDat, 4, 2) || '-' || SUBSTR(ngayDat, 1, 2), '/', '-'))" +
+                            "BETWEEN date(REPLACE(SUBSTR(?, 7, 4) || '-' || SUBSTR(?, 4, 2) || '-' || SUBSTR(?, 1, 2), '/', '-'))" +
+                            "AND date(REPLACE(SUBSTR(?, 7, 4) || '-' || SUBSTR(?, 4, 2) || '-' || SUBSTR(?, 1, 2), '/', '-')) AND trangThaiDatCho=1 "
+                    , new String[]{ngayBD, ngayBD, ngayBD, ngayKT, ngayKT, ngayKT});
+            if (cursor1.getCount() > 0) {
+                cursor1.moveToFirst();
+                do {
+                    tongDoanhThuCoc += 150000;
+                } while (cursor.moveToNext());
+            }
+            Cursor cursor2 = sqLiteDatabase.rawQuery("SELECT tienDoanhThu from DOANHTHU WHERE date(REPLACE(SUBSTR(ngayDat, 7, 4) || '-' || SUBSTR(ngayDat, 4, 2) || '-' || SUBSTR(ngayDat, 1, 2), '/', '-'))" +
+                            "BETWEEN date(REPLACE(SUBSTR(?, 7, 4) || '-' || SUBSTR(?, 4, 2) || '-' || SUBSTR(?, 1, 2), '/', '-'))" +
+                            "AND date(REPLACE(SUBSTR(?, 7, 4) || '-' || SUBSTR(?, 4, 2) || '-' || SUBSTR(?, 1, 2), '/', '-')) AND trangThaiDatCho=4"
+                    , new String[]{ngayBD, ngayBD, ngayBD, ngayKT, ngayKT, ngayKT});
+            if (cursor2.getCount() > 0) {
+                cursor2.moveToFirst();
+                do {
+                    tongDoanhThuHuy += 150000;
+                } while (cursor.moveToNext());
+            }
         }
-        return tongDoanhThuCoc+tongDoanhThu;
+        return tongDoanhThuCoc+tongDoanhThu+tongDoanhThuHuy;
     }
     public boolean updateDoanhThu(int maVe, int trangThai){
         SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();

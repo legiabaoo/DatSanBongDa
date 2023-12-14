@@ -83,11 +83,15 @@ public class DoanhThuActivity extends AppCompatActivity {
         list = doanhThuDAO.getDSDoanhThu(ngayBD, ngayKT);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         rvDoanhThu.setLayoutManager(linearLayoutManager);
-        DoanhThuAdapter doanhThuAdapter = new DoanhThuAdapter(this, list, doanhThuDAO);
+        DoanhThuAdapter doanhThuAdapter = new DoanhThuAdapter(this, list, doanhThuDAO, this);
         rvDoanhThu.setAdapter(doanhThuAdapter);
         txtTongDoanhThu.setText(dinhdangtien(doanhThuDAO.tongDoanhThu(ngayBD, ngayKT)));
     }
-
+    public void updateTotalRevenue() {
+        String ngayBD = tIETNgayBD.getText().toString();
+        String ngayKT = tIETNgayKT.getText().toString();
+        txtTongDoanhThu.setText(dinhdangtien(doanhThuDAO.tongDoanhThu(ngayBD, ngayKT)));
+    }
 
     private void showDatePickerDialogBD() {
         // Lấy thời gian hiện tại
