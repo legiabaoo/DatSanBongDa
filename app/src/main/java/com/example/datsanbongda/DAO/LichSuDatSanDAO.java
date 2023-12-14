@@ -71,4 +71,10 @@ public class LichSuDatSanDAO {
         int check = sqLiteDatabase.update("DATCHO", contentValues, "maVe=?", new String[]{String.valueOf(lichSuDatSan.getMaVe())});
         return check!=0;
     }
+    public boolean deleteLichSu(int maVe){
+        SQLiteDatabase database = dbHelper.getWritableDatabase();
+        long check = database.delete("DATCHO", "maVe=?",
+                new String []{String.valueOf(maVe)});
+        return check != -1 ;
+    }
 }
