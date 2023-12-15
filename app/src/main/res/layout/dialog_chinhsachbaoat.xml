@@ -65,7 +65,7 @@
             android:layout_margin="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="7. Nếu đã làm đúng các bước mà sân vẫn chưa duyệt hãy Liên Hệ chủ sân và chửi chủ sân"/>
+            android:text="7. Bạn sẽ được thông báo về số tiền phải trả full ở trong phần lịch sử"/>
         <TextView
             android:textSize="18dp"
             android:fontFamily="@font/ggsansregular"
