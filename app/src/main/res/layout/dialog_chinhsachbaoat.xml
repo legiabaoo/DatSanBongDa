@@ -10,12 +10,13 @@
         android:orientation="vertical">
 
         <TextView
-
+            android:id="@+id/txtclose"
             android:fontFamily="@font/ggsansbold"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="24dp"
-            android:text="Chính sách của sân"/>
+            android:text="Chính sách của sân"
+            android:drawableRight="@drawable/ic_close_24"/>
         <TextView
             android:textSize="18dp"
             android:fontFamily="@font/ggsansregular"

@@ -184,45 +184,57 @@ public class LichSuDatSanAdapter extends RecyclerView.Adapter<LichSuDatSanAdapte
                 }
             }
         });
-        holder.lick.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
+        if(list.get(holder.getAdapterPosition()).getTrangThai()!=0){
+            holder.lick.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setTitle("Cảnh Báo");
-                builder.setIcon(R.drawable.ic_warning_24);
-                builder.setMessage("Bạn có muốn xóa lịch sử này không ?");
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setTitle("Cảnh Báo");
+                    builder.setIcon(R.drawable.ic_warning_24);
+                    builder.setMessage("Bạn có muốn xóa lịch sử này không ?");
 
-                builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        int mave = list.get(holder.getAdapterPosition()).getMaVe();
-                        boolean check = lichSuDatSanDAO.deleteLichSu(mave);
-                        if(check){
-                            Toast.makeText(context, "Xóa Lịch Sử Thành Công!", Toast.LENGTH_SHORT).show();
-                            list.clear();
-                            list = lichSuDatSanDAO.getDSLichSuGiamDan();
-                            notifyItemRemoved(holder.getAdapterPosition());
+                    builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            int mave = list.get(holder.getAdapterPosition()).getMaVe();
+                            boolean check = lichSuDatSanDAO.deleteLichSu(mave);
+                            if(check){
+                                Toast.makeText(context, "Xóa Lịch Sử Thành Công!", Toast.LENGTH_SHORT).show();
+                                list.clear();
+                                list = lichSuDatSanDAO.getDSLichSuGiamDan();
+                                notifyItemRemoved(holder.getAdapterPosition());
 
-                        }else {
-                            Toast.makeText(context, "Xóa khum có được", Toast.LENGTH_SHORT).show();
+                            }else {
+                                Toast.makeText(context, "Xóa khum có được", Toast.LENGTH_SHORT).show();
+                            }
                         }
-                    }
 
-                });
-                builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
+                    });
+                    builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
 
-                    }
-                });
-                AlertDialog alertDialog =builder.create();
-                alertDialog.show();
+                        }
+                    });
+                    AlertDialog alertDialog =builder.create();
+                    alertDialog.show();
 
 
-                return true;
-            }
-        });
+                    return true;
+                }
+            });
+        }else {
+            holder.lick.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    Toast.makeText(context, "Sân đang chờ Duyệt không thể xóa!", Toast.LENGTH_SHORT).show();
+                    return true;
+                }
+            });
+
+        }
+
     }
     public String layThu(String ngayThangNam){
         String[] date = ngayThangNam.split("/");

@@ -44,6 +44,7 @@ public class ThanhToanActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thanh_toan);
+
         Button btnXacNhanHoanTat = findViewById(R.id.btnXacNhanThanhToan);
         TextView txtNoiDungChuyenTien = findViewById(R.id.txtNoiDungChuyenTien);
         TextView txtChinhSach = findViewById(R.id.txtChinhSach);
@@ -66,10 +67,16 @@ public class ThanhToanActivity extends AppCompatActivity {
                 View view = inflater.inflate(R.layout.dialog_chinhsachbaoat,null);
                 builder.setView(view);
                 AlertDialog dialog = builder.create();
-
+                TextView txtDong = view.findViewById(R.id.txtclose);
                 Button btntrove = view.findViewById(R.id.btntrove);
 
                 btntrove.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+                txtDong.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         dialog.dismiss();
