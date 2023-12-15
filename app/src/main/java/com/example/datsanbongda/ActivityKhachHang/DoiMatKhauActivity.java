@@ -79,7 +79,7 @@ public class DoiMatKhauActivity extends AppCompatActivity {
                             Toast.makeText(DoiMatKhauActivity.this, "Mật khẩu không trùng khớp", Toast.LENGTH_SHORT).show();
                         }
                     } else {
-                        // Mật khẩu cũ sai
+
                         Toast.makeText(DoiMatKhauActivity.this, "Mật khẩu cũ không chính xác", Toast.LENGTH_SHORT).show();
                     }
                 }
